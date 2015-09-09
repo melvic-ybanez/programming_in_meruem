@@ -1,0 +1,7 @@
+\contentsline {chapter}{Introduction}{2}
+\contentsline {section}{\numberline {0.1}About the book}{2}
+\contentsline {section}{\numberline {0.2}Who should read this book}{2}
+\contentsline {section}{\numberline {0.3}Programming background required}{2}
+\contentsline {chapter}{\numberline {1}Starting Out}{3}
+\contentsline {section}{\numberline {1.1}What is Meruem?}{3}
+\contentsline {section}{\numberline {1.2}Why learn Meruem?}{3}
