@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 
 \pagestyle{fancy}
 
@@ -10,7 +11,10 @@
 \author{Melvic C. Ybanez}
 \date{September 2015}
 
+\hypersetup{hidelinks}
+
 \newcommand{\keyword}[1]{\textit{#1}}
+\newcommand{\ikeyword}[1]{\textbf{#1}}
 
 \begin{document}
 	\maketitle
@@ -19,7 +23,7 @@
 	
 	\chapter*{Introduction}
 	\addcontentsline{toc}{chapter}{Introduction}
-	\input{chapters/introduction}
+	\input{chapters/introduction}	
 	
 	\chapter{Starting Out}
 	\input{chapters/ch01-starting-out}

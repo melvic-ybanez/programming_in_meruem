@@ -1,7 +1,27 @@
 \section{What is Meruem?}
-\keyword{Meruem} is a dynamically-typed interpreted programming language that supports both \keyword{functional programming} and \keyword{metaprogramming}, and runs on top of the \keyword{Java Virtual Machine}(JVM).
+\ikeyword{Meruem} is a dynamically-typed, interpreted programming language that supports both \keyword{functional programming} and \keyword{metaprogramming}, and runs on top of the \keyword{Java Virtual Machine}(JVM).
 
 Meruem is also a \keyword{Lisp} dialect. That means it has most, if not all, of the characteristics common to all Lisps, like \keyword{homoiconicity}, \keyword{macros}, and a small, simple and elegant core.
 
 \section{Why learn Meruem?}
-Meruem will change the way you think about programs, programming, and problems in general. The things that you will learn from this book will still be applicable to your day-to-day job as a programmer, even if you are using a different and more mainstream programming language. This is because learning Meruem is not just learning a new programming language, it's learning completely new programming paradigms. Knowing different programming paradigms (imperative, OOP, FP, etc) is always a good thing since it would give you different ways of solving problems. After you've learned Meruem, you'd realize that there's more to programming than just \keyword{imperative programming}.
+Meruem will change the way you think about programs, programming, and problems in general. The things that you will learn from this book will still be applicable to your day-to-day job as a programmer, even if you will be using a different and more mainstream programming language. This is because learning Meruem is not just learning a new programming language, it's learning completely new programming paradigms. Knowing different programming paradigms (imperative, OOP, FP, etc) is always a good thing since it would give you different ways of solving problems. After you've learned Meruem, you'd realize that there's more to programming than just \keyword{imperative programming}.
+
+\section{Installing Meruem}
+To program in Meruem, you need to install Java and download the Meruem interpreter.
+
+\subsection{The Java Virtual Machine}
+As I've said above, Meruem runs on the Java platform, which is a JVM (sometimes I just refer to it as "the JVM"). To be more accurate, the current version of Meruem actually gets ran by the Scala programming language, which runs on top of the JVM. What I mean by that is that the interpreter of Meruem is written in Scala. 
+
+But, just what is a JVM? 
+
+According to Wikipedia, a JVM is "an abstract computing machine that enables a computer to run a Java program". Essentially, without a JVM, we can't run Java programs. 
+
+So how do Scala programs run on it if it only understands Java bytecode? Simple, the Scala compiler generates Java bytecode. And since Meruem is written in Scala, then a Meruem code will eventually be converted to Java bytecode. 
+
+So we need to install a JVM in order to run our Meruem interpreter. To do that, we install a \keyword{Java Runtime Environtment}(JRE). Installing a JRE was what I meant earlier by installing Java. A JRE contains the JVM, libraries, and some other things we shouldn't worry about in this book. There are many instructions on the web on how to install a Java runtime environment on different platforms, such as this one: \url{ https://www.java.com/en/download/help/download_options.xml}
+
+Note: There is also what is known as a \keyword{Java Development Kit}(JVM). You have to install it if you want to develop Java programs and not just being able to run them. A JVM already contains a JRE so you don't need to install both.
+
+\subsection{Downloading the interpreter}
+When you installed the JRE, you've already installed the JVM as well. . However, the JVM alone is not enough to run Meruem programs. That's because it only understands Java bytecodes
+
