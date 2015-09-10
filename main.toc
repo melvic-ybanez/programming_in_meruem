@@ -5,6 +5,7 @@
 \contentsline {chapter}{\numberline {1}Starting Out}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}What is Meruem?}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Why learn Meruem?}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Installing Meruem}{3}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}The Java Virtual Machine}{3}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Downloading the interpreter}{4}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.3}Overview of Programming Paradigms}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Installing Meruem}{3}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}The Java Virtual Machine}{4}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Downloading the interpreter}{4}{subsection.1.4.2}
