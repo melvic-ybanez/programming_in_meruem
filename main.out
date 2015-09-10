@@ -2,10 +2,12 @@
 \BOOKMARK [1][-]{section.0.1}{About the book}{chapter*.2}% 2
 \BOOKMARK [1][-]{section.0.2}{Who should read this book}{chapter*.2}% 3
 \BOOKMARK [1][-]{section.0.3}{Programming background required}{chapter*.2}% 4
-\BOOKMARK [0][-]{chapter.1}{Starting Out}{}% 5
-\BOOKMARK [1][-]{section.1.1}{What is Meruem?}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.2}{Why learn Meruem?}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.3}{Overview of Programming Paradigms}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.4}{Installing Meruem}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.4.1}{The Java Virtual Machine}{section.1.4}% 10
-\BOOKMARK [2][-]{subsection.1.4.2}{Downloading the interpreter}{section.1.4}% 11
+\BOOKMARK [1][-]{section.0.4}{How to read this book}{chapter*.2}% 5
+\BOOKMARK [0][-]{chapter.1}{Starting Out}{}% 6
+\BOOKMARK [1][-]{section.1.1}{What is Meruem?}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Why learn Meruem?}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Overview of Programming Paradigms}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.3.1}{Imperative Programming}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{Installing Meruem}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.4.1}{The Java Virtual Machine}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.2}{Downloading the interpreter}{section.1.4}% 13
