@@ -10,7 +10,19 @@ Meruem will change the way you think about programs, programming, and problems i
 Before we continue, let us first make a brief discussion about the different programming paradigms. We are not going to talk about all of them, though. We are just going to talk about the ones most programmers are familiar with (imperative/OOP programming), and the ones this book is going to focus on (functional programming and metaprogramming).
 
 \subsection{Imperative Programming}
-In \ikeyword{Imperative Programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side-effects. \ikeyword{Side-effects} are changes can occur outside of a function when the function is called. 
+In \ikeyword{Imperative Programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
+\begin{Python}
+	print "Hello World"
+\end{Python}
+That is a Python snippet. It is a side effecting statement, because something is printed when that line of code is run. The state of the console has changed. Another example is the modification of variable values or references: 
+\begin{Python}
+	x = int(raw_input('Enter a number')) (*@\label{line:x-init}@*)
+	if x < 20:
+		x = 7 (*@\label{line:x-new}@*)
+\end{Python}
+The above code takes an integer (actually it's an integer parsed from a string) from the keyboard, and store it to the variable \code{x}. If \code{x} is less than 20, then set it to 7. Line~\ref{line:x-new} is a side effecting assignment statement since you are destroying the old value and replacing it with a new one, making the value of \code{x} different from before. This is called a \keyword{desctructive assignment}. Line~\ref{line:x-init}, however, is not a side effecting statement since assigning an initial value to a variable is not the same as changing it. This kind of assignment is known as \keyword{initialization}.
+
+You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
 
 \section{Installing Meruem}
 To program in Meruem, you need to install Java and download the Meruem interpreter.

@@ -4,6 +4,7 @@
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
+\usepackage{listings}
 
 \pagestyle{fancy}
 
@@ -15,6 +16,17 @@
 
 \newcommand{\keyword}[1]{\textit{#1}}
 \newcommand{\ikeyword}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\lstnewenvironment{Python}
+	{\lstset{
+		language=Python, 
+		numbers=left, 
+		showstringspaces=false,
+		tabsize=2,
+		xleftmargin=6.0ex,
+		escapeinside={(*@}{@*)}
+	}}{}
 
 \newenvironment{noteparagraph}[1]{
 	\bigskip
