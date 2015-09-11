@@ -17,16 +17,28 @@
 \newcommand{\keyword}[1]{\textit{#1}}
 \newcommand{\ikeyword}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\codexleftmargin}{8.0ex}
 
-\lstnewenvironment{Python}
-	{\lstset{
+\lstnewenvironment{Python}{
+	\lstset{
 		language=Python, 
 		numbers=left, 
 		showstringspaces=false,
 		tabsize=2,
-		xleftmargin=6.0ex,
+		xleftmargin=\codexleftmargin,
 		escapeinside={(*@}{@*)}
-	}}{}
+	}
+}{}
+\lstnewenvironment{Java}{
+	\lstset{
+		language=Java,
+		numbers=left,
+		showstringspaces=false,
+		tabsize=4,
+		xleftmargin=\codexleftmargin,
+		escapeinside={(*@}{@*)}
+	}
+}{}
 
 \newenvironment{noteparagraph}[1]{
 	\bigskip

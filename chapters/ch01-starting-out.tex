@@ -7,10 +7,12 @@ Meruem is also a \keyword{Lisp} dialect. That means it has most, if not all, of 
 Meruem will change the way you think about programs, programming, and problems in general. The things that you will learn from this book will still be applicable to your day-to-day job as a programmer, even if you will be using a different and more mainstream programming language. This is because learning Meruem is not just learning a new programming language, it's learning completely new programming paradigms. Knowing different programming paradigms (imperative, OOP, FP, etc) is always a good thing since it would give you different ways of solving problems. After you've learned Meruem, you'd realize that there's more to programming than just \keyword{imperative programming}.
 
 \section{Overview of Programming Paradigms}
-Before we continue, let us first make a brief discussion about the different programming paradigms. We are not going to talk about all of them, though. We are just going to talk about the ones most programmers are familiar with (imperative/OOP programming), and the ones this book is going to focus on (functional programming and metaprogramming).
+Before we continue, let us first make a brief discussion about the different programming paradigms. We are not going to talk about all of them, though. We are just going to talk about the ones most programmers are familiar with (imperative, OOP), and the ones this book are going to focus on (functional programming and metaprogramming).
+
+In the following subsections, we are going to show you some code samples from different programming languages. If you are not familiar with these languages, don't worry. Knowing them is not required. That said, we strongly recommend that you try reading these subsections (or at least the explanation parts).
 
 \subsection{Imperative Programming}
-In \ikeyword{Imperative Programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
+In \ikeyword{Imperative programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
 \begin{Python}
 	print "Hello World"
 \end{Python}
@@ -18,11 +20,52 @@ That is a Python snippet. It is a side effecting statement, because something is
 \begin{Python}
 	x = int(raw_input('Enter a number')) (*@\label{line:x-init}@*)
 	if x < 20:
-		x = 7 (*@\label{line:x-new}@*)
+		x = 7 (*@{\label{line:x-new}@*)
 \end{Python}
 The above code takes an integer (actually it's an integer parsed from a string) from the keyboard, and store it to the variable \code{x}. If \code{x} is less than 20, then set it to 7. Line~\ref{line:x-new} is a side effecting assignment statement since you are destroying the old value and replacing it with a new one, making the value of \code{x} different from before. This is called a \keyword{desctructive assignment}. Line~\ref{line:x-init}, however, is not a side effecting statement since assigning an initial value to a variable is not the same as changing it. This kind of assignment is known as \keyword{initialization}.
 
 You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
+
+\subsection{Object-oriented Programming (OOP)}
+In \ikeyword{Object-oriented programming}, you focus on designing objects that represent both the data and the functions that can operate on them. Most object-oriented languages also support imperative programming, and in some cases, we only refer to them as either imperative languages or OO languages. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one over the others. 
+
+Java is a good example of a language that supports imperative and OOP. In Java 8, you can even do a little bit of functional programming. Java is usually referred to as an object-oriented language. If you program in Java, you are expected to do it the OOP way. For instance, if you want to create a data structure that represents a person, you can do it like this:
+\begin{Java}
+	public class Person {
+		private String name;
+		private int age;
+		
+		public void setName(String name) {
+			this.name = name;		
+		}
+		
+		public void setAge(int age) {
+			this.age = age;		
+		}
+		
+		public String getName() {
+			return name;		
+		}
+		
+		public int getAge() {
+			return age;		
+		}
+	}
+\end{Java}
+The code above is called a \keyword{class}, and most OO languages have it. Classes can contain both the variables (in this case, \code{name} and \code{age}) and the functions (in this case, \code{setName}, \code{getAge}, etc.) or \keyword{methods}. In order to use a class, you usually have to instantiate it. \ikeyword{Instantiation} is the process of converting a class into an object or \keyword{instace of a class}. To instantiate a class in Java, you use the \code{new} operator, as follows:
+\begin{Java}
+	Person bob = new Person();
+	Person juan = new Person();
+\end{Java}
+As you can see, you can create more than one object using a single class. That is because a class is just a blueprint of an object, and you can use the same blueprint many times to create its instances. Now you can use \code{bob} like this:
+\begin{Java}
+	bob.setName("Bob");
+	bob.setAge(24);
+	System.out.println(bob.getName());
+	System.out.println(bob.getAge());
+\end{Java}
+
+There are so many things to learn in object-oriented programming, such as \keyword{inheritance}, {polymorphism}, {encapsulation}, etc. The in-depth discussions of these topics are unfortunately outside the scope of this book.
 
 \section{Installing Meruem}
 To program in Meruem, you need to install Java and download the Meruem interpreter.
