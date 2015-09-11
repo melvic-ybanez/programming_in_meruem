@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  11 SEP 2015 22:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  12 SEP 2015 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2315,6 +2315,34 @@ or  <return>  to continue without it.
 
 Missing character: There is no x in font nullfont!
 Missing character: There is no = in font nullfont!
+Missing character: There is no 0 in font nullfont!
+! You can't use `macro parameter character #' in horizontal mode.
+l.21 	x = 0 	#
+               initialize x (*@\label{line:x-init}@*)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no * in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no * in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no = in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -2325,15 +2353,15 @@ Missing character: There is no w in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.21 	x = int(raw_
-                  input('Enter a number')) (*@\label{line:x-init}@*)
+l.22 	x = int(raw_
+                  input('Enter a number'))
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 21.
+(Font)              <7> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 21.
+(Font)              <5> on input line 22.
 
 ! LaTeX Error: \begin{document} ended by \end{Python}.
 
@@ -2341,7 +2369,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.24 \end{Python}
+l.25 \end{Python}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2350,7 +2378,7 @@ or  <return>  to continue without it.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.24 \end{Python}
+l.25 \end{Python}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2361,7 +2389,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.24 \end{Python}
+l.25 \end{Python}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2475,7 +2503,7 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
-l.25 ...yboard, and store it to the variable \code
+l.26 ...yboard, and store it to the variable \code
                                                   {x}. If \code{x} is less t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2488,7 +2516,7 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no I in font nullfont!
 Missing character: There is no f in font nullfont!
 ! Undefined control sequence.
-l.25 ...tore it to the variable \code{x}. If \code
+l.26 ...tore it to the variable \code{x}. If \code
                                                   {x} is less than 20, then ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2530,7 +2558,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `line:x-new' on page \thepage 
                                                   \space undefined\on@line .
-l.25 ...0, then set it to 7. Line~\ref{line:x-new}
+l.26 ...0, then set it to 7. Line~\ref{line:x-new}
                                                    is a side effecting assig...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2539,7 +2567,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `line:x-new' on page  undefined on input line 25.
+LaTeX Warning: Reference `line:x-new' on page  undefined on input line 26.
 
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -2651,7 +2679,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no f in font nullfont!
 ! Undefined control sequence.
-l.25 ... with a new one, making the value of \code
+l.26 ... with a new one, making the value of \code
                                                   {x} different from before....
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2694,7 +2722,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Undefined control sequence.
-l.25 ...ent from before. This is called a \keyword
+l.26 ...ent from before. This is called a \keyword
                                                   {desctructive assignment}....
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2732,7 +2760,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `line:x-init' on page \thepage 
                                                   \space undefined\on@line .
-l.25 ...uctive assignment}. Line~\ref{line:x-init}
+l.26 ...uctive assignment}. Line~\ref{line:x-init}
                                                   , however, is not a side e...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2741,7 +2769,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `line:x-init' on page  undefined on input line 25.
+LaTeX Warning: Reference `line:x-init' on page  undefined on input line 26.
 
 Missing character: There is no , in font nullfont!
 Missing character: There is no h in font nullfont!
@@ -2874,7 +2902,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
-l.25 ...is kind of assignment is known as \keyword
+l.26 ...is kind of assignment is known as \keyword
                                                   {initialization}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2898,39 +2926,38 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 14--26
+Overfull \hbox (20.0pt too wide) in paragraph at lines 14--27
 []
  []
 
 
-Overfull \hbox (166.54565pt too wide) in paragraph at lines 14--26
+Overfull \hbox (133.21222pt too wide) in paragraph at lines 14--27
 []\OML/cmm/m/it/10 nput\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 Enteranumber[]\OT1/c
-mr/m/n/10 ))(\OMS/cmsy/m/n/10 ^^C\OT1/cmr/m/n/10 @[]@\OMS/cmsy/m/n/10 ^^C\OT1/c
-mr/m/n/10 )\OML/cmm/m/it/10 ifx <
+mr/m/n/10 ))\OML/cmm/m/it/10 ifx <
  []
 
 
-Overfull \hbox (15.55553pt too wide) in paragraph at lines 14--26
+Overfull \hbox (15.55553pt too wide) in paragraph at lines 14--27
 \OT1/cmr/m/n/10 20 :
  []
 
 
-Overfull \hbox (16.27078pt too wide) in paragraph at lines 14--26
+Overfull \hbox (16.27078pt too wide) in paragraph at lines 14--27
 \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (38.33345pt too wide) in paragraph at lines 14--26
+Overfull \hbox (38.33345pt too wide) in paragraph at lines 14--27
 \OT1/cmr/m/n/10 7(\OMS/cmsy/m/n/10 ^^C\OT1/cmr/m/n/10 @[]$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 14--26
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 14--27
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 14--26
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 14--27
 []
  []
 
@@ -2941,7 +2968,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 Y
+l.28 Y
       ou'll learn more about side effects later in the book. (Though you won...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -3059,12 +3086,12 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no ) in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 27--28
+Overfull \hbox (20.0pt too wide) in paragraph at lines 28--29
 []
  []
 
 ! Undefined control sequence.
-l.29 \subsection
+l.30 \subsection
                 {Object-oriented Programming (OOP)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3079,7 +3106,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.29 \subsection{O
+l.30 \subsection{O
                   bject-oriented Programming (OOP)}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3118,7 +3145,7 @@ Missing character: There is no ) in font nullfont!
 Missing character: There is no I in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.30 In \ikeyword
+l.31 In \ikeyword
                  {Object-oriented programming}, you focus on designing data ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3531,7 +3558,7 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 29--31
+Overfull \hbox (20.0pt too wide) in paragraph at lines 30--32
 []
  []
 
@@ -3542,7 +3569,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.32 J
+l.33 J
       ava is a good example of a language that supports both imperative and ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -3854,13 +3881,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.33 \begin{Java}
-                 {1}
+l.34 \begin{Java}
+                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-Missing character: There is no 1 in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no b in font nullfont!
@@ -3911,7 +3937,7 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 32--37
+Overfull \hbox (20.0pt too wide) in paragraph at lines 33--38
 []
  []
 
@@ -3922,7 +3948,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.38 		p
+l.39 		p
         ublic void setName(String name) {
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3972,7 +3998,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 38--41
+Overfull \hbox (20.0pt too wide) in paragraph at lines 39--42
 []
  []
 
@@ -3983,7 +4009,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42 		p
+l.43 		p
         ublic void setAge(int age) {
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4026,7 +4052,7 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 42--45
+Overfull \hbox (20.0pt too wide) in paragraph at lines 43--46
 []
  []
 
@@ -4037,7 +4063,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46 		p
+l.47 		p
         ublic String getName() {
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4075,7 +4101,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 46--49
+Overfull \hbox (20.0pt too wide) in paragraph at lines 47--50
 []
  []
 
@@ -4086,7 +4112,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.50 		p
+l.51 		p
         ublic int getAge() {
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4125,7 +4151,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.54 \end{Java}
+l.55 \end{Java}
                
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4153,7 +4179,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Undefined control sequence.
-l.55 The code above is called a \keyword
+l.56 The code above is called a \keyword
                                         {class}, and most OO languages have ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4238,7 +4264,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
-l.55 ...in both the variables (in this case, \code
+l.56 ...in both the variables (in this case, \code
                                                   {name} and \code{age}) and...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4254,7 +4280,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
-l.55 ...ables (in this case, \code{name} and \code
+l.56 ...ables (in this case, \code{name} and \code
                                                   {age}) and the functions (...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4294,7 +4320,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
-l.55 ...e}) and the functions (in this case, \code
+l.56 ...e}) and the functions (in this case, \code
                                                   {setName}, \code{getAge}, ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4311,7 +4337,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
-l.55 ...tions (in this case, \code{setName}, \code
+l.56 ...tions (in this case, \code{setName}, \code
                                                   {getAge}, etc.) or \keywor...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4334,7 +4360,7 @@ Missing character: There is no ) in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.55 ...setName}, \code{getAge}, etc.) or \keyword
+l.56 ...setName}, \code{getAge}, etc.) or \keyword
                                                   {methods}. In order to use...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4400,7 +4426,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
-l.55 ... usually have to instantiate it. \ikeyword
+l.56 ... usually have to instantiate it. \ikeyword
                                                   {Instantiation} is the pro...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4466,7 +4492,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.55 ...verting a class into an object or \keyword
+l.56 ...verting a class into an object or \keyword
                                                   {instace of a class}. To i...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4526,7 +4552,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
-l.55 ...antiate a class in Java, you use the \code
+l.56 ...antiate a class in Java, you use the \code
                                                   {new} operator, as follows:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4563,13 +4589,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.56 \begin{Java}
-                 {3}
+l.57 \begin{Java}
+                 [3]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+Missing character: There is no [ in font nullfont!
 Missing character: There is no 3 in font nullfont!
+Missing character: There is no ] in font nullfont!
 Missing character: There is no P in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
@@ -4622,7 +4650,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59 \end{Java}
+l.60 \end{Java}
                
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4804,7 +4832,7 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
-l.60 ...reate its instances. Now you can use \code
+l.61 ...reate its instances. Now you can use \code
                                                   {bob} like this:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4831,13 +4859,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.61 \begin{Java}
-                 {5}
+l.62 \begin{Java}
+                 [5]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+Missing character: There is no [ in font nullfont!
 Missing character: There is no 5 in font nullfont!
+Missing character: There is no ] in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no b in font nullfont!
@@ -4946,14 +4976,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.66 \end{Java}
+l.67 \end{Java}
                
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 50--67
+Overfull \hbox (20.0pt too wide) in paragraph at lines 51--68
 []
  []
 
@@ -4964,7 +4994,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 T
+l.69 T
       here are so many things to learn in object-oriented programming, such ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -5033,7 +5063,7 @@ Missing character: There is no h in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
-l.68 ...ect-oriented programming, such as \keyword
+l.69 ...ect-oriented programming, such as \keyword
                                                   {inheritance}, \keyword{po...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5054,7 +5084,7 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
-l.68 ...g, such as \keyword{inheritance}, \keyword
+l.69 ...g, such as \keyword{inheritance}, \keyword
                                                   {polymorphism}, \keyword{e...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5076,7 +5106,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
-l.68 ...ritance}, \keyword{polymorphism}, \keyword
+l.69 ...ritance}, \keyword{polymorphism}, \keyword
                                                   {encapsulation}, etc. The ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5180,12 +5210,12 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 68--69
+Overfull \hbox (20.0pt too wide) in paragraph at lines 69--70
 []
  []
 
 ! Undefined control sequence.
-l.70 \subsection
+l.71 \subsection
                 {Functional Programming}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5200,7 +5230,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70 \subsection{F
+l.71 \subsection{F
                   unctional Programming}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -5227,7 +5257,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
-l.71 \ikeyword
+l.72 \ikeyword
               {Functional Programming} is about writing programs that consis...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5358,7 +5388,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
-l.71 ...tions in functional languages are \keyword
+l.72 ...tions in functional languages are \keyword
                                                   {first-class citizens}, wh...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5637,7 +5667,7 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.71 ...th an ordinary value like an integer \code
+l.72 ...th an ordinary value like an integer \code
                                                   {107} or a string \code{"H...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5658,7 +5688,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
-l.71 ...ke an integer \code{107} or a string \code
+l.72 ...ke an integer \code{107} or a string \code
                                                   {"Hello World"} can be don...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5713,7 +5743,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 70--72
+Overfull \hbox (20.0pt too wide) in paragraph at lines 71--73
 []
  []
 
@@ -5724,7 +5754,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 W
+l.74 W
       e are not going to show any examples here, since this is one of the ma...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -5869,12 +5899,12 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 73--74
+Overfull \hbox (20.0pt too wide) in paragraph at lines 74--75
 []
  []
 
 ! Undefined control sequence.
-l.75 \subsection
+l.76 \subsection
                 {Metaprogramming}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5889,7 +5919,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 \subsection{M
+l.76 \subsection{M
                   etaprogramming}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -5910,7 +5940,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
-l.76 \ikeyword
+l.77 \ikeyword
               {Metaprogramming} is the writing of code that takes other code...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6208,7 +6238,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 75--77
+Overfull \hbox (20.0pt too wide) in paragraph at lines 76--78
 []
  []
 
@@ -6219,7 +6249,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78 L
+l.79 L
       isps are quite known for their support for metaprogramming using \keyw...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -6282,7 +6312,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
-l.78 ...support for metaprogramming using \keyword
+l.79 ...support for metaprogramming using \keyword
                                                   {macros}. In this book, yo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6370,12 +6400,12 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 78--79
+Overfull \hbox (20.0pt too wide) in paragraph at lines 79--80
 []
  []
 
 ! Undefined control sequence.
-l.80 \section
+l.81 \section
              {Installing Meruem}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6390,7 +6420,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.80 \section{I
+l.81 \section{I
                nstalling Meruem}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6482,12 +6512,12 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 80--82
+Overfull \hbox (20.0pt too wide) in paragraph at lines 81--83
 []
  []
 
 ! Undefined control sequence.
-l.83 \subsection
+l.84 \subsection
                 {The Java Virtual Machine}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6502,7 +6532,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 \subsection{T
+l.84 \subsection{T
                   he Java Virtual Machine}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6790,7 +6820,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 83--85
+Overfull \hbox (20.0pt too wide) in paragraph at lines 84--86
 []
  []
 
@@ -6801,7 +6831,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.86 B
+l.87 B
       ut, just what is a JVM?
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6826,7 +6856,7 @@ Missing character: There is no V in font nullfont!
 Missing character: There is no M in font nullfont!
 Missing character: There is no ? in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 86--87
+Overfull \hbox (20.0pt too wide) in paragraph at lines 87--88
 []
  []
 
@@ -6837,7 +6867,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.88 A
+l.89 A
       ccording to Wikipedia, a JVM is "an abstract computing machine that en...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -6984,7 +7014,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 88--89
+Overfull \hbox (20.0pt too wide) in paragraph at lines 89--90
 []
  []
 
@@ -6995,7 +7025,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.90 S
+l.91 S
       o how do Scala programs run on it if it only understands Java bytecode...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -7192,7 +7222,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 90--91
+Overfull \hbox (20.0pt too wide) in paragraph at lines 91--92
 []
  []
 
@@ -7203,7 +7233,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.92 S
+l.93 S
       o we need to install a JVM in order to run our Meruem interpreter. To ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -7283,7 +7313,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Undefined control sequence.
-l.92 ...rpreter. To do that, we install a \keyword
+l.93 ...rpreter. To do that, we install a \keyword
                                                   {Java Runtime Environtment...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7555,7 +7585,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no : in font nullfont!
 ! Undefined control sequence.
-l.92 ...ifferent platforms, such as this one: \url
+l.93 ...ifferent platforms, such as this one: \url
                                                   { https://www.java.com/en/...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7612,13 +7642,13 @@ Missing character: There is no d in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.92 ...://www.java.com/en/download/help/download_
+l.93 ...://www.java.com/en/download/help/download_
                                                   options.xml}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.92 ...com/en/download/help/download_options.xml}
+l.93 ...com/en/download/help/download_options.xml}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -7629,18 +7659,18 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.93 
+l.94 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 92--93
+Overfull \hbox (20.0pt too wide) in paragraph at lines 93--94
 []
  []
 
 
-Overfull \hbox (52.52556pt too wide) in paragraph at lines 92--93
+Overfull \hbox (52.52556pt too wide) in paragraph at lines 93--94
 []\OML/cmm/m/it/10 ptions:xml$ 
  []
 
@@ -7651,7 +7681,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.94 \begin{noteparagraph}
+l.95 \begin{noteparagraph}
                           
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -7664,7 +7694,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 	T
+l.96 	T
        here is also what is known as a \keyword{Java Development Kit}(JVM). ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -7696,7 +7726,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Undefined control sequence.
-l.95 	There is also what is known as a \keyword
+l.96 	There is also what is known as a \keyword
                                                {Java Development Kit}(JVM). ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7863,19 +7893,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 \end{noteparagraph}
+l.99 \end{noteparagraph}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 95--99
+Overfull \hbox (20.0pt too wide) in paragraph at lines 96--100
 []
  []
 
 ! Undefined control sequence.
-l.100 \subsection
+l.101 \subsection
                  {Downloading the interpreter}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7890,7 +7920,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 \subsection{D
+l.101 \subsection{D
                    ownloading the interpreter}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -8073,7 +8103,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 100--102
+Overfull \hbox (20.0pt too wide) in paragraph at lines 101--103
 []
  []
 

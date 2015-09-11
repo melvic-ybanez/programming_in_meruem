@@ -18,11 +18,11 @@ In \ikeyword{Imperative programming}, you give the computer a sequence of statem
 \end{Python}
 That is a Python snippet. It is a side effecting statement, because something is printed when that line of code is run. The state of the console has changed. Another example is the modification of variable values or references: 
 \begin{Python}
-	x = int(raw_input('Enter a number')) (*@\label{line:x-init}@*)
+	x = function_that_returns_int() (*@\label{line:x-init}@*)
 	if x < 20:
 		x = 7 (*@{\label{line:x-new}@*)
 \end{Python}
-The above code takes an integer (actually it's an integer parsed from a string) from the keyboard, and store it to the variable \code{x}. If \code{x} is less than 20, then set it to 7. Line~\ref{line:x-new} is a side effecting assignment statement since you are destroying the old value and replacing it with a new one, making the value of \code{x} different from before. This is called a \keyword{desctructive assignment}. Line~\ref{line:x-init}, however, is not a side effecting statement since assigning an initial value to a variable is not the same as changing it. This kind of assignment is known as \keyword{initialization}.
+The above code calls a function named \code{function\_that\_returns\_int}, and store the result to the variable \code{x}. If \code{x} is less than 20, then set it to 7. Line~\ref{line:x-new} is a side effecting assignment statement since you are destroying the old value and replacing it with a new one, making the value of \code{x} different from before. This is called a \keyword{desctructive assignment}. Line~\ref{line:x-init}, however, is not a side effecting statement (assuming that \code{function\_that\_returns\_int} is side-effect~free) since assigning an initial value to a variable is not the same as changing it. This kind of assignment is known as \keyword{initialization}.
 
 You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
 
