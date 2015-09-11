@@ -53,12 +53,12 @@ Java is a good example of a language that supports both imperative and OOP. In J
 	}
 \end{Java}
 The code above is called a \keyword{class}, and most OO languages have it. Classes can contain both the variables (in this case, \code{name} and \code{age}) and the functions (in this case, \code{setName}, \code{getAge}, etc.) or \keyword{methods}. In order to use a class, you usually have to instantiate it. \ikeyword{Instantiation} is the process of converting a class into an object or \keyword{instace of a class}. To instantiate a class in Java, you use the \code{new} operator, as follows:
-\begin{Java}
+\begin{Java}[3]
 	Person bob = new Person();
 	Person juan = new Person();
 \end{Java}
 As you can see, you can create more than one object using a single class. That is because a class is just a blueprint of an object, and you can use the same blueprint many times to create its instances. Now you can use \code{bob} like this:
-\begin{Java}
+\begin{Java}[5]
 	bob.setName("Bob");
 	bob.setAge(24);
 	System.out.println(bob.getName());

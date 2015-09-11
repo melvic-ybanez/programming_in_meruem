@@ -29,14 +29,15 @@
 		escapeinside={(*@}{@*)}
 	}
 }{}
-\lstnewenvironment{Java}{
+\lstnewenvironment{Java}[1][1]{
 	\lstset{
 		language=Java,
 		numbers=left,
 		showstringspaces=false,
 		tabsize=4,
 		xleftmargin=\codexleftmargin,
-		escapeinside={(*@}{@*)}
+		escapeinside={(*@}{@*)},
+		firstnumber=#1
 	}
 }{}
 
