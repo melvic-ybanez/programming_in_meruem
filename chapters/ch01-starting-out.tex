@@ -27,9 +27,9 @@ The above code takes an integer (actually it's an integer parsed from a string) 
 You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
 
 \subsection{Object-oriented Programming (OOP)}
-In \ikeyword{Object-oriented programming}, you focus on designing objects that represent both the data and the functions that can operate on these data. Most object-oriented languages also support imperative programming, and in some cases, we only think of them as either imperative  or OO languages, even though they are (to some extent) both. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one paradigm over the others. 
+In \ikeyword{Object-oriented programming}, you focus on designing data structures that contain both the data and the functions that can operate on these data. Most object-oriented languages also support imperative programming, and in some cases, we only think of them as either imperative  or OO languages, even though they are (to some extent) both. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one paradigm over the others. 
 
-Java is a good example of a language that supports both imperative and OOP. In Java 8, you can even do a little bit of functional programming. Java is usually thought of as an object-oriented language. If you program in Java, you are expected to do it the OOP way. For instance, if you want to create a data structure that represents a person, you can do it like this:
+Java is a good example of a language that supports both imperative and OOP. In Java~8, you can even do a little bit of functional programming. Java is usually thought of as an object-oriented language. If you program in Java, you are expected to do it the OOP way. For instance, if you want to create a data structure that represents a person, you can do it like this:
 \begin{Java}
 	public class Person {
 		private String name;
@@ -66,6 +66,11 @@ As you can see, you can create more than one object using a single class. That i
 \end{Java}
 
 There are so many things to learn in object-oriented programming, such as \keyword{inheritance}, \keyword{polymorphism}, \keyword{encapsulation}, etc. The in-depth discussions of these topics are unfortunately outside the scope of this book.
+
+\subsection{Functional Programming}
+\ikeyword{Functional Programming} is about writing programs that consist mostly of functions and/or expressions. Functions in functional languages are \keyword{first-class citizens}, which means that you can consider or treat them like any other values. First-class functions can be passed as values to variables, or as actual arguments to other functions. You can also return functions from other functions. Basically whatever it is you can do with an ordinary value like an integer \code{107} or a string \code{"Hello World"} can be done with first-class functions.
+
+We are not going to show any examples here, since this is one of the main things this book will be focusing on, anyway. You'll see a lot of examples through-out the book.
 
 \section{Installing Meruem}
 To program in Meruem, you need to install Java and download the Meruem interpreter.
