@@ -14,3 +14,4 @@
 \contentsline {section}{\numberline {1.4}Installing Meruem}{6}{section.1.4}
 \contentsline {subsection}{\numberline {1.4.1}The Java Virtual Machine}{6}{subsection.1.4.1}
 \contentsline {subsection}{\numberline {1.4.2}Downloading the interpreter}{6}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Installing Winter}{7}{section.1.5}
