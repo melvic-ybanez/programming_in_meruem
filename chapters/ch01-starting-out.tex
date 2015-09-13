@@ -1,5 +1,5 @@
 \section{What is Meruem?}
-\ikeyword{Meruem} is a dynamically-typed, interpreted programming language that supports both \keyword{functional programming} and \keyword{metaprogramming}, and runs on top of the \keyword{Java Virtual Machine}(JVM).
+\ikeyword{Meruem} is a dynamically-typed, interpreted programming language that supports both \keyword{functional programming} and \keyword{metaprogramming}, and runs on top of the \keyword{Java Virtual Machine} (JVM).
 
 Meruem is also a \keyword{Lisp} dialect. That means it has most, if not all, of the characteristics common to all Lisps, like \keyword{homoiconicity}, \keyword{macros}, and a small, simple and elegant core.
 
@@ -13,15 +13,19 @@ In the following subsections, we are going to show you some code samples from di
 
 \subsection{Imperative Programming}
 In \ikeyword{Imperative programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
+
 \begin{Python}
-	print "Hello World"
+print "Hello World"
 \end{Python}
+
 That is a Python snippet. It is a side effecting statement, because something is printed when that line of code is run. The state of the console has changed. Another example is the modification of variable values or references: 
+
 \begin{Python}
-	x = function_that_returns_int() (*@\label{line:x-init}@*)
-	if x < 20:
-		x = 7 (*@{\label{line:x-new}@*)
+x = function_that_returns_int() (*@\label{line:x-init}@*)
+if x < 20:
+	x = 7 (*@{\label{line:x-new}@*)
 \end{Python}
+
 The above code calls a function named \code{function\_that\_returns\_int}, and store the result to the variable \code{x}. If \code{x} is less than 20, then set it to 7. Line~\ref{line:x-new} is a side effecting assignment statement since you are destroying the old value and replacing it with a new one, making the value of \code{x} different from before. This is called a \keyword{desctructive assignment}. Line~\ref{line:x-init}, however, is not a side effecting statement (assuming that \code{function\_that\_returns\_int} is side-effect~free) since assigning an initial value to a variable is not the same as changing it. This kind of assignment is known as \keyword{initialization}.
 
 You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
@@ -30,39 +34,44 @@ You'll learn more about side effects later in the book. (Though you won't learn 
 In \ikeyword{Object-oriented programming}, you focus on designing data structures that contain both the data and the functions that can operate on these data. Most object-oriented languages also support imperative programming, and in some cases, we only think of them as either imperative  or OO languages, even though they are (to some extent) both. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one paradigm over the others. 
 
 Java is a good example of a language that supports both imperative and OOP. In Java~8, you can even do a little bit of functional programming. Java is usually thought of as an object-oriented language. If you program in Java, you are expected to do it the OOP way. For instance, if you want to create a data structure that represents a person, you can do it like this:
+
 \begin{Java}
-	public class Person {
-		private String name;
-		private int age;
-		
-		public void setName(String name) {
-			this.name = name;		
-		}
-		
-		public void setAge(int age) {
-			this.age = age;		
-		}
-		
-		public String getName() {
-			return name;		
-		}
-		
-		public int getAge() {
-			return age;		
-		}
+public class Person {
+	private String name;
+	private int age;
+	
+	public void setName(String name) {
+		this.name = name;		
 	}
+		
+	public void setAge(int age) {
+		this.age = age;		
+	}
+		
+	public String getName() {
+		return name;		
+	}
+		
+	public int getAge() {
+		return age;		
+	}
+}
 \end{Java}
+
 The code above is called a \keyword{class}, and most OO languages have it. Classes can contain both the variables (in this case, \code{name} and \code{age}) and the functions (in this case, \code{setName}, \code{getAge}, etc.) or \keyword{methods}. In order to use a class, you usually have to instantiate it. \ikeyword{Instantiation} is the process of converting a class into an object or \keyword{instace of a class}. To instantiate a class in Java, you use the \code{new} operator, as follows:
+
 \begin{Java}[3]
-	Person bob = new Person();
-	Person juan = new Person();
+Person bob = new Person();
+Person juan = new Person();
 \end{Java}
+
 As you can see, you can create more than one object using a single class. That is because a class is just a blueprint of an object, and you can use the same blueprint many times to create its instances. Now you can use \code{bob} like this:
+
 \begin{Java}[5]
-	bob.setName("Bob");
-	bob.setAge(24);
-	System.out.println(bob.getName());
-	System.out.println(bob.getAge());
+bob.setName("Bob");
+bob.setAge(24);
+System.out.println(bob.getName());
+System.out.println(bob.getAge());
 \end{Java}
 
 There are so many things to learn in object-oriented programming, such as \keyword{inheritance}, \keyword{polymorphism}, \keyword{encapsulation}, etc. The in-depth discussions of these topics are unfortunately outside the scope of this book.
@@ -92,9 +101,7 @@ So how do Scala programs run on the JVM? Simple, the Scala compiler generates th
 So we need to install a JVM in order to run our Meruem interpreter. To do that, we install a \keyword{Java Runtime Environtment} (JRE). Installing a JRE was what I meant earlier by installing Java. A JRE contains the JVM, libraries, and some other things we shouldn't worry about in this book. There are many instructions on the web on how to install a Java runtime environment on different platforms, such as this one: \url{ https://www.java.com/en/download/help/download_options.xml}. We recommend you complete the instructions first before proceeding.
 
 \begin{noteparagraph}
-	There is also what is known as a \keyword{Java Development Kit} (JVM). You have to 	 
-	install it if you want to develop Java programs and not just being able to run them. A JVM 
-	already contains a JRE so you don't need to install both.
+There is also what is known as a \keyword{Java Development Kit} (JVM). You have to install it if you want to develop Java programs and not just being able to run them. A JVM already contains a JRE so you don't need to install both.
 \end{noteparagraph}
 
 \subsection{Downloading the interpreter}
@@ -111,7 +118,7 @@ We can write Meruem code either by entering them on the REPL or by writing them 
 
 \ikeyword{Winter} is the second component of "Project Meruem" (the first component is the Meruem language). It is a text editor designed primarily for Meruem source files. It supports syntax highlighting, smart indents, a projects tree, and many more. You'll see more of its features when you start using it.
 
-To download Winter, go to \url{https://github.com/melvic-ybanez/Winter/releases/tag/v1.0} and download the jar file (Winter.jar). After that you can run the Winter by double-clicking on the jar file. If that doesn't work, you can try running it by typing \code{java -jar Winter.jar} on the terminal or command prompt. If everything worked fine, you should see a text editor program opened. It should look like this:
+To download Winter, go to \url{https://github.com/melvic-ybanez/Winter/releases/tag/v1.0} and download the jar file (Winter.jar). After that you can run the Winter by double-clicking on the jar file. If that doesn't work, you can try running it by running \code{java -jar Winter.jar} on the terminal or command prompt. If everything worked fine, you should see a text editor program opened. It should look like this:
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{winter}
@@ -122,3 +129,29 @@ To download Winter, go to \url{https://github.com/melvic-ybanez/Winter/releases/
 That's it. Installing Winter simply means downloading the jar file.
 
 Note that you can't run both the Meruem interpreter (we can also just refer to it simply as "Meruem") and Winter by installing Java first.
+
+\section{Running the REPL}
+Many programming languages like Scala, Haskell, Clojure (another Lisp that runs on the JVM), Python, Ruby, and more, have what is known as a REPL. A \ikeyword{REPL} (Read-Eval-Print-Loop), also known as \keyword{interactive shell}, is a program that reads input from the user (Read), evaluate it (Eval), prints the result (Print) and ask for another input (Loop). Every Lisp has a REPL (as far as we know). And since Meruem is a Lisp, it has a REPL too. It's called The Meruem REPL (surprise!). 
+
+The Meruem REPL is already packaged with the Meruem distribution that you have downloaded earlier. To run it, first, fire up the terminal (or command prompt, but from now on we'll just refer to it as "Terminal"). Then use the \code{cd} command to go to the directory where you installed Meruem. (If you don't want to keep on doing the previous step, you can add the path to Meruem's installation directory to your environment paths). When you're already inside the installation directory, just type \code{java -jar meruem.jar} and press the enter key. You should be able to see the following on the terminal:
+
+\begin{REPL}
+meruem>
+\end{REPL}
+
+This signifies that the REPL has successfully started and that it is waiting for you to enter something. Try entering the expression \code{(+ 1 2)}, and then press enter:
+
+\begin{REPL}
+meruem> (+ 1 2)
+3
+meruem>
+\end{REPL}
+
+The answer \code{3} has been printed. Now the REPL is waiting for another input. Don't worry if you don't understand what the code \code{(+ 1 2)} does. For now, what's important is to confirm that your REPL works fine.
+
+To exit the REPL, run \code{exit}:
+
+\begin{REPL}
+meruem> exit
+Bye!
+\end{REPL}
