@@ -49,6 +49,17 @@
 \lstnewenvironment{REPL}{
 	\lstset{language=Lisp, xleftmargin=\codexleftmargin}
 }{}
+\lstnewenvironment{Meruem}[1][1]{
+	\lstset{
+		language=Lisp,
+		numbers=left,
+		numbersep=\codenumbersep,
+		xleftmargin=\codexleftmargin,
+		showstringspaces=false,
+		tabsize=2,
+		escapeinside={(*@}{@*)}
+	}
+}{}
 
 \newenvironment{noteparagraph}[1]{
 	\bigskip

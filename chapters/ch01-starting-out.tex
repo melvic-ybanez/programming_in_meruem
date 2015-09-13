@@ -155,3 +155,21 @@ To exit the REPL, run \code{exit}:
 meruem> exit
 Bye!
 \end{REPL}
+
+\section{Hello World in Meruem}
+It is almost customary for any programming language tutorial to have a \code{Hello World} program as the very first complete program to run. We are going to follow such practice here.
+
+First, run Winter (again by running the \code{java -jar Winter.jar} command.). Next, type the following in the editor area:
+
+\begin{Meruem}
+(defun main (args) (println "Hello World"))
+\end{Meruem}
+
+Save it as \code{hello\_world.mer}. Then, \code{cd} into where you saved \code{hello\_world.mer} and run the following command: \code{java -jar meruem.jar hello\_world}. You should be able to see the following output:
+
+\begin{REPL}
+$ java -jar meruem.jar hello_world
+Hello World
+\end{REPL}
+
+If it worked, then congratulations, you've just run your first complete Meruem program. This also means that your set up is complete and working well. Now you are ready to start learning the Meruem programming language.
