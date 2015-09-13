@@ -4,7 +4,7 @@
 Meruem is also a \keyword{Lisp} dialect. That means it has most, if not all, of the characteristics common to all Lisps, like \keyword{homoiconicity}, \keyword{macros}, and a small, simple and elegant core.
 
 \section{Why learn Meruem?}
-Meruem will change the way you think about programs, programming, and problems in general. The things that you will learn from this book will still be applicable to your day-to-day job as a programmer, even if you will be using a different and more mainstream programming language. This is because learning Meruem is not just learning a new programming language, it's learning completely new programming paradigms. Knowing different programming paradigms (imperative, OOP, FP, etc) is always a good thing since it would give you different ways of solving problems. After you've learned Meruem, you'd realize that there's more to programming than just \keyword{imperative programming}.
+Meruem will change the way you think about programs, programming, and problems in general. The things that you will learn from this book will still be applicable to your day-to-day job as a programmer, even if you will be using a different and more mainstream programming language. This is because learning Meruem is not just learning a new programming language, it's learning completely new programming paradigms. Knowing different programming paradigms (imperative, OOP, FP, etc) is always a good thing since it would give you different ways of solving problems. After you've learned Meruem, you'd realize that there's more to programming than just \keyword{imperative} and/or \keyword{object-oriented programming}.
 
 \section{Overview of Programming Paradigms}
 Before we continue, let us first make a brief discussion about the different programming paradigms. We are not going to talk about all of them, though. We are just going to talk about the ones most programmers are familiar with (imperative, OOP), and the ones this book are going to focus on (functional programming and metaprogramming).
@@ -107,6 +107,18 @@ To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/
 That's it. Installing the Meruem interpreter simply means downloading the zip file and extracting it. 
 
 \section{Installing Winter}
-We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want, but we recommend you use \ikeyword{Winter}. You'll find out later on why Winter is the recommended one but for now, let's just focus on having it installed.
+We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want, but we recommend you use Winter. 
 
-% To do: Paragraph for installing Winter. We skipped it cause we still don't have a distributable Winter.jar
+\ikeyword{Winter} is the second component of "Project Meruem" (the first component is the Meruem language). It is a text editor designed primarily for Meruem source files. It supports syntax highlighting, smart indents, a projects tree, and many more. You'll see more of its features when you start using it.
+
+To download Winter, go to \url{https://github.com/melvic-ybanez/Winter/releases/tag/v1.0} and download the jar file (Winter.jar). After that you can run the Winter by double-clicking on the jar file. If that doesn't work, you can try running it by typing \code{java -jar Winter.jar} on the terminal or command prompt. If everything worked fine, you should see a text editor program opened. It should look like this:
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{winter}
+\caption{The Winter text editor}
+\centering
+\end{figure}
+
+That's it. Installing Winter simply means downloading the jar file.
+
+Note that you can't run both the Meruem interpreter (we can also just refer to it simply as "Meruem") and Winter by installing Java first.
