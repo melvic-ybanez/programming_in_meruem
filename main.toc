@@ -22,3 +22,5 @@
 \contentsline {subsection}{\numberline {2.1.1}Number}{10}{subsection.2.1.1}
 \contentsline {subsubsection}{Integer}{10}{section*.3}
 \contentsline {subsubsection}{Long}{11}{section*.4}
+\contentsline {subsubsection}{Float}{11}{section*.5}
+\contentsline {subsubsection}{Double}{12}{section*.6}
