@@ -19,3 +19,6 @@
 \contentsline {section}{\numberline {1.7}Hello World in Meruem}{9}{section.1.7}
 \contentsline {chapter}{\numberline {2}Variables and Data Types}{10}{chapter.2}
 \contentsline {section}{\numberline {2.1}Data Types}{10}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Number}{10}{subsection.2.1.1}
+\contentsline {subsubsection}{Integer}{10}{section*.3}
+\contentsline {subsubsection}{Long}{11}{section*.4}

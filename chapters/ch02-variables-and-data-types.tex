@@ -6,3 +6,52 @@ Programming always involves manipulating data. For instance, writing a program t
 Now, the thing about data is they don't all have the same classifications, and the operations that you can perform on a data depend on the classification of that data. For example, you can add a number to another number but you can't add a number to a student information. (That wouldn't really make sense.) This classification of data is known as a \keyword{data type}.
 
 A \ikeyword{data type} tells you how a thing is classified, what set of values belongs to this type, and what operations can be performed on it. Meruem has a short list of supported data types. Let's discuss each of them, starting with the \code{Number} types.
+
+\subsection{Number}
+\code{Number} types are, well, numbers. You can perform mostly mathematical operations on them. Meruem has four number types: \code{Integer}, \code{Long}, \code{Float}, \code{Double}. The differences of these types will be discussed in the following subsections.
+
+\subsubsection{Integer}
+\code{Integer} types (or simple \code{Integer}s) are signed whole numbers (including 0). The "signed" indicates the inclusion of negative numbers. To see what integers look like, fire up the REPL and enter the following code:
+
+\begin{REPL}
+meruem> 10
+10
+meruem> -28
+-28
+meruem> 0
+0
+\end{REPL}
+
+An integer can also be referred to as an \code{int}.
+
+\subsubsection{Long}
+\code{Long} are just like integers, except that they are \code{long}er:
+
+\begin{REPL}
+meruem> 456@L
+456
+meruem> 456@l
+456
+meruem> 46466464@L
+46466464
+\end{REPL}
+
+The only thing that makes \code{long}'s syntax different than \code{int}'s is the \code{@L} or \code{@l} at the end of the numbers. The \code{@L} tells the interpreter that the number preceding number should be interpreted as a long, and not an integer. The \code{L} can be either in lower or upper case. Now you might be wondering when to use long instead of int. The answer is simple: Data types have limitations, not only in their structure but also on the range of values they can take. 
+
+Integers can only take values ranging from $-2^{32}$ to $2^{31}-1$. Try inputing a value larger than the maximum value of an integer and you will get an error:
+
+\begin{REPL}
+meruem> 545345453535353
+Exception in thread "main" java.lang.NumberFormatException: For input string: "545345453535353"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:583)
+	............
+\end{REPL}
+
+That is only a part of a longer error message. The error occurred because you provided a number that is greater than the maximum value of an integer. If you wanted to manipulate on numbers that big you should have used a long:
+
+\begin{REPL}
+meruem> 545345453535353@l
+545345453535353
+meruem>
+\end{REPL}
