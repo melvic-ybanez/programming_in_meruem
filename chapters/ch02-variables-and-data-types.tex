@@ -25,7 +25,7 @@ meruem> 0
 An integer can also be referred to as an \code{int}.
 
 \subsubsection{Long}
-\code{Long} are just like integers, except that they are \code{long}er:
+\code{Long} numbers are just like integers, except that they are \code{long}er:
 
 \begin{REPL}
 meruem> 456@L
@@ -55,3 +55,27 @@ meruem> 545345453535353@l
 545345453535353
 meruem>
 \end{REPL}
+
+\subsubsection{Float}
+A \code{float} is a number type that can contain decimal digits. You can write \code{float} by appending \code{@f} (or \code{@F}) to the a number:
+
+\begin{REPL}
+meruem> 454@f
+454.0
+meruem> 453.454@F
+453.454
+\end{REPL}
+
+Notice that even if you don't include some decimal digits, the interpreter will still treat the number as if there's a "\code{.0}" at the end.
+
+\subsubsection{Double}
+A \code{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \code{double} ends with either \code{@d} or \code{@D}:
+
+\begin{REPL}
+meruem> 5453.@d
+5453.0
+meruem> 654654.899898@D
+654654.899898
+\end{REPL}
+
+We encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.

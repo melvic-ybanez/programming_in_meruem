@@ -7,6 +7,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{color}
 
 \pagestyle{fancy}
 \graphicspath{{images/}}
@@ -21,7 +22,10 @@
 \newcommand{\ikeyword}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\codexleftmargin}{8.0ex}
-\newcommand{\codenumbersep}{15pt}
+\newcommand{\codenumbersep}{14pt}
+\newcommand{\codenumberstyle}{\small\color{gray}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
 
 \lstnewenvironment{Python}{
 	\lstset{
@@ -31,7 +35,9 @@
 		showstringspaces=false,
 		tabsize=2,
 		xleftmargin=\codexleftmargin,
-		escapeinside={(*@}{@*)}
+		escapeinside={(*@}{@*)},
+		breaklines=true,
+		numberstyle=\codenumberstyle
 	}
 }{}
 \lstnewenvironment{Java}[1][1]{
@@ -43,11 +49,17 @@
 		tabsize=4,
 		xleftmargin=\codexleftmargin,
 		escapeinside={(*@}{@*)},
-		firstnumber=#1
+		firstnumber=#1,
+		breaklines=true,
+		numberstyle=\codenumberstyle
 	}
 }{}
 \lstnewenvironment{REPL}{
-	\lstset{language=Lisp, xleftmargin=\codexleftmargin}
+	\lstset{
+		language=Lisp, 
+		xleftmargin=\codexleftmargin,
+		breaklines=true
+	}
 }{}
 \lstnewenvironment{Meruem}[1][1]{
 	\lstset{
@@ -57,7 +69,9 @@
 		xleftmargin=\codexleftmargin,
 		showstringspaces=false,
 		tabsize=2,
-		escapeinside={(*@}{@*)}
+		escapeinside={(*@}{@*)},
+		breaklines=true,
+		numberstyle=\codenumberstyle
 	}
 }{}
 
