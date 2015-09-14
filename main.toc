@@ -17,3 +17,5 @@
 \contentsline {section}{\numberline {1.5}Installing Winter}{7}{section.1.5}
 \contentsline {section}{\numberline {1.6}Running the REPL}{8}{section.1.6}
 \contentsline {section}{\numberline {1.7}Hello World in Meruem}{9}{section.1.7}
+\contentsline {chapter}{\numberline {2}Variables and Data Types}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Data Types}{10}{section.2.1}
