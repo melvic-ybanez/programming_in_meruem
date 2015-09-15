@@ -1,16 +1,15 @@
 In this chapter, we are going to make use of the REPL only. We are not going to use Winter (or any text editor you have right now). If you haven't already installed the REPL, please go back to section~\sectionref{sec:installing-meruem} and follow the instructions on how to install Meruem before proceeding. Remember, the Meruem distribution is already bundled with a REPL.
 
-\section{Data Types}
 Programming always involves the manipulation of data. For instance, writing a program that adds two random numbers involves working on numbers. Reading the contents of a file involves the manipulation of files and strings. An enrolment system requires the presence of data that represent the student information, the class schedules, and others. Even the \code{Hello World} program that we wrote earlier wouldn't even be completed if we didn't know what data to print to the screen. Whatever it is you want to do, you need some data.
 
 Now, the thing about data is they don't all have the same classifications, and the operations that you can perform on a data depend on the classification of that data. For example, you can add a number to another number, but you can't add a number to a student information. (That wouldn't really make sense.) This classification of data is known as a \keyword{data type}.
 
 A \ikeyword{data type} tells you how a thing is classified, what set of values belongs to this type, and what operations can be performed on it. Meruem has a short list of supported data types. Let's discuss each of them, starting with the \code{Number} types.
 
-\subsection{Number}
+\section{Number}
 \code{Number} types are types whose instances hold numeric values. You can perform mostly mathematical operations on them. Meruem has four number types: \code{Integer}, \code{Long}, \code{Float}, and \code{Double}. The differences of these types will be discussed in the following subsections.
 
-\subsubsection{Integer}
+\subsection{Integer}
 \code{Integer} types (or simply, \code{Integer}s) are signed whole numbers (including 0). The "signed" indicates the inclusion of negative numbers. An integer can also be referred to as an \code{int}. To see what integers look like, fire up the REPL and enter the following expressions:
 
 \begin{REPL}
@@ -26,7 +25,7 @@ These are examples of integer literals. A \ikeyword{literal} is a value that was
 
 Integer literals evaluate to themselves. This is why when you entered \code{10}, you also got the result of \code{10}. 
 
-\subsubsection{Long}
+\subsection{Long}
 \code{Long} numbers are just like integers, except that they are \code{long}er:
 
 \begin{REPL}
@@ -58,7 +57,7 @@ meruem> 545345453535353@l
 meruem>
 \end{REPL}
 
-\subsubsection{Float}
+\subsection{Float}
 A \code{float} is a number type that can contain decimal digits. You can write \code{float} by appending \code{@f} (or \code{@F}) to the a number:
 
 \begin{REPL}
@@ -70,7 +69,7 @@ meruem> 453.454@F
 
 Notice that even if you don't include some decimal digits, the interpreter will still treat the number as if there's a "\code{.0}" at the end.
 
-\subsubsection{Double}
+\subsection{Double}
 A \code{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \code{double} ends with either \code{@d} or \code{@D}:
 
 \begin{REPL}
@@ -82,7 +81,7 @@ meruem> 654654.899898@D
 
 I encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
 
-\subsection{Boolean}
+\section{Boolean}
 A \code{boolean} accepts only one of the two possible values. In Meruem, these values are \code{true} and \code{false}: (In other languages that don't support boolean types, they are simulated using the values \code{0} and \code{1}). 
 
 \begin{REPL}
@@ -95,7 +94,7 @@ meruem>
 
 The example shows that boolean literals, like integer literals, evaluate to themselves.
 
-\subsection{Character}
+\section{Character}
 A \code{character} (also referred to as \code{char}) is any alpha-numeric (letter or number) character or special symbol that is preceded by a \code{\textbackslash} character:
 
 \begin{REPL}
@@ -124,7 +123,7 @@ Here, the interpreter is telling you that it can't parse the input properly. (In
 The evaluated form of a character in the REPL contains a \code{\textbackslash} at the beginning. However, when you run a source file that prints a character to the console, you shouldn't see the \code{\textbackslash} printed in the output.
 \end{noteparagraph}
 
-\subsection{List}
+\section{List}
 \code{List} is a collection of things. It is written as a set of space-separated elements enclosed in a pair of parentheses. Each of the elements of a list is a value with it's own type. Since \code{List} is a type that can be composed of some other types, it is considered as a \keyword{compound type}. Here are some examples of \code{list}s in Meruem:
 
 \begin{REPL}
@@ -166,7 +165,7 @@ meruem>
 
 This example uses types and operators that we haven't discussed yet, so we don't expect you to fully understand it now. However, this should at least show you that you can have more than two levels of nesting in a list, and that the order of evaluation goes from the innermost lists to the outermost ones.
 
-\subsection{String}
+\section{String}
 A \code{string} is a series of characters. You can express a string literal by enclosing the characters that it contains in double quotes:
 
 \begin{REPL}
@@ -201,3 +200,62 @@ meruem>
 \end{REPL}
 
 A \code{\textbackslash t} is used to insert tab, and a \code{\textbackslash b} means backspace. A \code{\textbackslash "} inserts a double quote. Normally, you can't insert a double quote inside a string literal (without escaping it). There are many more escape sequences. Discussing all of them is already beyond the scope of this book. Fortunately, you can find plenty of discussions about them on the web (most languages tend to have the same set of supported escape sequences, after all). 
+
+\section{Symbol}
+In Meruem, a \code{symbol} is a series of characters that means something. It is a name that maps to some other value, like a \keyword{variable}, \keyword{function}, or \keyword{macro}. The evaluated form of a symbol shows the object or value it is mapped to. To make things clear, let's try entering a few symbols in the REPL:
+
+\begin{REPL}
+meruem> quote
+quote
+meruem> cons
+<function>
+meruem> head
+<function>
+meruem> cond
+cond
+meruem> 
+\end{REPL}
+
+In the last example, \code{quote} and \code{cond} are symbols that evaluate to themselves. These two are built-in operations that you are going to use frequently when writing Meruem programs. \code{cons} and \code{head} are functions. Instead of showing the real objects the symbols point to, the REPL shows their string representations. If you try to evaluate a symbol that doesn't point to anything, the interpreter will yell at you:
+
+\begin{REPL}
+meruem> foo
+An error has occurred. Unbound symbol: foo.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+foo
+^
+meruem> 
+\end{REPL}
+
+The interpreter is telling you that \code{foo} isn't bound to anything, so it doesn't know how to evaluate it. Symbols are case-sensitive. That means \code{cons} and \code{Cons} are not the same:
+
+\begin{REPL}
+meruem> Cons
+An error has occurred. Unbound symbol: Cons.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+Cons
+^
+meruem> 
+\end{REPL}
+
+We've already seen \code{cons} evaluate to \code{<function>}. However, \code{Cons} is a different symbol, and in this case isn't bound to any value (just like \code{foo}), so it returns an error.
+
+\section{Nil}
+The last type I'm going to discuss is the \code{Nil} type. \code{Nil} indicates the absence of value. This type only has one possible value or instance, and it is \code{nil}. Nil also evaluates to itself, as shown in the following example:
+
+\begin{REPL}
+meruem> nil
+nil
+meruem> Nil
+An error has occurred. Unbound symbol: Nil.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+Nil
+^
+meruem> 
+\end{REPL}
+
+You will get to see its real usage later on.
+
+\begin{noteparagraph}
+In some Lisps, \code{nil} refers to an empty list. In other words, \code{()} and \code{nil} are just the same. In Meruem, that is not the case. \code{Nil} is an atom of it's own.
+\end{noteparagraph}
