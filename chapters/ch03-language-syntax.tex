@@ -42,7 +42,7 @@ meruem> (++ "I want" "cookies")
 meruem> 
 \end{REPL}
 
-It is worth noting that this type of s-expressions and lists are not always the same. A list is a data structure, while an s-expression refers to the syntax itself. For instance, consider the expression \code{(+ 1 2 4)}. If you run it in the REPL, you'll get \code{7} as a result. So, the expression \code{(+ 1 2 4)} is an s-expression but you wouldn't call it a list. It is a number, just like $1 + 3$ is a number expressed as the sum of $1$ and $3$. In other words, the type of the expression is the type of the value returned when we evaluate it. On the other hand, the expression \code{(list 1 2 3)} is an s-expression and a list, because the value it returns when evaluated, which is \code{(1 2 3)}, is a list. The difference between s-expression and list, however, does not invalidate the claim that Meruem programs are just lists. Internally, everything is still a list. Also, you can capture an entire expression (an s-expression) without evaluating it, effecting treating it as an ordinary list. For this reason, the two terms can be used almost interchangeably.
+It is worth noting that this type of s-expressions and lists are not always the same. A list is a data structure, while an s-expression refers to the syntax itself. For instance, consider the expression \code{(+ 1 2 4)}. If you run it in the REPL, you'll get \code{7} as a result. So, the expression \code{(+ 1 2 4)} is an s-expression but you wouldn't call it a list. It is a number, just like $1 + 3$ is a number expressed as the sum of $1$ and $3$. In other words, the type of the expression is the type of the value returned when we evaluate it. On the other hand, the expression \code{(list 1 2 3)} is an s-expression and a list, because the value it returns when evaluated, which is \code{(1 2 3)}, is a list. The difference between s-expression and list, however, does not invalidate the claim that Meruem programs are just lists. Internally, everything is still a list. Also, you can capture an entire expression (an s-expression) without evaluating it, effecting treating it as an ordinary list (see section~). For this reason, the two terms can be used almost interchangeably.
 
 \section{Callable expressions}
 Not all s-expressions (or lists) can be evaluated. For instance, if you are going to evaluate \code{(1 2 3)}, you'll get an error:
@@ -72,4 +72,41 @@ meruem> (cons \m "eruem")
 "meruem"
 \end{REPL}
 
-In Meruem, most of the callables are effectively functions. An operator like \code{+} is just a function who happened to have that operator-looking name. (In many languages, naming a function like this is not possible.). Macros are also just special functions, internally. Most of the special commands behave like functions as well. In fact, I rarely use the term "callable" in Meruem. I just refer to these things as "function"s. So does the interpreter (see the last error message). You'll learn more about functions in the later part of the book. 
+In Meruem, most of the callables are effectively functions. An operator like \code{+} is just a function who happened to have that operator-looking name. (In many languages, naming a function like this is not possible.). Macros are also just special functions, internally. Most of the special commands behave like functions as well. In fact, I rarely use the term "callable" in Meruem. I just refer to these things as "function"s. So does the interpreter (see the last error message). You'll learn more about functions in the later part of the book.
+
+\section{Special Syntaxes}
+
+There are some parts in a Meruem code that are not in a s-expressions form. The following subsections will focus on each of them.
+
+\subsection{Comments}
+A \ikeyword{comment} is a part of the code that the interpreter just ignores. Comments are useful when you want to write something in plain English without letting the interpreter throw some \keyword{parse errors}. Usually, you comment things for documentation purposes. Comments in Meruem are any lines of code that start with the \code{;} character. Any character following the \code{;} up to the end of the line will be ignored by the interpreter. The following examples show that commented parts of the code will note be included in the evaluation:
+
+\begin{REPL}
+meruem> (+ 56 7) ; this is a comment
+63
+meruem> "hello" ; world
+"hello"
+\end{REPL}
+
+Becareful when writing comments though. If you insert it inside an expression, it might cause a parse error:
+
+\begin{REPL}
+meruem> (* 50 20)  ; this will run just fine
+1000
+meruem> (* 50 ; this will return an error 20)
+An error has occurred. Parse Failure: `)' expected but end of source found
+Source: .home.melvic.meruem.meruem.prelude [11:53}]
+(defun truthy? (expr) (and (!= expr false) (!= expr nil)))
+
+                                                    ^
+\end{REPL}
+
+To the eyes of the interpreter, the second example is just equivalent to \code{(* 50}, and that is not a valid s-expression. You can, however, do it like this:
+
+\begin{Meruem}
+(defun main (args)    ; This is the main function.
+  ; The main functions is the entry point of a Meruem program.
+  (println "I will still be printed"))
+\end{Meruem}
+
+The code shows that the elements in a list can be separated by multiple spaces, tabs, and newline characters, and not just by single spaces in between. Since this code spans multiple lines (not to mention it actually contains a \keyword{main} function, but more on this later), it is a good idea to save it as a source file using the Winter text editor. Then run it via \code{java -jar meruem.jar filename} like you did in section~\sectionref{sec:helloworld}.
