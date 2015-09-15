@@ -1,4 +1,4 @@
-In this chapter, we are going to make use of the REPL only. We are not going to use Winter (or any text editor you have right now). If you haven't already installed the REPL, please go back to section~\ref{sec:installing-meruem} and follow the instructions on how to install Meruem before proceeding. Remember, the Meruem distribution is already bundled with a REPL.
+In this chapter, we are going to make use of the REPL only. We are not going to use Winter (or any text editor you have right now). If you haven't already installed the REPL, please go back to section~\sectionref{sec:installing-meruem} and follow the instructions on how to install Meruem before proceeding. Remember, the Meruem distribution is already bundled with a REPL.
 
 \section{Data Types}
 Programming always involves manipulating data. For instance, writing a program that adds two random numbers involves working on numbers. Reading the contents of a file involves the manipulation of files and strings. An enrolment system requires the presence of data that represent the student information, the class schedules, and others. Even the \code{Hello World} program that we wrote earlier wouldn't even be completed if we didn't know what data to print to the screen. Whatever it is you want to do, you need some data.
@@ -123,3 +123,45 @@ Here, the interpreter is telling you that it can't parse the input properly. (In
 \begin{noteparagraph}
 The evaluated form of a character in the REPL contains a \code{\textbackslash} at the beginning. However, when you run a source file that prints a character to the console, you shouldn't see the \code{\textbackslash}.
 \end{noteparagraph}
+
+\subsection{List}
+\code{List} is a collection of things. It is written as a set of space-separated elements enclosed in a pair of parentheses. Each of the elements of the a list is value of another type. Since \code{List} is a type that can be composed of some other types, it is considered as a \code{compound type}. Here are some examples of \code{list}s in Meruem:
+
+\begin{REPL}
+meruem> (list 1 2 3 5)
+(1 2 3 5)
+meruem> (list \h \e \l \l \o)
+(h e l l o)
+meruem> (list 5@f 66@L)
+(5.0 66)
+meruem> 
+\end{REPL}
+
+
+The \code{list} element that comes before any of the items in each of the sample expressions is a \code{function} (functions will be discussed later) that constructs a list whose elements are the rest of the items inside the parentheses. The constructed list gets returned and printed.
+
+\code{List} is the most important data type (or data structure, in some sense) in Meruem. Unlike in non-lisp languages where \code{list}s are usually used only to hold a certain data (e.g a collection of things), \code{list}s in Meruem can be considered not only as a data structure, but also as a function application, a function definition, or more generally, (a part of) your whole code. Lisp was originally an acronym, LISP, which means "list processing". In other words, programming in a Lisp like Meruem, is about working primarily on lists. 
+
+Meruem programs are composed only of \code{atom}s and \code{list}s. In Meruem, an \ikeyword{atom} is any data or value that is not a list. In other words, numbers, chars, and booleans are all atoms. \keyword{Symbol}s, which will be explained in the next few sections, are also considered \code{atom}s. The rest of the Meruem code are just lists, and you can perform on them any manipulation that you can do on a list.
+
+Let's have a few more examples:
+
+\begin{REPL}
+meruem> (list 34 \t 56@l) 
+(34 t 56)
+meruem> (list \h \e \l \l \o (list \w \o \r \l \d))
+(h e l l o (w o r l d))
+meruem> ()
+()
+meruem> 
+\end{REPL}
+
+The first expression shows that you can combine different kinds of values (integer, char, and long, in this case) in a list. The second one shows that you can nest lists (I didn't say that lists can only contain atoms :)). When evaluating a list with another lists as some of its elements, the inner lists get evaluated first before evaluating the outer one. The third expression in the example is an empty list. Let's have a more complicated example:
+
+\begin{REPL}
+meruem> (cons (head "hello") (++ (list \w \o) (list \r \l \d)))     
+(h w o r l d)
+meruem>
+\end{REPL}
+
+This example uses types and operators that we haven't discussed yet, so we don't expect you to fully understand it now. However, this should at least show you that you can have more than two levels of nesting in a list, and that the order of evaluation goes from the innermost lists to the outermost ones.
