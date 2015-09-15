@@ -201,3 +201,31 @@ meruem>
 \end{REPL}
 
 A \code{\textbackslash t} is used to insert tab, and a \code{\textbackslash b} means backspace. A \code{\textbackslash "} inserts a double quote. Normally, you can't insert a double quote inside a string literal (without escaping it). There are many more escape sequences. Discussing all of them is already beyond the scope of this book. Fortunately, you can find plenty of discussions about them on the web (most languages tend to have the same set of supported escape sequences, after all). 
+
+\subsection{Symbol}
+In Meruem, a \code{symbol} is a series of characters that means something. It is a name that maps to some other value, like a \keyword{variable}, \keyword{function}, or \keyword{macro}. The evaluated form of a symbol shows the object or value it is mapped to. To make things clear, let's try entering a few symbols in the REPL:
+
+\begin{REPL}
+meruem> quote
+quote
+meruem> cons
+<function>
+meruem> head
+<function>
+meruem> cond
+cond
+meruem> 
+\end{REPL}
+
+In the last example, \code{quote} and \code{cond} are symbols that evaluate to themselves. These two are built-in operations that you are going to use frequently when writing Meruem programs. \code{cons} and \code{head} are functions. Instead of showing the real objects the symbols point to, the REPL shows their string representations. If you try to evaluate a symbol that doesn't point to anything, the interpreter will yell at you:
+
+\begin{REPL}
+meruem> foo
+An error has occurred. Unbound symbol: foo.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+foo
+^
+meruem> 
+\end{REPL}
+
+The interpreter is telling you that \code{foo} isn't bound to anything, so it doesn't know how to evaluate it.
