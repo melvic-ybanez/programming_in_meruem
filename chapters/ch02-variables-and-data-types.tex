@@ -115,7 +115,11 @@ Source: .home.melvic.meruem.meruem.prelude [11:53}]
 (defun truthy? (expr) (and (!= expr false) (!= expr nil)))
 
                                                     ^
-meruem> 
+meruem> ; this is a comment
 \end{REPL}
 
 Here, the interpreter is telling you that it can't parse the input properly. (In this chapter, we shouldn't worry too much about the details of the errors.)
+
+\begin{noteparagraph}
+The evaluated form of a character in the REPL contains a \code{\textbackslash} at the beginning. However, when you run a source file that prints a character to the console, you shouldn't see the \code{\textbackslash}.
+\end{noteparagraph}
