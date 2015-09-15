@@ -228,4 +228,35 @@ foo
 meruem> 
 \end{REPL}
 
-The interpreter is telling you that \code{foo} isn't bound to anything, so it doesn't know how to evaluate it.
+The interpreter is telling you that \code{foo} isn't bound to anything, so it doesn't know how to evaluate it. Symbols are case-sensitive. That means \code{cons} and \code{Cons} are not the same:
+
+\begin{REPL}
+meruem> Cons
+An error has occurred. Unbound symbol: Cons.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+Cons
+^
+meruem> 
+\end{REPL}
+
+We've already seen \code{cons} evaluate to \code{<function>}. However, \code{Cons} is a different symbol, and in this case isn't bound to any value (just like \code{foo}), so it returns an error.
+
+\subsection{Nil}
+The last type I'm going to discuss is the \code{Nil} type. \code{Nil} indicates the absence of value. This type only has one possible value or instance, and it is \code{nil}. Nil also evaluates to itself, as shown in the following example:
+
+\begin{REPL}
+meruem> nil
+nil
+meruem> Nil
+An error has occurred. Unbound symbol: Nil.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+Nil
+^
+meruem> 
+\end{REPL}
+
+You will get to see its real usage later on.
+
+\begin{noteparagraph}
+In some Lisps, \code{nil} refers to an empty list. In other words, \code{()} and \code{nil} are just the same. In Meruem, that is not the case. \code{Nil} is an atom of it's own.
+\end{noteparagraph}
