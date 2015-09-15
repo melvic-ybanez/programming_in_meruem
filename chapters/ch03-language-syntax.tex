@@ -79,7 +79,7 @@ In Meruem, most of the callables are effectively functions. An operator like \co
 There are some parts in a Meruem code that are not in a s-expressions form. The following subsections will focus on each of them.
 
 \subsection{Comments}
-A \ikeyword{comment} is a part of the code that the interpreter just ignores. Comments are useful when you want to write something in plain English without letting the interpreter throw some \keyword{parse errors}. Usually, you comment things for documentation purposes. Comments in Meruem are any lines of code that start with the \code{;} character. Any character following the \code{;} up to the end of the line will be ignored by the interpreter. The following examples show that commented parts of the code will note be included in the evaluation:
+A \ikeyword{comment} is a part of the code that the interpreter just ignores. Comments are useful when you want to write something in plain English without letting the interpreter throw some \keyword{parse errors}. Usually, you comment things for documentation purposes. Comments in Meruem are any lines of code that start with the \code{;} character. Any character following the \code{;} up to the end of the line will be ignored by the interpreter. The following example shows that commented parts of the code will note be included in the evaluation:
 
 \begin{REPL}
 meruem> (+ 56 7) ; this is a comment
@@ -109,4 +109,30 @@ To the eyes of the interpreter, the second example is just equivalent to \code{(
   (println "I will still be printed"))
 \end{Meruem}
 
-The code shows that the elements in a list can be separated by multiple spaces, tabs, and newline characters, and not just by single spaces in between. Since this code spans multiple lines (not to mention it actually contains a \keyword{main} function, but more on this later), it is a good idea to save it as a source file using the Winter text editor. Then run it via \code{java -jar meruem.jar filename} like you did in section~\sectionref{sec:helloworld}.
+The code shows that the elements in a list can be separated by multiple spaces, tabs, and newline characters, and not just by single spaces in between. Since this code spans multiple lines (not to mention it actually contains a \keyword{main} function, but more on this later), it is a good idea to save it as a source file using the Winter text editor. Then run it via \code{java -jar meruem.jar filename} like you did in section~\sectionref{sec:helloworld}. I trust that from now on, you can tell which code samples are not to be run in a REPL. 
+
+\subsection{Quotes}
+As I've mentioned earlier, you can prevent an expression from being evaluated. To do so, you'll just have to add \code{'} at the beginning of the expression:
+
+\begin{REPL}
+meruem> '456
+456
+meruem> '(1 4 5)
+(1 4 5)
+meruem> '(list 3 5 6)
+(list 3 5 6)
+\end{REPL}
+
+The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as their corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{unquote}, but we are not going to discuss it in this chapter.
+
+\subsection{List of Pairs}
+It is not uncommon for a list to contain pair of items. In fact it is so common that I decided to add a \keyword{syntactic sugar} for it. The following example shows how to use it:
+
+\begin{REPL}
+meruem> '((1 "one") (2 "two"))  ; this expression
+((1 one) (2 two))
+meruem> '{ 1 "one" 2 "two" }  ; is the same as this
+((1 one) (2 two))
+\end{REPL}
+
+Notice the use of the quote operator. Without the quote, the first expression would have been \code{(list (list 1 "one") (list 2 "two"))}, which is quite verbose. But more importantly, notice how the two expressions in the example evaluate to the same values. That is because they are just the same expression, except that the second one used a syntactic sugar. In general, the form \code(((a b) (c d))) (where \code{a}, \code{b}, \code{c}, and \code{d} are all s-expressions) can also be written as \code{{a b c d}}.
