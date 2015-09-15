@@ -1,31 +1,34 @@
-\contentsline {chapter}{Introduction}{2}{chapter*.2}
-\contentsline {section}{\numberline {0.1}About the book}{2}{section.0.1}
-\contentsline {section}{\numberline {0.2}Who should read this book}{2}{section.0.2}
-\contentsline {section}{\numberline {0.3}Programming background required}{2}{section.0.3}
-\contentsline {section}{\numberline {0.4}How to read this book}{2}{section.0.4}
-\contentsline {chapter}{\numberline {1}Starting Out}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}What is Meruem?}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Why learn Meruem?}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Overview of Programming Paradigms}{3}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Imperative Programming}{4}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Object-oriented Programming (OOP)}{4}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Functional Programming}{5}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Metaprogramming}{6}{subsection.1.3.4}
-\contentsline {section}{\numberline {1.4}Installing Meruem}{6}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}The Java Virtual Machine}{6}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Downloading the interpreter}{6}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}Installing Winter}{7}{section.1.5}
-\contentsline {section}{\numberline {1.6}Running the REPL}{8}{section.1.6}
-\contentsline {section}{\numberline {1.7}Hello World in Meruem}{9}{section.1.7}
-\contentsline {chapter}{\numberline {2}Data Types}{10}{chapter.2}
-\contentsline {section}{\numberline {2.1}Number}{10}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Integer}{10}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Long}{11}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Float}{12}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Double}{12}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Boolean}{12}{section.2.2}
-\contentsline {section}{\numberline {2.3}Character}{12}{section.2.3}
-\contentsline {section}{\numberline {2.4}List}{13}{section.2.4}
-\contentsline {section}{\numberline {2.5}String}{14}{section.2.5}
-\contentsline {section}{\numberline {2.6}Symbol}{15}{section.2.6}
-\contentsline {section}{\numberline {2.7}Nil}{16}{section.2.7}
+\contentsline {chapter}{Introduction}{3}{chapter*.2}
+\contentsline {section}{\numberline {0.1}About the book}{3}{section.0.1}
+\contentsline {section}{\numberline {0.2}Who should read this book}{3}{section.0.2}
+\contentsline {section}{\numberline {0.3}Programming background required}{3}{section.0.3}
+\contentsline {section}{\numberline {0.4}How to read this book}{3}{section.0.4}
+\contentsline {chapter}{\numberline {1}Starting Out}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}What is Meruem?}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Why learn Meruem?}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Overview of Programming Paradigms}{4}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Imperative Programming}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Object-oriented Programming (OOP)}{5}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Functional Programming}{6}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Metaprogramming}{7}{subsection.1.3.4}
+\contentsline {section}{\numberline {1.4}Installing Meruem}{7}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}The Java Virtual Machine}{7}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Downloading the interpreter}{7}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Installing Winter}{8}{section.1.5}
+\contentsline {section}{\numberline {1.6}Running the REPL}{9}{section.1.6}
+\contentsline {section}{\numberline {1.7}Hello World in Meruem}{10}{section.1.7}
+\contentsline {chapter}{\numberline {2}Data Types}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Number}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Integer}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Long}{12}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Float}{13}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Double}{13}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Boolean}{13}{section.2.2}
+\contentsline {section}{\numberline {2.3}Character}{13}{section.2.3}
+\contentsline {section}{\numberline {2.4}List}{14}{section.2.4}
+\contentsline {section}{\numberline {2.5}String}{15}{section.2.5}
+\contentsline {section}{\numberline {2.6}Symbol}{16}{section.2.6}
+\contentsline {section}{\numberline {2.7}Nil}{17}{section.2.7}
+\contentsline {chapter}{\numberline {3}Language Syntax}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}S-expressions}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Callable expressions}{19}{section.3.2}

@@ -88,6 +88,13 @@
 		commentstyle=\codecommentstyle
 	}
 }{}
+\lstnewenvironment{QuasiLang}{
+	\lstset{
+		language=Lisp,
+		basicstyle=\codebasicstyle,
+		xleftmargin=\codexleftmargin
+	}
+}{}
 
 \newenvironment{noteparagraph}[1]{
 	\bigskip
@@ -107,5 +114,8 @@
 	\input{chapters/ch01-starting-out}
 	
 	\chapter{Data Types}
-	\input{chapters/ch02-variables-and-data-types}
+	\input{chapters/ch02-data-types}
+	
+	\chapter{Language Syntax}
+	\input{chapters/ch03-language-syntax}
 \end{document}

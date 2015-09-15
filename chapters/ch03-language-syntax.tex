@@ -1,0 +1,58 @@
+In this chapter, we are going to focus the discussion on the structure of Meruem code. We are going to talk about it's odd-looking syntax, and why it is something you should try to embrace rather than avoid. Let us start the discussion with the main (and probably the only) syntax component of a Meruem program: \keyword{S-expressions}
+
+\section{S-expressions}
+The syntax of Meruem code is composed only of s-expressions. In fact the syntax for the whole program itself is an s-expression. So the key to mastering the syntax of Meruem is to learn how s-expressions work. The good news is it's actually pretty easy to learn s-expressions. So what is an s-expression?
+
+An \ikeyword{s-expression} (or \code{sexprs})is a recursive tree-like data structure whose \keyword{leaf sub-nodes} are \keyword{atoms} and the non-\keyword{leaf sub-nodes} are themselves s-expressions. 
+(A \keyword{leaf} node is a node that doesn't have any children.) In other words, an s-expression can be either an atom (the smallest unit of expression in Meruem), or a composition of other s-expressions (like I said, it's recursive). 
+
+I'm sure you're already familiar with \code{atom}s, but just to refresh your memory let's see some of them again:
+
+\begin{REPL}
+meruem> 10            
+10
+meruem> 30@l
+30
+meruem> 50.79@f
+50.79
+meruem> 70@d
+70.0
+meruem> \c
+\c
+meruem> cons
+<function>
+meruem>   
+\end{REPL}
+
+Again, atoms are the first type of s-expression. The second one has the following structure: 
+
+\begin{QuasiLang}
+(elem1 elem2 elem3)
+\end{QuasiLang}
+
+where \code{elem1}, \code{elem2}, and \code{elem3} are all s-expressions. Does it look familiar? That's right! It looks like a \code{list}. This is why in the previous chapter, I mentioned that the Meruem program itself can be considered as a list. The following expressions are s-expressions that are not atoms:
+
+\begin{REPL}
+meruem> (list 1 2 3)
+(1 2 3)
+meruem> (list "the quick brown" (list \f \o \x))
+(the quick brown (f o x))
+meruem> (++ "I want" "cookies")
+"I wantcookies"
+meruem> 
+\end{REPL}
+
+It is worth noting that this type of s-expressions and lists are not always the same. A list is a data structure, while an s-expression refers to the syntax itself. For instance, consider the expression \code{(+ 1 2 4)}. If you run it in the REPL, you'll get \code{7} as a result. So, the expression \code{(+ 1 2 4)} is an s-expression but you wouldn't call it a list. It is a number, just like $1 + 3$ is a number expressed as the sum of $1$ and $3$. In other words, the type of the expression is the type of the value returned when we evaluate it. On the other hand, the expression \code{(list 1 2 3)} is an s-expression and a list, because the value it returns when evaluated, which is \code{(1 2 3)}, is a list.
+
+\section{Callable expressions}
+If you are going to evaluate \code{(1 2 3)}, you'll get an error:
+
+\begin{REPL}
+meruem> (1 2 3)
+An error has occurred. 1 can not be converted to a function.
+Source: .home.melvic.meruem.meruem.prelude [1:2}]
+(1 2 3)
+ ^
+\end{REPL}
+
+So why can we evaluate \code{(list 1 2 3)} and not \code{(1 2 3)}? The error message from the last example made it sound like the interpreter was expecting for the first element of the list to be a function. And that's, indeed, what was happening.
