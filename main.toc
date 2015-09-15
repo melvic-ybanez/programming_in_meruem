@@ -24,4 +24,4 @@
 \contentsline {subsubsection}{Long}{11}{section*.4}
 \contentsline {subsubsection}{Float}{12}{section*.5}
 \contentsline {subsubsection}{Double}{12}{section*.6}
-\contentsline {section}{\numberline {2.2}Boolean}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.1.2}Boolean}{12}{subsection.2.1.2}
