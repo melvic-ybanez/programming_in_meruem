@@ -165,3 +165,40 @@ meruem>
 \end{REPL}
 
 This example uses types and operators that we haven't discussed yet, so we don't expect you to fully understand it now. However, this should at least show you that you can have more than two levels of nesting in a list, and that the order of evaluation goes from the innermost lists to the outermost ones.
+
+\subsection{String}
+A \code{string} is a series of characters. You can express a string literal by enclosing the characters that it contains in double quotes:
+
+\begin{REPL}
+meruem> "I am a string"
+"I am a string"
+meruem> "hello world"
+"hello world"
+meruem> 
+\end{REPL}
+
+The double quotes get displayed as well in the REPL, but when you print a string via source file the quotes shouldn't appear. 
+
+A string can act as both an atom and a list. You can treat it as a list of characters. You will see later on that many list operations can be applied to strings as well. However, a string is technically not a list. You can argue that it is an atom, pretending to be a list. Or perhaps we can just say that a string is a type of it's own. Anyway, let's have another example:
+
+\begin{REPL}
+meruem> "hello\nworld"
+"hello
+world"
+meruem>
+\end{REPL}
+
+The output looks weird, right? That's because the \code{\textbackslash n} is an escape sequence. An \ikeyword{escape sequence} is a sequence of characters that get translated into something else during evaluation. In this case, the \code{\textbackslash n} gets translated into a newline character, causing the next character to appear in the next line. The escape sequence \code{\textbackslash n} is useful if you want your string output to span multiple lines. There are more escape sequences supported by Meruem strings. Each of them is a combination of the \keyword{escape character} (\code{\textbackslash}) and a character. Let's see a couple more of them:
+
+\begin{REPL}
+meruem> "hello\tworld"
+"hello	world"
+meruem> "h\bello world"
+"ello world"
+meruem> 
+meruem> "My name is \"Bond\""
+"My name is "Bond""
+meruem> 
+\end{REPL}
+
+A \code{\textbackslash t} is used to insert tab, and a \code{\textbackslash b} means backspace. A \code{\textbackslash "} inserts a double quote. Normally, you can't insert a double quote inside a string literal (without escaping it). There are many more escape sequences. Discussing all of them is already beyond the scope of this book. Fortunately, you can find plenty of discussions about them on the web (most languages tend to have the same set of supported escape sequences, after all). 
