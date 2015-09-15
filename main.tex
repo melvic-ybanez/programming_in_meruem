@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{color}
+\usepackage{courier}
 
 \pagestyle{fancy}
 \graphicspath{{images/}}
@@ -24,12 +25,15 @@
 \newcommand{\codexleftmargin}{8.0ex}
 \newcommand{\codenumbersep}{14pt}
 \newcommand{\codenumberstyle}{\small\color{gray}}
+\newcommand{\codecommentstyle}{\itshape\color{gray}}
+\newcommand{\codebasicstyle}{\ttfamily}
 
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
 
 \lstnewenvironment{Python}{
 	\lstset{
 		language=Python, 
+		basicstyle=\codebasicstyle,
 		numbers=left, 
 		numbersep=\codenumbersep,
 		showstringspaces=false,
@@ -37,12 +41,14 @@
 		xleftmargin=\codexleftmargin,
 		escapeinside={(*@}{@*)},
 		breaklines=true,
-		numberstyle=\codenumberstyle
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle
 	}
 }{}
 \lstnewenvironment{Java}[1][1]{
 	\lstset{
 		language=Java,
+		basicstyle=\codebasicstyle,
 		numbers=left,
 		numbersep=\codenumbersep,
 		showstringspaces=false,
@@ -51,19 +57,25 @@
 		escapeinside={(*@}{@*)},
 		firstnumber=#1,
 		breaklines=true,
-		numberstyle=\codenumberstyle
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle
 	}
 }{}
 \lstnewenvironment{REPL}{
 	\lstset{
 		language=Lisp, 
+		basicstyle=\codebasicstyle,
+		keywordstyle=\bfseries,
 		xleftmargin=\codexleftmargin,
-		breaklines=true
+		breaklines=true,
+		commentstyle=\codecommentstyle,
+		otherkeywords={meruem>}
 	}
 }{}
 \lstnewenvironment{Meruem}[1][1]{
 	\lstset{
 		language=Lisp,
+		basicstyle=\codebasicstyle,
 		numbers=left,
 		numbersep=\codenumbersep,
 		xleftmargin=\codexleftmargin,
@@ -71,7 +83,8 @@
 		tabsize=2,
 		escapeinside={(*@}{@*)},
 		breaklines=true,
-		numberstyle=\codenumberstyle
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle
 	}
 }{}
 

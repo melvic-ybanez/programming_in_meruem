@@ -9,7 +9,7 @@ Meruem will change the way you think about programs, programming, and problems i
 \section{Overview of Programming Paradigms}
 Before we continue, let us first make a brief discussion about the different programming paradigms. We are not going to talk about all of them, though. We are just going to talk about the ones most programmers are familiar with (imperative, OOP), and the ones this book are going to focus on (functional programming and metaprogramming).
 
-In the following subsections, we are going to show you some code samples from different programming languages. If you are not familiar with these languages, don't worry. Knowing them is not required. That said, we strongly recommend that you try reading these subsections (or at least the explanation parts).
+In the following subsections, I am going to show you some code samples from different programming languages. If you are not familiar with these languages, don't worry. Knowing them is not required. That said, I strongly recommend that you try reading these subsections (or at least the explanation parts).
 
 \subsection{Imperative Programming}
 In \ikeyword{Imperative programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
@@ -31,7 +31,7 @@ The above code calls a function named \code{function\_that\_returns\_int}, and s
 You'll learn more about side effects later in the book. (Though you won't learn much about imperative programming in general here.)
 
 \subsection{Object-oriented Programming (OOP)}
-In \ikeyword{Object-oriented programming}, you focus on designing data structures that contain both the data and the functions that can operate on these data. Most object-oriented languages also support imperative programming, and in some cases, we only think of them as either imperative  or OO languages, even though they are (to some extent) both. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one paradigm over the others. 
+In \ikeyword{Object-oriented programming}, you focus on designing data structures that contain both the data and the functions that can operate on these data. Most object-oriented languages also support imperative programming, and in some cases, I only think of them as either imperative  or OO languages, even though they are (to some extent) both. Many languages are actually multi-paradigms (i.e. they support more than one paradigm), but they tend to favour one paradigm over the others. 
 
 Java is a good example of a language that supports both imperative and OOP. In Java~8, you can even do a little bit of functional programming. Java is usually thought of as an object-oriented language. If you program in Java, you are expected to do it the OOP way. For instance, if you want to create a data structure that represents a person, you can do it like this:
 
@@ -79,7 +79,7 @@ There are so many things to learn in object-oriented programming, such as \keywo
 \subsection{Functional Programming}
 \ikeyword{Functional Programming} is about writing programs that consist mostly of functions and/or expressions. Functions in functional languages are \keyword{first-class citizens}, which means that you can consider or treat them like any other values. First-class functions can be passed as values to variables, or as actual arguments to other functions. You can also return functions from other functions. Basically whatever it is you can do with an ordinary value like an integer \code{107} or a string \code{"Hello World"} can be done with first-class functions.
 
-We are not going to show any examples here, since this is one of the main things this book will be focusing on, anyway. You'll see a lot of examples through-out the book.
+I am not going to show any examples here, since this is one of the main things this book will be focusing on, anyway. You'll see a lot of examples through-out the book.
 
 \subsection{Metaprogramming}
 \ikeyword{Metaprogramming} is the writing of code that takes other code as input values, or produces other code. In other words, in metaprogramming, programs can be treated as data. So you can pass/return code to/from other functions. It's like in functional programming, except that you don't have to wrap things in functions in order to pass them around. 
@@ -91,7 +91,7 @@ Lisps are quite known for their support for metaprogramming using \keyword{macro
 To program in Meruem, you need to install Java and download the Meruem interpreter.
 
 \subsection{The Java Virtual Machine}
-As I've said above, Meruem runs on the Java platform, which is a JVM (sometimes we just refer to it as "the JVM"). To be more accurate, the current version of Meruem actually gets ran by the Scala programming language, which runs on top of the JVM. What we mean by that is that the interpreter of Meruem is written in Scala. 
+As I've said above, Meruem runs on the Java platform, which is a JVM (sometimes I just refer to it as "the JVM"). To be more accurate, the current version of Meruem actually gets ran by the Scala programming language, which runs on top of the JVM. What I mean by that is that the interpreter of Meruem is written in Scala. 
 
 But, just what is a JVM? 
 
@@ -99,7 +99,7 @@ According to Wikipedia, a JVM is "an abstract computing machine that enables a c
 
 So how do Scala programs run on the JVM? Simple, the Scala compiler generates the same instruction set as the Java compiler. In other words, the Scala compiler would generate the same (or almost the same) bytecode as Java's. The JVM wouldn't even probably know (or care) if the bytecode it's translating to machine code were generated by the Java compiler or by the Scala compiler. And since Meruem is written in Scala, then a Meruem code will eventually be converted to Java bytecode. 
 
-So we need to install a JVM in order to run our Meruem interpreter. To do that, we install a \keyword{Java Runtime Environtment} (JRE). Installing a JRE was what I meant earlier by installing Java. A JRE contains the JVM, libraries, and some other things we shouldn't worry about in this book. There are many instructions on the web on how to install a Java runtime environment on different platforms, such as this one: \url{ https://www.java.com/en/download/help/download_options.xml}. We recommend you complete the instructions first before proceeding.
+So we need to install a JVM in order to run our Meruem interpreter. To do that, we install a \keyword{Java Runtime Environtment} (JRE). Installing a JRE was what I meant earlier by installing Java. A JRE contains the JVM, libraries, and some other things we shouldn't worry about in this book. There are many instructions on the web on how to install a Java runtime environment on different platforms, such as this one: \url{ https://www.java.com/en/download/help/download_options.xml}. I recommend you complete the instructions first before proceeding.
 
 \begin{noteparagraph}
 There is also what is known as a \keyword{Java Development Kit} (JVM). You have to install it if you want to develop Java programs and not just being able to run them. A JVM already contains a JRE so you don't need to install both.
@@ -115,7 +115,7 @@ To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/
 That's it. Installing the Meruem interpreter simply means downloading the zip file and extracting it. 
 
 \section{Installing Winter}
-We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want, but we recommend you use Winter. 
+We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want, but Winter is the more recommended one. 
 
 \ikeyword{Winter} is the second component of "Project Meruem" (the first component is the Meruem language). It is a text editor designed primarily for Meruem source files. It supports syntax highlighting, smart indents, a projects tree, and many more. You'll see more of its features when you start using it.
 
@@ -132,7 +132,7 @@ That's it. Installing Winter simply means downloading the jar file.
 Note that you can't run both the Meruem interpreter (we can also just refer to it simply as "Meruem") and Winter by installing Java first.
 
 \section{Running the REPL}
-Many programming languages like Scala, Haskell, Clojure (another Lisp that runs on the JVM), Python, Ruby, and more, have what is known as a REPL. A \ikeyword{REPL} (Read-Eval-Print-Loop), also known as \keyword{interactive shell}, is a program that reads input from the user (Read), evaluate it (Eval), prints the result (Print) and ask for another input (Loop). Every Lisp has a REPL (as far as we know). And since Meruem is a Lisp, it has a REPL too. It's called The Meruem REPL (surprise!). 
+Many programming languages like Scala, Haskell, Clojure (another Lisp that runs on the JVM), Python, Ruby, and more, have what is known as a REPL. A \ikeyword{REPL} (Read-Eval-Print-Loop), also known as \keyword{interactive shell}, is a program that reads input from the user (Read), evaluate it (Eval), prints the result (Print) and ask for another input (Loop). Every Lisp has a REPL (as far as I know). And since Meruem is a Lisp, it has a REPL too. It's called The Meruem REPL (surprise!). 
 
 The Meruem REPL is already packaged with the Meruem distribution that you have downloaded earlier. To run it, first, fire up the terminal (or command prompt, but from now on we'll just refer to it as "Terminal"). Then use the \code{cd} command to go to the directory where you installed Meruem. (If you don't want to keep on doing the previous step, you can add the path to Meruem's installation directory to your environment paths). When you're already inside the installation directory, just type \code{java -jar meruem.jar} and press the enter key. You should be able to see the following on the terminal:
 
