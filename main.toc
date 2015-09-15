@@ -34,3 +34,5 @@
 \contentsline {section}{\numberline {3.2}Callable expressions}{19}{section.3.2}
 \contentsline {section}{\numberline {3.3}Special Syntaxes}{20}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Comments}{20}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Quotes}{21}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}List of Pairs}{21}{subsection.3.3.3}
