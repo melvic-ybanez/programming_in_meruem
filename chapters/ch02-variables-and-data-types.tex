@@ -80,7 +80,7 @@ meruem> 654654.899898@D
 654654.899898
 \end{REPL}
 
-We encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
+I encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
 
 \subsection{Boolean}
 A \code{boolean} accepts only one of the two possible values. In Meruem, these values are \code{true} and \code{false}: (In other languages that don't support boolean types, they are simulated using the values \code{0} and \code{1}). 
@@ -92,3 +92,30 @@ meruem> false
 false
 meruem>  
 \end{REPL}
+
+\subsection{Character}
+A \code{character} (also referred to as \code{char}) is any alpha-numeric (letter or number) character or special symbol that is preceded by a \code{\textbackslash} character:
+
+\begin{REPL}
+meruem> \a
+\a
+meruem> \6 
+\6
+meruem> \?
+\?
+meruem> 
+\end{REPL}
+
+One thing to notice is that even a number gets turned into a \code{char} when preceded by a \code{\textbackslash} character. A limitation of this type is that it can't hold multiple characters:
+
+\begin{REPL}
+meruem> \hello
+An error has occurred. Parse Failure: string matching regex `\z' expected but `e' found
+Source: .home.melvic.meruem.meruem.prelude [11:53}]
+(defun truthy? (expr) (and (!= expr false) (!= expr nil)))
+
+                                                    ^
+meruem> 
+\end{REPL}
+
+Here, the interpreter is telling you that it can't parse the input properly. (In this chapter, we shouldn't worry too much about the details of the errors.)
