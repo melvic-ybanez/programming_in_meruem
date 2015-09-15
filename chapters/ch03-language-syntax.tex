@@ -123,7 +123,7 @@ meruem> '(list 3 5 6)
 (list 3 5 6)
 \end{REPL}
 
-The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as their corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{unquote}, but we are not going to discuss it in this chapter.
+The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as the corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{unquote}, but we are not going to discuss it in this chapter.
 
 \subsection{List of Pairs}
 It is not uncommon for an expression to be a list of pairs (where a pair is a list that holds two items). In fact it is so common that I decided to add a \keyword{syntactic sugar} for it. The following example shows how to use it:
@@ -135,4 +135,4 @@ meruem> '{ 1 "one" 2 "two" }  ; is the same as this
 ((1 one) (2 two))
 \end{REPL}
 
-Notice the use of the quote operator. Without the quote, the first expression would have been \code{(list (list 1 "one") (list 2 "two"))}, which is quite verbose. But more importantly, notice how the two expressions in the example evaluate to the same values. That is because they are just the same expression, except that the second one used a syntactic sugar. In general, the form \code(((a b) (c d))) (where \code{a}, \code{b}, \code{c}, and \code{d} are all s-expressions) can also be written as \code{{a b c d}}.
+Notice the use of the quote operator. Without the quote, the first expression would have been written like \code{(list (list 1 "one") (list 2 "two"))}, which is quite verbose. But more importantly, notice how the two expressions in the example evaluate to the same values. That is because they are just the same expression, except that the second one used a syntactic sugar. In general, the form \code{((a b) (c d))} (where \code{a}, \code{b}, \code{c}, and \code{d} are all s-expressions) can also be written as \code{\{a b c d\}}.
