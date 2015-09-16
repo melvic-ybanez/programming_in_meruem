@@ -72,6 +72,17 @@ meruem> (cons \m "eruem")
 
 In Meruem, most of the callables are effectively functions. An operator like \code{+} is just a function who happened to have that operator-looking name. (In many languages, naming a function like this is not possible.). Macros are also just special functions, internally. Most of the special commands behave like functions as well. In fact, I rarely use the term "callable" in Meruem. I just refer to these things as "function"s. So does the interpreter (see the last error message). You'll learn more about functions in the later part of the book.
 
+\section{Why S-expressions}
+S-expressions might look so uncool and unreadable at first, but there are actually reasons why Lispers prefer them over the C-like syntax. 
+
+One reason is \ikeyword{simplicity}. All you have to do is think of atoms, lists, and how to evaluate them. Atoms are easy to understand and many of them just evaluate to themselves. List are evaluated by treating the first element as a function and apply it to the rest of the elements. And that's it. That's most of what you need to know about the syntax of Meruem. Compare that to the syntax of, say, Java. In Java, there are so many things to remember, like the syntax for defining variables, arrays, classes, objects. Also, there are so many special symbols like \code{()}, \code{[]}, \code{<>}, \code{\{\}} and others. In Meruem, you only need to watch out for the parentheses, and the more you learn about Lisps, the more all these nested parentheses will look good to you.
+
+Another reason is \ikeyword{consistency}. For instance, the operators, special commands, functions and macros can usually all be considered a function, and they all appear in the same place. 
+
+Finally, there are some advantages offered by the \keyword{prefix notation} (or \keyword{polish notation}). A \ikeyword{prefix notation} is a notation where the operator appears before the operands. That's exactly the case in our lists. One advantage of this is that you can add as many operands as you want and specify only the operator once. The expression \code{(+ 1 2 3 4 5)} is much easier to write than the \keyword{infix} equivalent \code{1 + 2 + 3 + 4 + 5}. Another advantage is that you don't have to worry about \keyword{operator precedence} anymore. The inner expressions always get evaluated first. For instance, in \code{(* 56 9 (+ 5 5) (- 4 5))}, it is quite clear that \code{+} and \code{-} will be invoked before the \code{*}.
+
+I could go on, but I think I've already made my point. You will see more advantages of s-expressions as you continue using the Meruem language, anyway.
+
 \section{Special Syntaxes}
 
 There are some parts in a Meruem code that are not in a s-expressions form. The following subsections will focus on each of them.
@@ -121,7 +132,7 @@ meruem> '(list 3 5 6)
 (list 3 5 6)
 \end{REPL}
 
-The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as the corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{unquote}, but we are not going to discuss it in this chapter.
+The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as the corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{quasiquote}, but we are not going to discuss it in this chapter.
 
 \subsection{List of Pairs}
 It is not uncommon for an expression to be a list of pairs (where a pair is a list that holds two items). In fact it is so common that I decided to add a \keyword{syntactic sugar} for it. The following example shows how to use it:
