@@ -10,7 +10,11 @@ A \ikeyword{functoin} is a named piece of reusable code that takes a set of inpu
 Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the parameters of the function. 
 
 \section{Evaluating a Function}
-In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too.
+In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too. 
+
+\begin{noteparagraph}
+There are some functions that don't evaluate all of their arguments first before evaluating the function itself. You will learn about them later.
+\end{noteparagraph}
 
 Lists are normally just evaluated as function calls. This is why the expression \code{(1 3 4)} is not executable, because while it is a list, its first element is not a function.
 
@@ -48,7 +52,14 @@ Source: .home.melvic.meruem.meruem.prelude [1:10}]
          ^
 \end{REPL}
 
-In this example, the interpreter was expecting a number, and you gave it a string.
+In this example, the interpreter was expecting a number, and you gave it a string. If you are not sure what type an expression has, you can use the \code{type} function to retrieve it:
+
+\begin{REPL}
+meruem> (type 20)
+Integer
+meruem> (type 45.456)  ; double, even without the @d
+Double
+\end{REPL}
 
 \section{Functions as Operators}
 As mentioned in the previous chapter, operators in Meruem are actually just functions whose names are composed of operator (or special) symbols. In other words, there is nothing special about them. In the following subsections you are going to see the different operators supported by Meruem.
@@ -153,3 +164,78 @@ Source: .home.melvic.meruem.meruem.prelude [9:28}]
 \end{REPL}
 
 Notice that relational functions can take varying number of arguments too. Also, while the equality operator can take non-numeric arguments, the others can't.
+
+\subsection{Logical Operators}
+The last types of standard operators in Meruem are the \keyword{logical operators}. There are 3 logical operators supported in the language: \code{and}, \code{or}, and \code{not}. All three of them can take varying number of arguments. They are also one of those functions that don't necessarily evaluate all of their arguments prior to the actual application.
+
+\subsubsection{And}
+The \ikeyword{and} operator checks the truthfulness of all of the arguments. If an argument is falsy, it returns that argument, and the rest of the argument won't even be evaluated. If all arguments have been evaluated, it would return the last one. If no arguments are provided, the \code{and} operator returns true.
+
+Before we jump to examples, it is worth discussing what values are considered "truthy" and what values are considered "falsy" in Meruem. Well, it's actually pretty simple. The values \code{false} and \code{nil} are considered falsy values. The rest are thruthy.
+
+Now let's see some sample usages of the \code{and} operator:
+
+\begin{REPL}
+meruem> (and 45 false 6)
+false
+meruem> (and 45 nil 5)
+nil
+meruem> (and 45 89)
+89
+meruem> (and)
+true
+meruem> (and nil 55 3 true)
+nil
+\end{REPL}
+
+\subsubsection{Or}
+The \ikeyword{or} operator also checks the truthfulness of the arguments. It also behaves just like the \code{and} operator. However, unlike \code{and}, \code{or} will return the first truthy (and not the falsy) argument found. The following examples show the difference:
+
+\begin{REPL}
+meruem> (or 45 false 6)
+45
+meruem> (or 45 nil 5)
+45
+meruem> (or nil false 7)
+7
+meruem> (or nil 7 false)
+7
+meruem> (or nil false nil)  
+nil
+meruem> (and 1 2 false)
+false
+\end{REPL}
+
+\subsubsection{Not}
+The last logical operator is \ikeyword{not}. It simply negates an expression, returning the opposite of an expression's truthfulness:
+
+\begin{REPL}
+meruem> (not true)
+false
+meruem> (not false)
+true
+meruem> (not nil)
+true
+meruem> (not 20)
+false
+\end{REPL}
+
+To determine whether a value or expression is truthy or falsy, we can use the \code{truthy?} and \code{falsy?} functions respectively.
+
+\begin{REPL}
+meruem> (truthy? true)
+true
+meruem> (truthy? false)
+false
+meruem> (truthy? nil)
+false
+meruem> (truthy? 1)
+true
+meruem> (falsy? true)
+false
+meruem> (falsy? 1)
+false
+meruem> (falsy? false)
+true
+\end{REPL}
+

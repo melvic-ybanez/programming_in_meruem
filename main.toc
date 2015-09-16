@@ -42,5 +42,9 @@
 \contentsline {section}{\numberline {4.2}Evaluating a Function}{23}{section.4.2}
 \contentsline {section}{\numberline {4.3}Type-converting Functions}{24}{section.4.3}
 \contentsline {section}{\numberline {4.4}Functions as Operators}{24}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Arightmetic Operators}{24}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Arightmetic Operators}{25}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Relational Operators}{26}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Logical Operators}{27}{subsection.4.4.3}
+\contentsline {subsubsection}{And}{27}{section*.3}
+\contentsline {subsubsection}{Or}{27}{section*.4}
+\contentsline {subsubsection}{Not}{28}{section*.5}

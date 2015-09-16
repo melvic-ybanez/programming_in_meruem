@@ -69,18 +69,18 @@ meruem> 453.454@F
 Notice that even if you don't include some decimal digits, the interpreter will still treat the number as if there's a "\code{.0}" at the end.
 
 \subsection{Double}
-A \code{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \code{double} ends with either \code{@d} or \code{@D}:
+A \code{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \code{double} can with either \code{@d} or \code{@D}:
 
 \begin{REPL}
-meruem> 34.20
-34.20
 meruem> 5453.@d
 5453.0
 meruem> 654654.899898@D
 654654.899898
+meruem> 34.20
+34.20
 \end{REPL}
 
-I encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
+Notice that even if you didn't put a suffix (like \code{@d}), the value was still valid. That is because a number with decimal digits is by default interpreted as double. I encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
 
 \section{Boolean}
 A \code{boolean} accepts only one of the two possible values. In Meruem, these values are \code{true} and \code{false}: (In other languages that don't support boolean types, they are simulated using the values \code{0} and \code{1}). 
