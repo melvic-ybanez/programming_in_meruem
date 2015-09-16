@@ -41,3 +41,5 @@
 \contentsline {section}{\numberline {4.1}What is a Function?}{23}{section.4.1}
 \contentsline {section}{\numberline {4.2}Evaluating a Function}{23}{section.4.2}
 \contentsline {section}{\numberline {4.3}Type-converting Functions}{24}{section.4.3}
+\contentsline {section}{\numberline {4.4}Functions as Operators}{24}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Arightmetic Operators}{24}{subsection.4.4.1}
