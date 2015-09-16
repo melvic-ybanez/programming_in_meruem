@@ -123,3 +123,33 @@ meruem> (/ 100@f 7)
 meruem> (/ (to-double 100) 7)
 14.285714285714286
 \end{REPL}
+
+\subsection{Relational Operators}
+What if you want to know which of the two numerical expressions is greater? What if you want to check if the two function calls return the same values? In programming, comparing things is very common. That is why Meruem was designed to have sufficient number of \keyword{relational operators}. 
+
+\ikeyword{Relational operators} are operators that are used to check the relationship between two or more expressions. The relational operators supported by Meruem includes the \keyword{equality} and \keyword{inequality} operators:
+
+\begin{REPL}
+meruem> (= 45 3)                
+false
+meruem> (> 55 7)
+true
+meruem> (< 345 6)
+false
+meruem> (>= 54 3)
+true
+meruem> (<= 67 45)
+false
+meruem> (> 5 6 6)         
+false
+meruem> (= () '(1 2 3))
+false
+meruem> (< () ())
+An error has occurred. Invalid Type. Not a Number: ()
+Source: .home.melvic.meruem.meruem.prelude [9:28}]
+(defun lazy (expr) (lambda () ,expr))
+
+                           ^
+\end{REPL}
+
+Notice that relational functions can take varying number of arguments too. Also, while the equality operator can take non-numeric arguments, the others can't.
