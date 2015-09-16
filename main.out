@@ -31,9 +31,12 @@
 \BOOKMARK [1][-]{section.2.7}{Nil}{chapter.2}% 31
 \BOOKMARK [0][-]{chapter.3}{Language Syntax}{}% 32
 \BOOKMARK [1][-]{section.3.1}{S-expressions}{chapter.3}% 33
-\BOOKMARK [1][-]{section.3.2}{Callable expressions}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.2}{Executable expressions}{chapter.3}% 34
 \BOOKMARK [1][-]{section.3.3}{Why S-expressions}{chapter.3}% 35
 \BOOKMARK [1][-]{section.3.4}{Special Syntaxes}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.4.1}{Comments}{section.3.4}% 37
 \BOOKMARK [2][-]{subsection.3.4.2}{Quotes}{section.3.4}% 38
 \BOOKMARK [2][-]{subsection.3.4.3}{List of Pairs}{section.3.4}% 39
+\BOOKMARK [0][-]{chapter.4}{Standard Functions}{}% 40
+\BOOKMARK [1][-]{section.4.1}{What is a Function?}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.2}{Evaluating a function}{chapter.4}% 42

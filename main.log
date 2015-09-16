@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  16 SEP 2015 15:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  17 SEP 2015 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -577,7 +577,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 ...3.2}Callable expressions}{19}{section.3.2}
+l.34 ...2}Executable expressions}{19}{section.3.2}
                                                    [1
 
 ])
@@ -624,7 +624,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=285, 1606.0pt x 873.2625pt>
+<images/winter.png, id=301, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -664,22 +664,26 @@ Chapter 3.
 ] [19] [20]
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 94.
- [21])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
- [22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+ [21]) [22]
+Chapter 4.
+(./chapters/ch04-standard-functions.tex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+ [23
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4AC7183147C97F7AB8E3B8B39F695595;2453.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
+(rerunfilecheck)             Checksum: 2E6536E6AAAB2BE8BA622AC1447019FC;2643.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
  ) 
 Here is how much of TeX's memory you used:
- 8665 strings out of 495028
- 121694 string characters out of 6181498
- 272607 words of memory out of 5000000
- 11464 multiletter control sequences out of 15000+600000
+ 8664 strings out of 495028
+ 121696 string characters out of 6181498
+ 272610 words of memory out of 5000000
+ 11467 multiletter control sequences out of 15000+600000
  13486 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  33i,12n,43p,1151b,1890s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -696,10 +700,10 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (23 pages, 252505 bytes).
+Output written on main.pdf (24 pages, 254453 bytes).
 PDF statistics:
- 677 PDF objects out of 1000 (max. 8388607)
- 630 compressed objects within 7 object streams
- 305 named destinations out of 1000 (max. 500000)
- 318 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 684 PDF objects out of 1000 (max. 8388607)
+ 636 compressed objects within 7 object streams
+ 298 named destinations out of 1000 (max. 500000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 
