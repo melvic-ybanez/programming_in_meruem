@@ -54,7 +54,6 @@ That is only a part of a longer error message. The error occurred because you pr
 \begin{REPL}
 meruem> 545345453535353@l
 545345453535353
-meruem>
 \end{REPL}
 
 \subsection{Float}
@@ -89,7 +88,6 @@ meruem> true
 true
 meruem> false
 false
-meruem>  
 \end{REPL}
 
 The example shows that boolean literals, like integer literals, evaluate to themselves.
@@ -104,7 +102,6 @@ meruem> \6
 \6
 meruem> \?
 \?
-meruem> 
 \end{REPL}
 
 One thing to notice is that even a number gets turned into a \code{char} when preceded by a \code{\textbackslash} character. A limitation of this type is that it can't hold multiple characters:
@@ -133,7 +130,6 @@ meruem> (list \h \e \l \l \o)
 (h e l l o)
 meruem> (list 5@f 66@L)
 (5.0 66)
-meruem> 
 \end{REPL}
 
 
@@ -152,7 +148,6 @@ meruem> (list \h \e \l \l \o (list \w \o \r \l \d))
 (h e l l o (w o r l d))
 meruem> ()
 ()
-meruem> 
 \end{REPL}
 
 The first expression shows that you can combine different kinds of values (integer, char, and long, in this case) in a list. The second one shows that you can nest lists (I didn't say that lists can only contain atoms :)). When evaluating a list with another lists as some of its elements, the inner lists get evaluated first before evaluating the outer one. The third expression in the example is an empty list. Let's have a more complicated example:
@@ -160,7 +155,6 @@ The first expression shows that you can combine different kinds of values (integ
 \begin{REPL}
 meruem> (cons (head "hello") (++ (list \w \o) (list \r \l \d)))     
 (h w o r l d)
-meruem>
 \end{REPL}
 
 This example uses types and operators that we haven't discussed yet, so we don't expect you to fully understand it now. However, this should at least show you that you can have more than two levels of nesting in a list, and that the order of evaluation goes from the innermost lists to the outermost ones.
@@ -173,7 +167,6 @@ meruem> "I am a string"
 "I am a string"
 meruem> "hello world"
 "hello world"
-meruem> 
 \end{REPL}
 
 The double quotes get displayed as well in the REPL, but when you print a string via source file the quotes shouldn't appear. 
@@ -184,7 +177,6 @@ A string can act as both an atom and a list. You can treat it as a list of chara
 meruem> "hello\nworld"
 "hello
 world"
-meruem>
 \end{REPL}
 
 The output looks weird, right? That's because the \code{\textbackslash n} is an escape sequence (not a character literal inside a string). An \ikeyword{escape sequence} is a sequence of characters that get translated into something else during evaluation. In this case, the \code{\textbackslash n} gets translated into a newline character, causing the next character to appear in the next line. The escape sequence \code{\textbackslash n} is useful if you want your string output to span multiple lines. There are more escape sequences supported by Meruem strings. Each of them is a combination of the \keyword{escape character} (\code{\textbackslash}) and a character. Let's see a couple more of them:
@@ -196,7 +188,6 @@ meruem> "h\bello world"
 "ello world"
 meruem> "My name is \"Bond\""
 "My name is "Bond""
-meruem> 
 \end{REPL}
 
 A \code{\textbackslash t} is used to insert tab, and a \code{\textbackslash b} means backspace. A \code{\textbackslash "} inserts a double quote. Normally, you can't insert a double quote inside a string literal (without escaping it). There are many more escape sequences. Discussing all of them is already beyond the scope of this book. Fortunately, you can find plenty of discussions about them on the web (most languages tend to have the same set of supported escape sequences, after all). 
@@ -213,7 +204,6 @@ meruem> head
 <function>
 meruem> cond
 cond
-meruem> 
 \end{REPL}
 
 In the last example, \code{quote} and \code{cond} are symbols that evaluate to themselves. These two are built-in operations that you are going to use frequently when writing Meruem programs. \code{cons} and \code{head} are functions. Instead of showing the real objects the symbols point to, the REPL shows their string representations. If you try to evaluate a symbol that doesn't point to anything, the interpreter will yell at you:
@@ -224,7 +214,6 @@ An error has occurred. Unbound symbol: foo.
 Source: .home.melvic.meruem.meruem.prelude [1:1}]
 foo
 ^
-meruem> 
 \end{REPL}
 
 The interpreter is telling you that \code{foo} isn't bound to anything, so it doesn't know how to evaluate it. Symbols are case-sensitive. That means \code{cons} and \code{Cons} are not the same:
@@ -235,7 +224,6 @@ An error has occurred. Unbound symbol: Cons.
 Source: .home.melvic.meruem.meruem.prelude [1:1}]
 Cons
 ^
-meruem> 
 \end{REPL}
 
 We've already seen \code{cons} evaluate to \code{<function>}. However, \code{Cons} is a different symbol, and in this case isn't bound to any value (just like \code{foo}), so it returns an error.
@@ -251,7 +239,6 @@ An error has occurred. Unbound symbol: Nil.
 Source: .home.melvic.meruem.meruem.prelude [1:1}]
 Nil
 ^
-meruem> 
 \end{REPL}
 
 You will get to see its real usage later on.

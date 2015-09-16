@@ -21,7 +21,6 @@ meruem> \c
 \c
 meruem> cons
 <function>
-meruem>   
 \end{REPL}
 
 Again, atoms are the first type of s-expression. The second one has the following structure: 
@@ -39,7 +38,6 @@ meruem> (list "the quick brown" (list \f \o \x))
 (the quick brown (f o x))
 meruem> (++ "I want" "cookies")
 "I wantcookies"
-meruem> 
 \end{REPL}
 
 It is worth noting that this type of s-expressions and lists are not always the same. A list is a data structure, while an s-expression refers to the syntax itself. For instance, consider the expression \code{(+ 1 2 4)}. If you run it in the REPL, you'll get \code{7} as a result. So, the expression \code{(+ 1 2 4)} is an s-expression but you wouldn't call it a list. It is a number, just like $1 + 3$ is a number expressed as the sum of $1$ and $3$. In other words, the type of the expression is the type of the value returned when we evaluate it. On the other hand, the expression \code{(list 1 2 3)} is an s-expression and a list, because the value it returns when evaluated, which is \code{(1 2 3)}, is a list. The difference between s-expression and list, however, does not invalidate the claim that Meruem programs are just lists. Internally, everything is still a list. Also, you can capture an entire expression (an s-expression) without evaluating it, effecting treating it as an ordinary list (see section~). For this reason, the two terms can be used almost interchangeably.
