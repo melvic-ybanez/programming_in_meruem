@@ -1,0 +1,241 @@
+Meruem is a functional programming language. So when you program in Meruem, you don't only rely on the power of lists, you rely heavily on the power of functions too. Creating and using functions are one of the most common tasks in functional programming, so we better know how to do both. In this chapter we are going to learn how to use some of the existing standard functions of the Meruem programming language.
+
+\section{What is a Function?}
+A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs and return an output. The inputs are know as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
+
+\begin{QuasiLang}
+(function arg1 arg2 arg3 ...)
+\end{QuasiLang}
+
+Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the parameters of the function. 
+
+\section{Evaluating a Function}
+In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too. 
+
+\begin{noteparagraph}
+There are some functions that don't evaluate all of their arguments first before evaluating the function itself. You will learn about them later.
+\end{noteparagraph}
+
+Lists are normally just evaluated as function calls. This is why the expression \code{(1 3 4)} is not executable, because while it is a list, its first element is not a function.
+
+Now that you know what functions are and how function evaluation works, it's time to test some standard and built-in functions of Meruem.
+
+\section{Type-converting Functions}
+In many cases, it is very useful to convert one type to another. For that reason, Meruem provides some type converting functions that do exact that kind of conversion:
+
+\begin{REPL}
+meruem> (to-long 4)
+4
+meruem> (to-int 30.23)  
+30
+meruem> (to-double 67)
+67.0
+meruem> (to-float 45@l)
+45.0
+meruem> (to-string 56)
+"56"
+meruem> (to-string 56@d)
+"56.0"
+meruem> (to-char 45)
+\-
+meruem> (to-char 97)
+\a
+\end{REPL}
+
+The names of these functions are self-explanatory. For instance, \code{to-long} takes a number and tries to convert it to a \code{long}. If you apply a function to argument whose type is not compatible with the type the function is expecting, you'll get an error:
+
+\begin{REPL}
+meruem> (to-char "the")
+An error has occurred. Invalid Type. Not a Number: the
+Source: .home.melvic.meruem.meruem.prelude [1:10}]
+(to-char "the")
+         ^
+\end{REPL}
+
+In this example, the interpreter was expecting a number, and you gave it a string. If you are not sure what type an expression has, you can use the \code{type} function to retrieve it:
+
+\begin{REPL}
+meruem> (type 20)
+Integer
+meruem> (type 45.456)  ; double, even without the @d
+Double
+\end{REPL}
+
+\section{Functions as Operators}
+As mentioned in the previous chapter, operators in Meruem are actually just functions whose names are composed of operator (or special) symbols. In other words, there is nothing special about them. In the following subsections you are going to see the different operators supported by Meruem.
+
+\subsection{Arightmetic Operators}
+\ikeyword{Arightmetic operators} are the basic mathematical operators that we have learned since primary school. Let's review them using s-expressions:
+
+\begin{REPL}
+meruem> (+ 1 2 3)
+6
+meruem> (- 56 78)
+-22
+meruem> (* 34 2 3 5)
+1020
+meruem> (/ 100 20)
+5
+meruem> (% 19 4)
+3
+\end{REPL}
+
+The only operator there not that was never taught in school was the last one (\code{\%}). It is known as the \keyword{modulus} operator. The modulus operator will return the remainder after dividing the first operand with the second one.
+
+Each of these operators or functions receives a varying number of arguments. For instance, the \code{+} operator can be applied to more any number of arguments you want:
+
+\begin{REPL}
+meruem> (+ 34 65 6 7 87 5 4 3)
+211
+meruem> (+ 4 5)
+9
+\end{REPL}
+
+What if you don't pass any arguments at all? Well, the addition function returns the additive identity number, the multiplication function returns the multiplicative identity number, and the substraction and division operators return errors:
+
+\begin{REPL}
+meruem> (+)
+0
+meruem> (*)
+1
+meruem> (/)
+An error has occurred. Incorrect number of arguments: 0
+Source: .home.melvic.meruem.meruem.prelude [9:28}]
+(defun lazy (expr) (lambda () ,expr))
+
+                           ^
+meruem> (-)
+An error has occurred. Incorrect number of arguments: 0
+Source: .home.melvic.meruem.meruem.prelude [9:28}]
+(defun lazy (expr) (lambda () ,expr))
+
+                           ^
+\end{REPL}
+
+Since they are all just s-expressions, you can nest them to your heart's content:
+
+\begin{REPL}
+meruem> (+ 5 (- 788 89 0) 54  9 (/ 4 5 (* 4 6)))
+767
+\end{REPL}
+
+You can create the most complex mathematical expressions using only these simple contructs. Now, take a lot at this example:
+
+\begin{REPL}
+meruem> (/ 100 7)
+14
+\end{REPL}
+
+We all know that 100 is not divisible by 7, so why did the expression return a whole number? The reason is that the interpreter performs an \keyword{integer division}. That is, it disregards the decimal digits after the division. If you want to include the decimal digits in the result, you need to convert one of them into a float or double:
+
+\begin{REPL}
+meruem> (/ 100@f 7)
+14.285714
+meruem> (/ (to-double 100) 7)
+14.285714285714286
+\end{REPL}
+
+\subsection{Relational Operators}
+What if you want to know which of the two numerical expressions is greater? What if you want to check if the two function calls return the same values? In programming, comparing things is very common. That is why Meruem was designed to have sufficient number of \keyword{relational operators}. 
+
+\ikeyword{Relational operators} are operators that are used to check the relationship between two or more expressions. The relational operators supported by Meruem includes the \keyword{equality} and \keyword{inequality} operators:
+
+\begin{REPL}
+meruem> (= 45 3)                
+false
+meruem> (> 55 7)
+true
+meruem> (< 345 6)
+false
+meruem> (>= 54 3)
+true
+meruem> (<= 67 45)
+false
+meruem> (> 5 6 6)         
+false
+meruem> (= () '(1 2 3))
+false
+meruem> (< () ())
+An error has occurred. Invalid Type. Not a Number: ()
+Source: .home.melvic.meruem.meruem.prelude [9:28}]
+(defun lazy (expr) (lambda () ,expr))
+
+                           ^
+\end{REPL}
+
+Notice that relational functions can take varying number of arguments too. Also, while the equality operator can take non-numeric arguments, the others can't.
+
+\subsection{Logical Operators}
+The last types of standard operators in Meruem are the \keyword{logical operators}. There are 3 logical operators supported in the language: \code{and}, \code{or}, and \code{not}. All three of them can take varying number of arguments. They are also one of those functions that don't necessarily evaluate all of their arguments prior to the actual application.
+
+\subsubsection{And}
+The \ikeyword{and} operator checks the truthfulness of all of the arguments. If an argument is falsy, it returns that argument, and the rest of the argument won't even be evaluated. If all arguments have been evaluated, it would return the last one. If no arguments are provided, the \code{and} operator returns true.
+
+Before we jump to examples, it is worth discussing what values are considered "truthy" and what values are considered "falsy" in Meruem. Well, it's actually pretty simple. The values \code{false} and \code{nil} are considered falsy values. The rest are thruthy.
+
+Now let's see some sample usages of the \code{and} operator:
+
+\begin{REPL}
+meruem> (and 45 false 6)
+false
+meruem> (and 45 nil 5)
+nil
+meruem> (and 45 89)
+89
+meruem> (and)
+true
+meruem> (and nil 55 3 true)
+nil
+\end{REPL}
+
+\subsubsection{Or}
+The \ikeyword{or} operator also checks the truthfulness of the arguments. It also behaves just like the \code{and} operator. However, unlike \code{and}, \code{or} will return the first truthy (and not the falsy) argument found. The following examples show the difference:
+
+\begin{REPL}
+meruem> (or 45 false 6)
+45
+meruem> (or 45 nil 5)
+45
+meruem> (or nil false 7)
+7
+meruem> (or nil 7 false)
+7
+meruem> (or nil false nil)  
+nil
+meruem> (and 1 2 false)
+false
+\end{REPL}
+
+\subsubsection{Not}
+The last logical operator is \ikeyword{not}. It simply negates an expression, returning the opposite of an expression's truthfulness:
+
+\begin{REPL}
+meruem> (not true)
+false
+meruem> (not false)
+true
+meruem> (not nil)
+true
+meruem> (not 20)
+false
+\end{REPL}
+
+To determine whether a value or expression is truthy or falsy, we can use the \code{truthy?} and \code{falsy?} functions respectively.
+
+\begin{REPL}
+meruem> (truthy? true)
+true
+meruem> (truthy? false)
+false
+meruem> (truthy? nil)
+false
+meruem> (truthy? 1)
+true
+meruem> (falsy? true)
+false
+meruem> (falsy? 1)
+false
+meruem> (falsy? false)
+true
+\end{REPL}
+
