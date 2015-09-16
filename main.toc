@@ -39,4 +39,5 @@
 \contentsline {subsection}{\numberline {3.4.3}List of Pairs}{22}{subsection.3.4.3}
 \contentsline {chapter}{\numberline {4}Standard Functions}{23}{chapter.4}
 \contentsline {section}{\numberline {4.1}What is a Function?}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Evaluating a function}{23}{section.4.2}
+\contentsline {section}{\numberline {4.2}Evaluating a Function}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Type-converting Functions}{24}{section.4.3}

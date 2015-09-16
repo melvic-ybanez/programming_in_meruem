@@ -9,7 +9,43 @@ A \ikeyword{functoin} is a named piece of reusable code that takes a set of inpu
 
 Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the parameters of the function. 
 
-\section{Evaluating a function}
+\section{Evaluating a Function}
 In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too.
 
 Lists are normally just evaluated as function calls. This is why the expression \code{(1 3 4)} is not executable, because while it is a list, its first element is not a function.
+
+Now that you know what functions are and how function evaluation works, it's time to test some standard and built-in functions of Meruem.
+
+\section{Type-converting Functions}
+In many cases, it is very useful to convert one type to another. For that reason, Meruem provides some type converting functions that do exact that kind of conversion:
+
+\begin{REPL}
+meruem> (to-long 4)
+4
+meruem> (to-int 30.23)  
+30
+meruem> (to-double 67)
+67.0
+meruem> (to-float 45@l)
+45.0
+meruem> (to-string 56)
+"56"
+meruem> (to-string 56@d)
+"56.0"
+meruem> (to-char 45)
+\-
+meruem> (to-char 97)
+\a
+\end{REPL}
+
+The names of these functions are self-explanatory. For instance, \code{to-long} takes a number and tries to convert it to a \code{long}. If you apply a function to argument whose type is not compatible with the type the function is expecting, you'll get an error:
+
+\begin{REPL}
+meruem> (to-char "the")
+An error has occurred. Invalid Type. Not a Number: the
+Source: .home.melvic.meruem.meruem.prelude [1:10}]
+(to-char "the")
+         ^
+\end{REPL}
+
+In this example, the interpreter was expecting a number, and you gave it a string. 
