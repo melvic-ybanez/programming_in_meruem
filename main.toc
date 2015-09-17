@@ -51,3 +51,4 @@
 \contentsline {section}{\numberline {4.5}Conditional Functions}{28}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}If-expressions}{29}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}The Cond Expression}{29}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Predicates}{29}{section.4.6}

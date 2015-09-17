@@ -271,3 +271,32 @@ nil
 meruem> (cond)  ; no conditions to check
 nil
 \end{REPL}
+
+\section{Predicates}
+A \ikeyword{predicate} is a function that maps an expression to a boolean value. Basically, all they do is just take an argument and check if that argument is something that falls in a certain category. Here are the standard predicates currently present in Meruem (you've already seen some of them):
+
+\begin{description}
+	\item[atom?] checks if the given argument is an atom.
+	\item[symbol?] checks if the given argument is a symbol.
+	\item[list?] checks if the given argument is a list.
+	\item[truthy?] checks if the given argument is truthy.
+	\item[falsy?] checks if the given argument is falsy.
+	\item[even?] checks if the given argument is an even number. It doesn't accept non-numeric types.
+	\item[odd?] checks if the given argument is an odd number. It doesn't accept non-numeric types.
+	\item[empty?] checks if a string or list is empty. It doesn't accept any other types of values.
+\end{description}
+
+Each of these names is actually self explanatory. Let's see some examples of some of them:
+
+\begin{REPL}
+meruem> (atom? 6)
+true
+meruem> (list? ())
+true
+meruem> (even? 67)
+false
+meruem> (empty? ())
+true
+meruem> (empty? "hello")
+false
+\end{REPL}
