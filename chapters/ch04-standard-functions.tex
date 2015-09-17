@@ -7,7 +7,7 @@ A \ikeyword{functoin} is a named piece of reusable code that takes a set of inpu
 (function arg1 arg2 arg3 ...)
 \end{QuasiLang}
 
-Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the parameters of the function. 
+Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the arguments of the function. 
 
 \section{Evaluating a Function}
 In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too. 
@@ -271,3 +271,49 @@ nil
 meruem> (cond)  ; no conditions to check
 nil
 \end{REPL}
+
+\section{Predicates}
+A \ikeyword{predicate} is a function that maps an expression to a boolean value. Basically, all they do is just take an argument and check if that argument is something that falls in a certain category. Here are the standard predicates currently present in Meruem (you've already seen some of them):
+
+\begin{description}
+	\item[atom?] checks if the given argument is an atom.
+	\item[symbol?] checks if the given argument is a symbol.
+	\item[list?] checks if the given argument is a list.
+	\item[truthy?] checks if the given argument is truthy.
+	\item[falsy?] checks if the given argument is falsy.
+	\item[even?] checks if the given argument is an even number. It doesn't accept non-numeric types.
+	\item[odd?] checks if the given argument is an odd number. It doesn't accept non-numeric types.
+	\item[empty?] checks if a string or list is empty. It doesn't accept any other types of values.
+\end{description}
+
+Each of these names is actually self explanatory. Let's see some examples of some of them:
+
+\begin{REPL}
+meruem> (atom? 6)
+true
+meruem> (list? ())
+true
+meruem> (even? 67)
+false
+meruem> (empty? ())
+true
+meruem> (empty? "hello")
+false
+\end{REPL}
+
+\section{More Utility Functions}
+This section will discuss a few other commonly used functions.
+
+\subsection{Apply}
+The \ikeyword{apply} function takes a function and a list and apply the function to the unpacked contents of the list as if the contents were passed directly to that function:
+
+\begin{REPL}
+meruem> (apply + '(1 2))
+3
+meruem> (apply list '(1 2 4))
+(1 2 4)
+meruem> (apply if '((< 5 6) true nil))
+true
+\end{REPL}
+
+The \code{apply} function is useful when you want to apply a certain function to a set of arguments whose size and elements aren't known until runtime (i.e, the arguments were dynamically generated). For instance, supposing that there is a function \code{foo} that takes an integer and returns a list of integers. What is the easiest way for you to compute their sum? You can't do \code{(+ (foo 10))} because the \code{+} function takes a list (as in a set) of integer arguments, not an argument that is a list (as in lisp list)  of integers. The way to do what you want is to use the \code{apply} function, like this (apply + (foo 10)).
