@@ -110,9 +110,9 @@ The next thing you need you do is to download the Meruem interpreter.
 
 As you already know, Meruem is an interpreted programming language. That means it needs an interpreter, and not a comipler, so programs written in this language can be run. It is important to know the difference between an interpreter and a compiler. An \ikeyword{interpreter} is a program that executes the code on-the-fly without having to convert them to machine code beforehand, while a \ikeyword{compiler} is a program that translates a source code to something else like a machine code or (in the case of Java, or Scala) bytecode, without running them. More generally, a compiler translates one form of code to another.
 
-To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/Meruem/releases} and download the zip file (meruem.zip) of the latest release. Then, extract the zip file into the directory of your choice. Make sure the meruem folder and the meruem.jar are located in the same directory. You can also download the source codes (Source code (zip) or Source code (tar.gz)) if you want to view the code for the interpreter itself. 
+To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/Meruem/releases} and download the zip file (meruem.zip) of the latest release. Then, extract the zip file into the directory of your choice. Make sure the meruem folder and the meruem.jar are located in the same directory. You can also download the source codes (Source code (zip) or Source code (tar.gz)) if you want to view the code for the interpreter itself. After that create a new environment variable \code{MERUEM\_HOME} and set its value to the path of the meruem installation.
 
-That's it. Installing the Meruem interpreter simply means downloading the zip file and extracting it. 
+That's it. Installing the Meruem interpreter simply means downloading the zip file, extracting it, and setting the value of the \code{MERUEM\_HOME} variable.
 
 \section{Installing Winter}
 We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want, but Winter is the more recommended one. 
@@ -134,7 +134,7 @@ Note that you can't run both the Meruem interpreter (we can also just refer to i
 \section{Running the REPL}
 Many programming languages like Scala, Haskell, Clojure (another Lisp that runs on the JVM), Python, Ruby, and more, have what is known as a REPL. A \ikeyword{REPL} (Read-Eval-Print-Loop), also known as \keyword{interactive shell}, is a program that reads input from the user (Read), evaluate it (Eval), prints the result (Print) and ask for another input (Loop). Every Lisp has a REPL (as far as I know). And since Meruem is a Lisp, it has a REPL too. It's called The Meruem REPL (surprise!). 
 
-The Meruem REPL is already packaged with the Meruem distribution that you have downloaded earlier. To run it, first, fire up the terminal (or command prompt, but from now on we'll just refer to it as "Terminal"). Then use the \code{cd} command to go to the directory where you installed Meruem. (If you don't want to keep on doing the previous step, you can add the path to Meruem's installation directory to your environment paths). When you're already inside the installation directory, just type \code{java -jar meruem.jar} and press the enter key. You should be able to see the following on the terminal:
+The Meruem REPL is already packaged with the Meruem distribution that you have downloaded earlier. To run it, first, fire up the terminal (or command prompt, but from now on we'll just refer to it as "Terminal"). Then use the \code{cd} command to go to the directory where you installed Meruem. (If you don't want to keep on doing the previous step, you can make use of the MERUEM\_ HOME variable). When you're already inside the installation directory, just type \code{java -jar meruem.jar} and press the enter key. You should be able to see the following on the terminal:
 
 \begin{REPL}
 meruem>
@@ -156,6 +156,8 @@ To exit the REPL, run \code{exit}:
 meruem> exit
 Bye!
 \end{REPL}
+
+If you don't want to keep on \code{cd}ing into the meruem installation directory, you can make use of the MERUEM\_HOME environment variable. Your command would then look like this: \code{java -jar \$MERUEM\_HOME/meruem.jar} (on Unix, or \path{java -jar %MERUEM_HOME%\meruem.jar} on Windows).
 
 The REPL is useful if all you want to do is to try out some expressions. Instead of creating a new source file for that, you can just evaluate things inside the interactive shell and immediately see the results of the evaluations.
 

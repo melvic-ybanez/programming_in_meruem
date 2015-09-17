@@ -239,3 +239,35 @@ meruem> (falsy? false)
 true
 \end{REPL}
 
+\section{Conditional Functions}
+Sometimes you may want to decide at runtime what code to execute (or expression to evaluate) based on a given condition. You can do this using \keyword{conditional expressions}. 
+
+\subsection{If-expressions}
+The simplest form of conditional expressions is the \code{if-expression}. An if-expression takes three arguments. First, it checks the truthfulness of the first one. If the first argument is truthy, it evaluates the second argument and return the result. Otherwise, it evaluates the third argument and return the result. Here's are some if-expressions in action:
+
+\begin{REPL}
+meruem> (if (> 10 4) "greater" "lesser")
+"greater"
+meruem> 'foo                   
+foo
+meruem> (if 'foo 5 7)
+5
+meruem> (if nil false true)
+true
+meruem> (if (= () ()) (if true 10 9) nil)  ; nested if-expressions
+10
+\end{REPL}
+
+\subsection{The Cond Expression}
+The other, more general, conditional expression is the \keyword{cond expression}. It takes a list of pairs. In each of the pairs, \code{cond} would evaluate the first element. If the first element of the pair is truthy, it would evaluate the second element, halt the evaluation process (meaning the rest of the pairs would no longer be evaluated), and returns the result of evaluating the second element. You'll understand this better with a few examples:
+
+\begin{REPL}
+meruem> (cond (true 5) (false 6))
+5
+meruem> (cond (nil "ignore this") (false 'nope) (5 "yaay"))
+"yaay"
+meruem> (cond (nil 5) (false 5))	; returns nothing
+nil
+meruem> (cond)  ; no conditions to check
+nil
+\end{REPL}

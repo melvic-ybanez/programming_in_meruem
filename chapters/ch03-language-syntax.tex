@@ -130,11 +130,14 @@ meruem> '(1 4 5)
 (1 4 5)
 meruem> '(list 3 5 6)
 (list 3 5 6)
+meruem> 'foo  ; this works, even if foo is an unbound symbol
+foo
 \end{REPL}
 
 The \code{'} is known as the \keyword{quote} operator. Actually, the above expressions still got evaluated, but the resulting values are just the same as the corresponding inputs but without the quotes. This operator is one of the most important syntactic sugars (syntax that make things more pleasant to read) in Meruem, so expect to see more uses of it from now on. There is a more advanced form of quote, called \keyword{quasiquote}, but we are not going to discuss it in this chapter.
 
 \subsection{List of Pairs}
+\label{sec:list-of-pairs}
 It is not uncommon for an expression to be a list of pairs (where a pair is a list that holds two items). In fact it is so common that I decided to add a \keyword{syntactic sugar} for it. The following example shows how to use it:
 
 \begin{REPL}
