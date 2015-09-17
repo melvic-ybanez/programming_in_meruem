@@ -258,5 +258,16 @@ meruem> (if (= () ()) (if true 10 9) nil)  ; nested if-expressions
 10
 \end{REPL}
 
-\subsection{The Cond Operator}
-The other, more general, conditional expression make use of the \keyword{cond operator}.
+\subsection{The Cond Expression}
+The other, more general, conditional expression is the \keyword{cond expression}. It takes a list of pairs. In each of the pairs, \code{cond} would evaluate the first element. If the first element of the pair is truthy, it would evaluate the second element, halt the evaluation process (meaning the rest of the pairs would no longer be evaluated), and returns the result of evaluating the second element. You'll understand this better with a few examples:
+
+\begin{REPL}
+meruem> (cond (true 5) (false 6))
+5
+meruem> (cond (nil "ignore this") (false 'nope) (5 "yaay"))
+"yaay"
+meruem> (cond (nil 5) (false 5))	; returns nothing
+nil
+meruem> (cond)  ; no conditions to check
+nil
+\end{REPL}
