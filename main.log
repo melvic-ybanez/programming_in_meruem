@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  19 SEP 2015 23:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  20 SEP 2015 00:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,7 +624,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=366, 1606.0pt x 873.2625pt>
+<images/winter.png, id=371, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -669,22 +669,22 @@ Chapter 4.
 (./chapters/ch04-standard-functions.tex [23
 
 ] [24] [25] [26] [27] [28] [29]
-[30])
+[30] [31])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
- [31]
+ [32]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 940D141EDBD2B17223BE033225C101D6;3518.
+(rerunfilecheck)             Checksum: DB560A8F9A6CE503753F9FD3048FA01F;3595.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
  ) 
 Here is how much of TeX's memory you used:
- 8919 strings out of 495028
- 125449 string characters out of 6181498
+ 8936 strings out of 495028
+ 125689 string characters out of 6181498
  272701 words of memory out of 5000000
- 11503 multiletter control sequences out of 15000+600000
+ 11506 multiletter control sequences out of 15000+600000
  13486 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  33i,12n,43p,1237b,1890s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -701,10 +701,10 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (32 pages, 278500 bytes).
+Output written on main.pdf (33 pages, 280267 bytes).
 PDF statistics:
- 1028 PDF objects out of 1200 (max. 8388607)
- 969 compressed objects within 10 object streams
- 517 named destinations out of 1000 (max. 500000)
- 446 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1051 PDF objects out of 1200 (max. 8388607)
+ 991 compressed objects within 10 object streams
+ 531 named destinations out of 1000 (max. 500000)
+ 454 words of extra memory for PDF output out of 10000 (max. 10000000)
 

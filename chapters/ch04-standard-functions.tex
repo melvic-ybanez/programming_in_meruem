@@ -343,3 +343,23 @@ meruem> (identity (+ 5 3))
 \end{REPL}
 
 It looks so useless, right? Well, you'll understand it's purpose when we get to \keyword{higher-order functions}.
+
+\subsection{Increment and Decrement}
+The last functions we are going to discuss in this section are the increment and decrement functions. The \ikeyword{increment} function, denoted by \code{inc}, takes a number and returns that number increased by one. It is essentially the same as \code{(+ 1 arg)}, where \code{arg} is a numeric argument. The \ikeyword{decrement} function, denoted by \code{dec}, is the opposite of the increment function (i.e it is the same as \code{(- 1 arg)}). 
+
+
+Finally, here is the last set of examples for this chapter:
+
+\begin{REPL}
+meruem> (inc 67)
+68
+meruem> (dec 30)
+29
+meruem> (inc 9.8)
+10.8
+meruem> (inc \a)
+An error has occurred. Invalid Type. Not a Number: a
+Source: .home.melvic.meruem.meruem.prelude [1:6}]
+(inc \a)
+     ^
+\end{REPL}
