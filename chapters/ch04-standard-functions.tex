@@ -1,7 +1,7 @@
 Meruem is a functional programming language. So when you program in Meruem, you don't only rely on the power of lists, you rely heavily on the power of functions too. Creating and using functions are one of the most common tasks in functional programming, so we better know how to do both. In this chapter we are going to learn how to use some of the existing standard functions of the Meruem programming language.
 
 \section{What is a Function?}
-A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs and return an output. The inputs are known as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
+A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs, does something with it, and return an output. The inputs are known as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
 
 \begin{QuasiLang}
 (function arg1 arg2 arg3 ...)
@@ -319,7 +319,7 @@ true
 The \code{apply} function is useful when you want to apply a certain function to a set of arguments whose size and values aren't known until runtime (i.e, the arguments were dynamically generated). For instance, supposing that there is a function \code{foo} that takes an integer and returns a list of integers. What is the easiest way for you to compute their sum? You can't do \code{(+ (foo 10))} because the \code{+} function takes a list (as in a set) of integer arguments, not an argument that is a list (as in lisp list)  of integers. The way to do what you want is to use the \code{apply} function, like this: (apply + (foo 10)).
 
 \subsection{Lazy}
-The \ikeyword{lazy} function (or macro) takes a single argument, wrap this argument in a function that doesn't return any arguments, then return that function. The argument being passed to the \code{lazy} function does not get evaluated prior to the function call. The purpose of \code{lazy} is simply to "delay" the evaluation of an expression. Let's see some examples:
+The \ikeyword{lazy} function (or macro) takes a single argument, wrap this argument in a function that doesn't take any arguments, then return that function. The argument being passed to the \code{lazy} function does not get evaluated prior to the function call. The purpose of \code{lazy} is simply to "delay" the evaluation of an expression. Let's see some examples:
 
 \begin{REPL}
 meruem> (lazy 56)  ; returns a function that returns 56
@@ -329,3 +329,17 @@ meruem> ((lazy 56))  ; evaluates the function returned by lazy
 \end{REPL}
 
 Note that \code{<function>} is the string representation of a function. 
+
+\subsection{Identity}
+The \ikeyword{identity} function takes a single expression and immediately return that expression:
+
+\begin{REPL}
+meruem> (identity 45)
+45
+meruem> (identity "hello")
+"hello"
+meruem> (identity (+ 5 3))
+8
+\end{REPL}
+
+It looks so useless, right? Well, you'll understand it's purpose when we get to \keyword{higher-order functions}.
