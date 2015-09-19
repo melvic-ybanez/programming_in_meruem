@@ -51,3 +51,6 @@
 \BOOKMARK [1][-]{section.4.6}{Predicates}{chapter.4}% 51
 \BOOKMARK [1][-]{section.4.7}{More Utility Functions}{chapter.4}% 52
 \BOOKMARK [2][-]{subsection.4.7.1}{Apply}{section.4.7}% 53
+\BOOKMARK [2][-]{subsection.4.7.2}{Lazy}{section.4.7}% 54
+\BOOKMARK [2][-]{subsection.4.7.3}{Identity}{section.4.7}% 55
+\BOOKMARK [2][-]{subsection.4.7.4}{Increment and Decrement}{section.4.7}% 56
