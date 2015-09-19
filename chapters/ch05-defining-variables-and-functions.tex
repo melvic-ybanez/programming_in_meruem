@@ -1,0 +1,90 @@
+In the previous chapter, you learned how to use some of the standard and built-in functions in Meruem. In this chapter, you are going to learn how to create your own functions and how to assign names to them. Not only that, you are also going to learn how to name s-expressions in general, by storing them to \keyword{variables}.
+
+\section{Lambdas}
+Technically, Meruem supports only one way to create a function, and that is through the use of the \code{lambda} command. More specifically, the \code{lambda} command is used to create a \keyword{lambda}. A \ikeyword{lambda} refers to anonymous functions. In other words, lambdas are functions whose names you don't know or care. 
+
+To use the \code{lambda} command, you need to pass two arguments to it. (Remember, even commands in Meruem behave like functions too.) The first argument is a list. This list would represent the parameters for the function (which in this case, a lambda) you are creating. The second argument is any expression. This expression would be the body of your anonymous function. The result of evaluating the body of a function would also be the value the function would return. Here's an example:
+
+\begin{REPL}
+meruem> (lambda () 6)
+<function>
+\end{REPL}
+
+This function takes no arguments and just returns the integer \code{6}. If you evaluate it, you'd see \code{<function>} as the result. That is because the \code{lambda} command creates a function instance, and (as stated in the previous chapter) the string representation of a function is \code{<function>}. To evaluate a lambda, just enclose it in parentheses:
+
+\begin{REPL}
+meruem> ((lambda () 6))
+6
+\end{REPL}
+
+Pretty simple, right? Let's try creating a lambda that takes two integers and return their sum:
+
+\begin{REPL}
+meruem> (lambda (a b) (+ a b)) 
+<function>
+\end{REPL}
+
+In this example, \code{a} and \code{b} would be the parameters of the lamba or function. By the way, is the difference between parameters and arguments already clear to you? Let's clarify it, either way. \ikeyword{Parameters} are the ones that appear as part of the function definition (like \code{a} and \code{b} in the last example), while \ikeyword{arguments} are the expressions or values that you pass to the function during function call (like \code{1} and \code{2} in \code{(+ 1 2)}). In other words, in a particular function call, the arguments would substitute the parameters inside the function. Now, let's try applying the last function to the values \code{10} and \code{20}:
+
+\begin{REPL}
+meruem> ((lambda (a b) (+ a b)) 10 20)
+30
+\end{REPL}
+
+This expression is a list. Again, when you evaluate a list, the interpreter would treat it as a function call, and therefore ask for the first element to be a function. The first element in this example is \code{(lambda (a b) (+ a b))}, which is a lambda. The second and third elements of this list would be the first and second arguments respectively. 
+
+It is important to know that the number of arguments passed should be the same as the number of accepting parameters:
+
+\begin{REPL}
+meruem> ((lambda () 5) 4)
+An error has occurred. Extra arguments: (4)
+Source: .home.melvic.meruem.meruem.prelude [1:16}]
+((lambda () 5) 4)
+               ^
+meruem> ((lambda (a b c) a) 1 2)
+An error has occurred. Not enough arguments. Expected values for (c).
+Source: .home.melvic.meruem.meruem.prelude [1:15}]
+((lambda (a b c) a) 1 2)
+              ^
+\end{REPL}
+
+In the first expression, you created a lambda that doesn't accept any parameters, but you provided it with one argument (in this case, \code{4}). So the interpreter complained because there's an extra argument of \code{4}. The second example is the opposite. This time, you created a lambda with 3 parameters, but passed only two arguments. The interpreter complained because it is expecting a value for \code{c}. 
+
+Another important thing to remember is that the types of values passed to a function should also be correct:
+
+\begin{REPL}
+meruem> ((lambda (a) (inc a)) 5)
+6
+meruem> ((lambda (a) (inc a)) \5)
+An error has occurred. Invalid Type. Not a Number: 5
+Source: .home.melvic.meruem.meruem.prelude [1:23}]
+((lambda (a) (inc a)) \5)
+                      ^
+\end{REPL}
+
+An error occured in the second input because we passed a character to a function that passes its parameter directly to \code{inc}. Remember, the \code{inc} function only takes numbers as arguments. Therefore, the parameter \code{a} could only be a number. 
+
+The order of the arguments matter too:
+\begin{REPL}
+meruem> ((lambda (a b) (- a b)) 20 30)
+-10
+meruem> ((lambda (a b) (- a b)) 30 20)
+10
+\end{REPL}
+
+Let's try something that is a bit more complicated. How about a function that takes an integer representing a person's age, and returns the stage of the life cycle that person is currently in. Here's the code:
+
+\begin{Meruem}
+((lambda (age)
+   (cond 
+     ((< 0) nil)
+     ((< 3) "Infancy")
+     ((< 6) "Early Childhood")
+     ((< 8) "Middle Childhood")
+     ((< 11) "Late Childhood")
+     ((< 20) "Adolescene")
+     ((< 35) "Early Adulthood")
+     ((< 50) "Midlife")
+     ((< 80) "Mature Adulthood")
+     (true "Late Adulthood"))) 57)
+\end{Meruem}
