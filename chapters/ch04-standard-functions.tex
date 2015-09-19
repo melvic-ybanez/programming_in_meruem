@@ -1,7 +1,7 @@
 Meruem is a functional programming language. So when you program in Meruem, you don't only rely on the power of lists, you rely heavily on the power of functions too. Creating and using functions are one of the most common tasks in functional programming, so we better know how to do both. In this chapter we are going to learn how to use some of the existing standard functions of the Meruem programming language.
 
 \section{What is a Function?}
-A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs and return an output. The inputs are know as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
+A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs and return an output. The inputs are known as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
 
 \begin{QuasiLang}
 (function arg1 arg2 arg3 ...)
@@ -10,13 +10,13 @@ A \ikeyword{functoin} is a named piece of reusable code that takes a set of inpu
 Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the arguments of the function. 
 
 \section{Evaluating a Function}
-In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. In other words, the result of evaluating the first argument becomes the first parameter of the function, the result of evaluating the second argument becomes the second parameter, and so on. Note that some of these arguments can be function calls too. 
+In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. The result of evaluating the first argument gets passed to the first parameter of the function, the result of evaluating the second argument gets passed to the second parameter, and so on. Since function calls are s-expressions, and s-expressions are recursive in nature, some of the arguments of a function can be complex expressions or function calls too. 
 
 \begin{noteparagraph}
 There are some functions that don't evaluate all of their arguments first before evaluating the function itself. You will learn about them later.
 \end{noteparagraph}
 
-Lists are normally just evaluated as function calls. This is why the expression \code{(1 3 4)} is not executable, because while it is a list, its first element is not a function.
+Lists are normally just evaluated as function calls. The expression \code{(1 3 4)} is not executable, because while it is a list, its first element is not a function. If you want to call a function that doesn't take any arguments, just wrap the function in parentheses, effectively creating a list with only one element (e.g. \code{(some-function)}).
 
 Now that you know what functions are and how function evaluation works, it's time to test some standard and built-in functions of Meruem.
 
@@ -316,4 +316,16 @@ meruem> (apply if '((< 5 6) true nil))
 true
 \end{REPL}
 
-The \code{apply} function is useful when you want to apply a certain function to a set of arguments whose size and elements aren't known until runtime (i.e, the arguments were dynamically generated). For instance, supposing that there is a function \code{foo} that takes an integer and returns a list of integers. What is the easiest way for you to compute their sum? You can't do \code{(+ (foo 10))} because the \code{+} function takes a list (as in a set) of integer arguments, not an argument that is a list (as in lisp list)  of integers. The way to do what you want is to use the \code{apply} function, like this (apply + (foo 10)).
+The \code{apply} function is useful when you want to apply a certain function to a set of arguments whose size and values aren't known until runtime (i.e, the arguments were dynamically generated). For instance, supposing that there is a function \code{foo} that takes an integer and returns a list of integers. What is the easiest way for you to compute their sum? You can't do \code{(+ (foo 10))} because the \code{+} function takes a list (as in a set) of integer arguments, not an argument that is a list (as in lisp list)  of integers. The way to do what you want is to use the \code{apply} function, like this: (apply + (foo 10)).
+
+\subsection{Lazy}
+The \ikeyword{lazy} function (or macro) takes a single argument, wrap this argument in a function that doesn't return any arguments, then return that function. The argument being passed to the \code{lazy} function does not get evaluated prior to the function call. The purpose of \code{lazy} is simply to "delay" the evaluation of an expression. Let's see some examples:
+
+\begin{REPL}
+meruem> (lazy 56)  ; returns a function that returns 56
+<function>
+meruem> ((lazy 56))  ; evaluates the function returned by lazy
+56
+\end{REPL}
+
+Note that \code{<function>} is the string representation of a function. 
