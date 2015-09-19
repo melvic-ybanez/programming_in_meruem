@@ -72,6 +72,26 @@ meruem> ((lambda (a b) (- a b)) 30 20)
 10
 \end{REPL}
 
+% varargs
+Lambdas can take a varying number of parameters too, just like some of the standard functions introduced in the previous chapter. You can tell a lambda to accept any number of arguments by placing the \code{\&} symbol before the name of the parameter that will serve as the list to store the arguments:
+
+\begin{REPL}
+meruem> ((lambda (& xs) (apply + xs)) 1 2 3)
+6
+\end{REPL}
+
+This function takes any number of arguments and computer their sum. In this case, \code{xs} would be a list with the elements \code{1}, \code{2}, and \code{3}. You can also add some parameters before the \code{\&}. In that case, those parameters would still take the values from the arguments (as usual), but the remaining argument values who don't have any receiving parameters will be stored in the parameter following the \code{\&}. 
+
+\begin{REPL}
+meruem> ((lambda (a b & rest) (list a b rest)) 1 2 4 5 6)
+(1 2 (4 5 6))
+\end{REPL}
+
+% why lambda
+% variables
+% defun
+% main function
+
 Let's try something that is a bit more complicated. How about a function that takes an integer representing a person's age, and returns the stage of the life cycle that person is currently in. Here's the code:
 
 \begin{Meruem}
