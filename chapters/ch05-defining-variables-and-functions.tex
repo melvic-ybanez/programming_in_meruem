@@ -280,7 +280,7 @@ meruem> (identity1 20)  ; 20 or 100?
 \end{REPL}
 
 \section{Let-expressions}
-\ikeyword{Let-expressions} are used to simplify a complex expressions by breaking them down into multiple parts, and giving names to those parts. You construct a let-expression using the \code{let} command. The \code{let} command takes two arguments. The first argument is a list of pairs. Each of the pairs is composed of a variable followed by the value that variable would be bound to. The second argument would be an expression that can make use of the variables defined in the first argument. The result of evaluating the second argument would be the result of the let-expression itself. The following shows an example of a let-expression:
+\ikeyword{Let-expressions} are used to simplify complex expressions by breaking them down into multiple parts, and giving names to those parts, making them more readable and/or reusable. You construct a let-expression using the \code{let} command. The \code{let} command takes two arguments. The first argument is a list of pairs. Each of the pairs is composed of a variable followed by the value that variable would be bound to. The second argument would be an expression that can make use of the variables defined in the first argument. The result of evaluating the second argument would be the result of the let-expression itself. The following shows an example of a let-expression:
 
 \begin{REPL}
 meruem> (let ((a 10) (b 20)) (+ a b))
@@ -306,7 +306,7 @@ msg
 ^
 \end{REPL}
 
-Let us refactor the code for the \code{life-stage} function using let-expression by giving a name to the task of comparing the given \code{age} to a particular number. The following example shows that a let-expression can define variables that hold lambdas too:
+As a way of showing a more complicated example, let us refactor the code for the \code{life-stage} function using let-expression by giving a name to the task of comparing the given \code{age} to a particular number. The following example shows that a let-expression can also define a variable that holds a lambda, essentially creating a function within the expression:
  
 \begin{Meruem}
 (defun life-stage (age)
