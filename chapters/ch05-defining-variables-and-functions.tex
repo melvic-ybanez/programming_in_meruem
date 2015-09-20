@@ -24,7 +24,7 @@ meruem> (lambda (a b) (+ a b))
 <function>
 \end{REPL}
 
-In this example, \code{a} and \code{b} would be the parameters of the lamba or function. By the way, is the difference between parameters and arguments already clear to you? Let's clarify it, either way. \ikeyword{Parameters} are the ones that appear as part of the function definition (like \code{a} and \code{b} in the last example), while \ikeyword{arguments} are the expressions or values that you pass to the function during function call (like \code{1} and \code{2} in \code{(+ 1 2)}). In other words, in a particular function call, the arguments would substitute the parameters inside the function. Now, let's try applying the last function to the values \code{10} and \code{20}:
+In this example, \code{a} and \code{b} would be the parameters of the lamba or function. You can give a parameter any name that you want. By the way, is the difference between parameters and arguments already clear to you? Let's clarify it, either way. \ikeyword{Parameters} are the ones that appear as part of the function definition (like \code{a} and \code{b} in the last example), while \ikeyword{arguments} are the expressions or values that you pass to the function during function call (like \code{1} and \code{2} in \code{(+ 1 2)}). In other words, the arguments would substitute the parameters inside the function. Now, let's try applying the last function to the values \code{10} and \code{20}:
 
 \begin{REPL}
 meruem> ((lambda (a b) (+ a b)) 10 20)
@@ -194,21 +194,21 @@ Let's try something that is a bit more complicated. How about a function that ta
 \begin{Meruem}
 (defun life-stage (age)
    (cond 
-     ((< 0) nil)
-     ((< 3) "Infancy")
-     ((< 6) "Early Childhood")
-     ((< 8) "Middle Childhood")
-     ((< 11) "Late Childhood")
-     ((< 20) "Adolescene")
-     ((< 35) "Early Adulthood")
-     ((< 50) "Midlife")
-     ((< 80) "Mature Adulthood")
+     ((< age 0) nil)
+     ((< age 3) "Infancy")
+     ((< age 6) "Early Childhood")
+     ((< age 8) "Middle Childhood")
+     ((< age 11) "Late Childhood")
+     ((< age 20) "Adolescene")
+     ((< age 35) "Early Adulthood")
+     ((< age 50) "Midlife")
+     ((< age 80) "Mature Adulthood")
      (true "Late Adulthood")))
 \end{Meruem}
 
-This function is not meant to be coded in the REPL. We better write it in a source file and run it as a complete program. In order to do that, we need a \keyword{main function}. The following subsection will talk about it (including how to run the \code{life-stage} function).
+This function is not meant to be coded in the REPL due to its size. We better write it in a source file and run it as a complete program. In order to do that, we need a \keyword{main function}. The following subsection will talk about it (including how to run the \code{life-stage} function).
 
-A \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. For example, here's the code for the \code{Hello World} program again:
+The \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. Without it, a program is not runnable. Here's the code for the \code{Hello World} program again:
 
 \begin{REPL}
 (defun main (args)    ; This is the main function.
@@ -216,6 +216,28 @@ A \ikeyword{main function} is the entry point of a Meruem program. That means ev
   (println ("Hello World")))
 \end{REPL}
 
-As you can see, main has one parameter named \code{args}. It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \code{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}
+As you can see, \code{main} has one parameter (in this case, named \code{args}). It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \code{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}.
+
+Now, let us try printing the result of invoking the \code{life-stage} function. Save the following code in a Meruem file and run it:
+
+\begin{Meruem}
+(defun life-stage (age)
+   (cond 
+     ((< age 0) nil)
+     ((< age 3) "Infancy")
+     ((< age 6) "Early Childhood")
+     ((< age 8) "Middle Childhood")
+     ((< age 11) "Late Childhood")
+     ((< age 20) "Adolescene")
+     ((< age 35) "Early Adulthood")
+     ((< age 50) "Midlife")
+     ((< age 80) "Mature Adulthood")
+     (true "Late Adulthood")))
+
+(defun main (args)
+  (println (life-stage 20)))
+\end{Meruem}
+
+As you've probably already guessed, the \code{println} function prints the string representation of its argument to the console. Without it, we wouldn't see any output. That's because running a program is different than evaluating expressions in the REPL, where every results get printed immediately.
 
 % scoping
