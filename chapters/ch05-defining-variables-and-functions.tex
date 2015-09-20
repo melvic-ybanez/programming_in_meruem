@@ -161,14 +161,38 @@ Source: .home.melvic.meruem.meruem.prelude [1:6}]
 (def foo 20)
      ^
 \end{REPL}
-% scoping
-% defun
-% main function
+
+\section{Defining Functions}
+You already know how to define variables. Now let's see how to define functions. It's actually pretty simple. Remember, \code{def} assigns the result of evaluating its second argument to the first one, which is symbol, denoting the name of the variable. The second argument can be any s-expression, including lambdas. Since a lambda is a function, then by storing a lambda to a variable, we've already given name to a function. 
+
+Let's try that idea by creating our own function \code{sum} that takes a list of numbers and compute their sum:
+
+\begin{REPL}
+meruem> (def sum (lambda (& xs) (apply + xs)))
+nil
+meruem> (sum 1 2 3)
+6
+meruem> (sum)
+0
+meruem> sum 
+<function>
+meruem> (type sum)
+Function
+\end{REPL}
+
+Storing lambdas to variables is so common that there is a macro created just for that. It's called \code{defun}. The \ikeyword{defun} macro takes three arguments. The first one would be the name of resulting function, the second argument would be the list of arguments this function will take, and the third argument would be the body of this function. Here's the equivalent of the \code{sum} function that we created earlier implemented using \code{defun} instead of \code{def}:
+
+\begin{REPL}
+meruem> (defun sum (& xs) (apply + xs))
+nil
+meruem> (sum 43 54)
+97
+\end{REPL}
 
 Let's try something that is a bit more complicated. How about a function that takes an integer representing a person's age, and returns the stage of the life cycle that person is currently in. Here's the code:
 
 \begin{Meruem}
-((lambda (age)
+(defun life-stage (age)
    (cond 
      ((< 0) nil)
      ((< 3) "Infancy")
@@ -179,5 +203,19 @@ Let's try something that is a bit more complicated. How about a function that ta
      ((< 35) "Early Adulthood")
      ((< 50) "Midlife")
      ((< 80) "Mature Adulthood")
-     (true "Late Adulthood"))) 57)
+     (true "Late Adulthood")))
 \end{Meruem}
+
+This function is not meant to be coded in the REPL. We better write it in a source file and run it as a complete program. In order to do that, we need a \keyword{main function}. The following subsection will talk about it (including how to run the \code{life-stage} function).
+
+A \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. For example, here's the code for the \code{Hello World} program again:
+
+\begin{REPL}
+(defun main (args)    ; This is the main function.
+  ; The main functions is the entry point of a Meruem program.
+  (println ("Hello World")))
+\end{REPL}
+
+As you can see, main has one parameter named \code{args}. It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \code{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}
+
+% scoping
