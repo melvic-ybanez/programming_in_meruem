@@ -1,4 +1,4 @@
-\documentclass[12pt, obeyspaces]{report}
+\documentclass[12pt, twoside, obeyspaces]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
@@ -10,6 +10,7 @@
 \usepackage{color}
 \usepackage{courier}
 \usepackage{url}
+\usepackage{mathtools}
 
 \pagestyle{fancy}
 \graphicspath{{images/}}
@@ -86,7 +87,8 @@
 		escapeinside={(*@}{@*)},
 		breaklines=true,
 		numberstyle=\codenumberstyle,
-		commentstyle=\codecommentstyle
+		commentstyle=\codecommentstyle,
+		otherkeywords={def, lambda, defun}
 	}
 }{}
 \lstnewenvironment{QuasiLang}{
@@ -122,4 +124,7 @@
 	
 	\chapter{Standard Functions}
 	\input{chapters/ch04-standard-functions}
+	
+	\chapter{Defining Variables and Functions}
+	\input{chapters/ch05-defining-variables-and-functions}
 \end{document}

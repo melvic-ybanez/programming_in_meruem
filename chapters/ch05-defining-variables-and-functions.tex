@@ -1,0 +1,325 @@
+In the previous chapter, you learned how to use some of the standard and built-in functions in Meruem. In this chapter, you are going to learn how to create your own functions and how to assign names to them. Not only that, you are also going to learn how to name s-expressions in general, by storing them to \keyword{variables}.
+
+\section{Lambdas}
+Technically, Meruem supports only one way to create a function, and that is through the use of the \code{lambda} command. More specifically, the \code{lambda} command is used to create a \keyword{lambda}. A \ikeyword{lambda} refers to anonymous functions. In other words, lambdas are functions whose names you don't know or care. 
+
+To use the \code{lambda} command, you need to pass two arguments to it. (Remember, even commands in Meruem behave like functions too.) The first argument is a list. This list would represent the parameters for the function (which in this case, a lambda) you are creating. The second argument is any expression. This expression would be the body of your anonymous function. The result of evaluating the body of a function would also be the value the function would return. Here's an example:
+
+\begin{REPL}
+meruem> (lambda () 6)
+<function>
+\end{REPL}
+
+This function takes no arguments and just returns the integer \code{6}. If you evaluate it, you'd see \code{<function>} as the result. That is because the \code{lambda} command creates a function instance, and (as stated in the previous chapter) the string representation of a function is \code{<function>}. To evaluate a lambda, just enclose it in parentheses:
+
+\begin{REPL}
+meruem> ((lambda () 6))
+6
+\end{REPL}
+
+Pretty simple, right? Let's try creating a lambda that takes two integers and return their sum:
+
+\begin{REPL}
+meruem> (lambda (a b) (+ a b)) 
+<function>
+\end{REPL}
+
+In this example, \code{a} and \code{b} would be the parameters of the lamba or function. You can give a parameter any name that you want. By the way, is the difference between parameters and arguments already clear to you? Let's clarify it, either way. \ikeyword{Parameters} are the ones that appear as part of the function definition (like \code{a} and \code{b} in the last example), while \ikeyword{arguments} are the expressions or values that you pass to the function during function call (like \code{1} and \code{2} in \code{(+ 1 2)}). In other words, the arguments would substitute the parameters inside the function. Now, let's try applying the last function to the values \code{10} and \code{20}:
+
+\begin{REPL}
+meruem> ((lambda (a b) (+ a b)) 10 20)
+30
+\end{REPL}
+
+This expression is a list. Again, when you evaluate a list, the interpreter would treat it as a function call, and therefore ask for the first element to be a function. The first element in this example is \code{(lambda (a b) (+ a b))}, which is a lambda. The second and third elements of this list would be the first and second arguments respectively. 
+
+It is important to know that the number of arguments passed should be the same as the number of accepting parameters:
+
+\begin{REPL}
+meruem> ((lambda () 5) 4)
+An error has occurred. Extra arguments: (4)
+Source: .home.melvic.meruem.meruem.prelude [1:16}]
+((lambda () 5) 4)
+               ^
+meruem> ((lambda (a b c) a) 1 2)
+An error has occurred. Not enough arguments. Expected values for (c).
+Source: .home.melvic.meruem.meruem.prelude [1:15}]
+((lambda (a b c) a) 1 2)
+              ^
+\end{REPL}
+
+In the first expression, you created a lambda that doesn't accept any parameters, but you provided it with one argument (in this case, \code{4}). So the interpreter complained because there's an extra argument of \code{4}. The second example is the opposite. This time, you created a lambda with 3 parameters, but passed only two arguments. The interpreter complained because it is expecting a value for \code{c}. 
+
+Another important thing to remember is that the types of values passed to a function should also be correct:
+
+\begin{REPL}
+meruem> ((lambda (a) (inc a)) 5)
+6
+meruem> ((lambda (a) (inc a)) \5)
+An error has occurred. Invalid Type. Not a Number: 5
+Source: .home.melvic.meruem.meruem.prelude [1:23}]
+((lambda (a) (inc a)) \5)
+                      ^
+\end{REPL}
+
+An error occured in the second input because we passed a character to a function that passes its parameter directly to \code{inc}. Remember, the \code{inc} function only takes numbers as arguments. Therefore, the parameter \code{a} could only be a number. 
+
+The order of the arguments matter too:
+\begin{REPL}
+meruem> ((lambda (a b) (- a b)) 20 30)
+-10
+meruem> ((lambda (a b) (- a b)) 30 20)
+10
+\end{REPL}
+
+% varargs
+Lambdas can take a varying number of parameters too, just like some of the standard functions introduced in the previous chapter. You can tell a lambda to accept any number of arguments by placing the \code{\&} symbol before the name of the parameter that will serve as the list to store the arguments:
+
+\begin{REPL}
+meruem> ((lambda (& xs) (apply + xs)) 1 2 3)
+6
+\end{REPL}
+
+This function takes any number of arguments and computer their sum. In this case, \code{xs} would be a list with the elements \code{1}, \code{2}, and \code{3}. You can also add some parameters before the \code{\&}. In that case, those parameters would still take the values from the arguments (as usual), but the remaining argument values who don't have any receiving parameters will be stored in the parameter following the \code{\&}. 
+
+\begin{REPL}
+meruem> ((lambda (a b & rest) (list a b rest)) 1 2 4 5 6)
+(1 2 (4 5 6))
+\end{REPL}
+
+% variables
+\section{Variables}
+A \ikeyword{variable} is a symbol that is bound to a specific expression or value. To define a variable, you use the \code{def} command. The \code{def} command takes two arguments. The first argument is the name of the variable, and the second one is the value the variable is bound to. Here are some examples:
+
+\begin{REPL}
+meruem> (def x 10)
+nil
+meruem> (def one-plus-two (+ 1 2))
+nil
+\end{REPL}
+
+The first expression sets \code{x} to the integer \code{10}. The second one sets \code{one-plus-two} to the result of evaluating \code{(+ 1 2)}. Both expressions return \code{nil} because all each of them do is define a variable. As mentioned before, \code{nil} is used to indicate the "absence of value". In this case, we return \code{nil} because returning a value wouldn't really make sense. 
+
+To use the variables we just defined, we can simply refer to their names:
+
+\begin{REPL}
+meruem> x
+10
+meruem> one-plus-two
+3
+meruem> (+ x one-plus-two)		; add the two variables
+13
+\end{REPL}
+
+You can also set a value of a variable to another variable:
+
+\begin{REPL}
+meruem> (def y x)
+nil
+meruem> y
+10
+\end{REPL}
+
+The name of a variable should be a symbol. Therefore, the following definitions wouldn't work:
+
+\begin{REPL}
+meruem> (def \c 20)  
+An error has occurred. Invalid Type. Not a Symbol: c
+Source: .home.melvic.meruem.meruem.prelude [1:6}]
+(def \c 20)
+     ^
+meruem> (def "x" 100)
+An error has occurred. Invalid Type. Not a Symbol: x
+Source: .home.melvic.meruem.meruem.prelude [1:6}]
+(def "x" 100)
+     ^
+\end{REPL}
+
+\subsection{Immutability and Variable bindings}
+In imperative languages, you can both mutate the value a variable is bound to, or reassign a new value to a variable. In functional languages like Haskell or Meruem, you can't do both. This is because functional languages follow the more mathematical (rather than algorithmic) approach to solving problems. 
+
+In mathematics, a variable is just like an alias to a value or expression (that eventually resolves to a value). Mutating a value (like $100$) or expression (like $a + b$) wouldn't really make sense. You also can't bind an already bound variable to something else in the middle of a solution. For instance, in algebra, you usually see problem solutions like the following:
+
+\begin{flalign*}
+a &= 2 \\
+b &= 3 \\
+x &= (a + b)(a - b)\\
+&= (2 + 3)(2 - 3)\\
+&= -5
+\end{flalign*}
+
+In the example above, $a$ remains 2 and $b$ remains 3 until the end of the solution. Both $a$ and $b$ are variables because they could be anything prior to the evaluation of $(a + b)(a - b)$, and not because they could be anything while $(a + b)(a - b)$ is being evaluated.
+
+Same thing can be said to variables in Meruem. Once a variable has been initialized, you can no longer reassign a new value to it:
+
+\begin{REPL}
+meruem> (def foo 10)
+nil
+meruem> (def foo 20)
+An error has occurred. foo is already defined.
+Source: .home.melvic.meruem.meruem.prelude [1:6}]
+(def foo 20)
+     ^
+\end{REPL}
+
+\section{Defining Functions}
+You already know how to define variables. Now let's see how to define functions. It's actually pretty simple. Remember, \code{def} assigns the result of evaluating its second argument to the first one, which is symbol, denoting the name of the variable. The second argument can be any s-expression, including lambdas. Since a lambda is a function, then by storing a lambda to a variable, we've already given name to a function. 
+
+Let's try that idea by creating our own function \code{sum} that takes a list of numbers and compute their sum:
+
+\begin{REPL}
+meruem> (def sum (lambda (& xs) (apply + xs)))
+nil
+meruem> (sum 1 2 3)
+6
+meruem> (sum)
+0
+meruem> sum 
+<function>
+meruem> (type sum)
+Function
+\end{REPL}
+
+Storing lambdas to variables is so common that there is a macro created just for that. It's called \code{defun}. The \ikeyword{defun} macro takes three arguments. The first one would be the name of resulting function, the second argument would be the list of arguments this function will take, and the third argument would be the body of this function. Here's the equivalent of the \code{sum} function that we created earlier implemented using \code{defun} instead of \code{def}:
+
+\begin{REPL}
+meruem> (defun sum (& xs) (apply + xs))
+nil
+meruem> (sum 43 54)
+97
+\end{REPL}
+
+Let's try something that is a bit more complicated. How about a function that takes an integer representing a person's age, and returns the stage of the life cycle that person is currently in. Here's the code:
+
+\begin{Meruem}
+(defun life-stage (age)
+   (cond 
+     ((< age 0) nil)
+     ((< age 3) "Infancy")
+     ((< age 6) "Early Childhood")
+     ((< age 8) "Middle Childhood")
+     ((< age 11) "Late Childhood")
+     ((< age 20) "Adolescene")
+     ((< age 35) "Early Adulthood")
+     ((< age 50) "Midlife")
+     ((< age 80) "Mature Adulthood")
+     (true "Late Adulthood")))
+\end{Meruem}
+
+This function is not meant to be coded in the REPL due to its size. We better write it in a source file and run it as a complete program. In order to do that, we need a \keyword{main function}. The following subsection will talk about it (including how to run the \code{life-stage} function).
+
+The \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. Without it, a program is not runnable. Here's the code for the \code{Hello World} program again:
+
+\begin{REPL}
+(defun main (args)    ; This is the main function.
+  ; The main functions is the entry point of a Meruem program.
+  (println ("Hello World")))
+\end{REPL}
+
+As you can see, \code{main} has one parameter (in this case, named \code{args}). It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \code{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}.
+
+Now, let us try printing the result of invoking the \code{life-stage} function. Save the following code in a Meruem file and run it:
+
+\begin{Meruem}
+(defun life-stage (age)
+   (cond 
+     ((< age 0) nil)
+     ((< age 3) "Infancy")
+     ((< age 6) "Early Childhood")
+     ((< age 8) "Middle Childhood")
+     ((< age 11) "Late Childhood")
+     ((< age 20) "Adolescene")
+     ((< age 35) "Early Adulthood")
+     ((< age 50) "Midlife")
+     ((< age 80) "Mature Adulthood")
+     (true "Late Adulthood")))
+
+(defun main (args)
+  (println (life-stage 20)))
+\end{Meruem}
+
+As you've probably already guessed, the \code{println} function prints the string representation of its argument to the console. Without it, we wouldn't see any output. That's because running a program is different than evaluating expressions in the REPL, where every results get printed immediately.
+
+\section{Scoping}
+\ikeyword{Scope} determines the part of the code where a particular bound symbol is accessible. For instance, \code{x} in the following example can be accessed inside the function \code{addBy10} but not outside of it:
+
+\begin{REPL}
+meruem> (defun addBy10 (x) (+ 10 x))
+nil
+meruem> (addBy10 67)
+77
+meruem> x  ; x is undefined in this scope
+An error has occurred. Unbound symbol: x.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+x  ; x is undefined in this scope
+^
+\end{REPL}
+
+The reason the REPL can't accessed \code{x} outside of \code{addBy10} is because it's only visible inside that function. In other words, \code{x} is a bound symbol that is local to \code{addBy10}. We can even create a new variable \code{x} outside of \code{addBy10} and there won't be any conflicts. This particular type of scoping is known as \keyword{lexical scoping}. 
+
+A function can accessed variables declared outside of it:
+
+\begin{REPL}
+meruem> (def x 10)
+nil
+meruem> (defun incX () (inc x))
+nil
+meruem> (incX)
+11
+\end{REPL}
+
+If a bound symbol exists both within and outside of a function, the one within it prevails:
+
+\begin{REPL}
+meruem> (def a  100)                            
+nil
+meruem> (defun identity1 (a) a)  ; "a" is local to identity1
+nil
+meruem> (identity1 20)  ; 20 or 100?
+20
+\end{REPL}
+
+\section{Let-expressions}
+\ikeyword{Let-expressions} are used to simplify complex expressions by breaking them down into multiple parts, and giving names to those parts, making them more readable and/or reusable. You construct a let-expression using the \code{let} command. The \code{let} command takes two arguments. The first argument is a list of pairs. Each of the pairs is composed of a variable followed by the value that variable would be bound to. The second argument would be an expression that can make use of the variables defined in the first argument. The result of evaluating the second argument would be the result of the let-expression itself. The following shows an example of a let-expression:
+
+\begin{REPL}
+meruem> (let ((a 10) (b 20)) (+ a b))
+30
+\end{REPL}
+
+We can also use the syntactic sugar for the lists of pairs that was discussed in section~\sectionref{sec:list-of-pairs}:
+
+\begin{REPL}
+meruem> (let { a 10 b 20 } (+ a b))
+30
+\end{REPL}
+
+Let-expressions also have a \keyword{function scope}, which means that variables declared inside them can't be accessed by any outsiders:
+
+\begin{REPL}
+meruem> (let { msg "hello" } msg)              
+"hello"
+meruem> msg 
+An error has occurred. Unbound symbol: msg.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+msg
+^
+\end{REPL}
+
+As a way of showing a more complicated example, let us refactor the code for the \code{life-stage} function using let-expression by giving a name to the task of comparing the given \code{age} to a particular number. The following example shows that a let-expression can also define a variable that holds a lambda, essentially creating a function within the expression:
+ 
+\begin{Meruem}
+(defun life-stage (age)
+  (let { up-to (lambda (limit) (< age limit)) }
+    (cond 
+     ((up-to 0) nil)
+     ((up-to 3) "Infancy")
+     ((up-to 6) "Early Childhood")
+     ((up-to 8) "Middle Childhood")
+     ((up-to 11) "Late Childhood")
+     ((up-to 20) "Adolescene")
+     ((up-to 35) "Early Adulthood")
+     ((up-to 50) "Midlife")
+     ((up-to 80) "Mature Adulthood")
+     (true "Late Adulthood"))))
+\end{Meruem}

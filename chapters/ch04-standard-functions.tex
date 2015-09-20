@@ -1,13 +1,13 @@
 Meruem is a functional programming language. So when you program in Meruem, you don't only rely on the power of lists, you rely heavily on the power of functions too. Creating and using functions are one of the most common tasks in functional programming, so we better know how to do both. In this chapter we are going to learn how to use some of the existing standard functions of the Meruem programming language.
 
 \section{What is a Function?}
-A \ikeyword{functoin} is a named piece of reusable code that takes a set of inputs, does something with it, and return an output. The inputs are known as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
+A \ikeyword{functoin} is piece of code that is designed to perform a specific computation. A function takes a set of inputs (which may be empty), does something with it, and return an output. The inputs are known as \keyword{parameters} and the output is known as the \keyword{return value}. In the previous chapter, you've learned that the syntax of a function call looks like this:
 
 \begin{QuasiLang}
 (function arg1 arg2 arg3 ...)
 \end{QuasiLang}
 
-Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the arguments of the function. 
+Note that I've replaced \code{callable} with \code{function}, to emphasize that most of the callables are effectively just functions. The elements starting from the second one are the \keyword{arguments} of the function. Function arguments are additional data that you pass to the function in order for it to complete its computations and return the result. The function receives the values passed as arguments by storing them to \keyword{parameters}.
 
 \section{Evaluating a Function}
 In order to evaluate a function call, the arguments need to be evaluated first. Then, you apply the function (first element) to the evaluated arguments. The result of evaluating the first argument gets passed to the first parameter of the function, the result of evaluating the second argument gets passed to the second parameter, and so on. Since function calls are s-expressions, and s-expressions are recursive in nature, some of the arguments of a function can be complex expressions or function calls too. 
@@ -328,7 +328,7 @@ meruem> ((lazy 56))  ; evaluates the function returned by lazy
 56
 \end{REPL}
 
-Note that \code{<function>} is the string representation of a function. 
+Note that \code{<function>} is the string representation of a function. The \keyword{string representation} of an expression is the string value returned by applying the \code{to-string} function to that expression.
 
 \subsection{Identity}
 The \ikeyword{identity} function takes a single expression and immediately return that expression:
