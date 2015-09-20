@@ -240,4 +240,41 @@ Now, let us try printing the result of invoking the \code{life-stage} function. 
 
 As you've probably already guessed, the \code{println} function prints the string representation of its argument to the console. Without it, we wouldn't see any output. That's because running a program is different than evaluating expressions in the REPL, where every results get printed immediately.
 
-% scoping
+\section{Scoping}
+\ikeyword{Scope} determines the part of the code where a particular bound symbol is accessible. For instance, \code{x} in the following example can be accessed inside the function \code{addBy10} but not outside of it:
+
+\begin{REPL}
+meruem> (defun addBy10 (x) (+ 10 x))
+nil
+meruem> (addBy10 67)
+77
+meruem> x  ; x is undefined in this scope
+An error has occurred. Unbound symbol: x.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+x  ; x is undefined in this scope
+^
+\end{REPL}
+
+The reason the REPL can't accessed \code{x} outside of \code{addBy10} is because it's only visible inside that function. In other words, \code{x} is a bound symbol that is local to \code{addBy10}. We can even create a new variable \code{x} outside of \code{addBy10} and there won't be any conflicts. This particular type of scoping is known as \ikeyword{lexical scoping}. 
+
+A function can accessed variables declared outside of it:
+
+\begin{REPL}
+meruem> (def x 10)
+nil
+meruem> (defun incX () (inc x))
+nil
+meruem> (incX)
+11
+\end{REPL}
+
+If a bound symbol exists both within and outside of a function, the one within it prevails:
+
+\begin{REPL}
+meruem> (def a  100)                            
+nil
+meruem> (defun identity1 (a) a)  ; "a" is local to identity1
+nil
+meruem> (identity1 20)  ; 20 or 100?
+20
+\end{REPL}
