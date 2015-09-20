@@ -64,3 +64,5 @@
 \contentsline {section}{\numberline {5.3}Defining Functions}{38}{section.5.3}
 \contentsline {section}{\numberline {5.4}Scoping}{40}{section.5.4}
 \contentsline {section}{\numberline {5.5}Let-expressions}{40}{section.5.5}
+\contentsline {chapter}{\numberline {6}Recursion}{42}{chapter.6}
+\contentsline {section}{\numberline {6.1}What is Recursion?}{42}{section.6.1}
