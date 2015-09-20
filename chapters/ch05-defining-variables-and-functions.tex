@@ -255,7 +255,7 @@ x  ; x is undefined in this scope
 ^
 \end{REPL}
 
-The reason the REPL can't accessed \code{x} outside of \code{addBy10} is because it's only visible inside that function. In other words, \code{x} is a bound symbol that is local to \code{addBy10}. We can even create a new variable \code{x} outside of \code{addBy10} and there won't be any conflicts. This particular type of scoping is known as \ikeyword{lexical scoping}. 
+The reason the REPL can't accessed \code{x} outside of \code{addBy10} is because it's only visible inside that function. In other words, \code{x} is a bound symbol that is local to \code{addBy10}. We can even create a new variable \code{x} outside of \code{addBy10} and there won't be any conflicts. This particular type of scoping is known as \keyword{lexical scoping}. 
 
 A function can accessed variables declared outside of it:
 
@@ -278,3 +278,48 @@ nil
 meruem> (identity1 20)  ; 20 or 100?
 20
 \end{REPL}
+
+\section{Let-expressions}
+\ikeyword{Let-expressions} are used to simplify a complex expressions by breaking them down into multiple parts, and giving names to those parts. You construct a let-expression using the \code{let} command. The \code{let} command takes two arguments. The first argument is a list of pairs. Each of the pairs is composed of a variable followed by the value that variable would be bound to. The second argument would be an expression that can make use of the variables defined in the first argument. The result of evaluating the second argument would be the result of the let-expression itself. The following shows an example of a let-expression:
+
+\begin{REPL}
+meruem> (let ((a 10) (b 20)) (+ a b))
+30
+\end{REPL}
+
+We can also use the syntactic sugar for the lists of pairs that was discussed in section~\sectionref{sec:list-of-pairs}:
+
+\begin{REPL}
+meruem> (let { a 10 b 20 } (+ a b))
+30
+\end{REPL}
+
+Let-expressions also have a \keyword{function scope}, which means that variables declared inside them can't be accessed by any outsiders:
+
+\begin{REPL}
+meruem> (let { msg "hello" } msg)              
+"hello"
+meruem> msg 
+An error has occurred. Unbound symbol: msg.
+Source: .home.melvic.meruem.meruem.prelude [1:1}]
+msg
+^
+\end{REPL}
+
+Let us refactor the code for the \code{life-stage} function using let-expression by giving a name to the task of comparing the given \code{age} to a particular number. The following example shows that a let-expression can define variables that hold lambdas too:
+ 
+\begin{Meruem}
+(defun life-stage (age)
+  (let { up-to (lambda (limit) (< age limit)) }
+    (cond 
+     ((up-to 0) nil)
+     ((up-to 3) "Infancy")
+     ((up-to 6) "Early Childhood")
+     ((up-to 8) "Middle Childhood")
+     ((up-to 11) "Late Childhood")
+     ((up-to 20) "Adolescene")
+     ((up-to 35) "Early Adulthood")
+     ((up-to 50) "Midlife")
+     ((up-to 80) "Mature Adulthood")
+     (true "Late Adulthood"))))
+\end{Meruem}

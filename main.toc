@@ -63,3 +63,4 @@
 \contentsline {subsection}{\numberline {5.2.1}Immutability and Variable bindings}{37}{subsection.5.2.1}
 \contentsline {section}{\numberline {5.3}Defining Functions}{38}{section.5.3}
 \contentsline {section}{\numberline {5.4}Scoping}{40}{section.5.4}
+\contentsline {section}{\numberline {5.5}Let-expressions}{40}{section.5.5}
