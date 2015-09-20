@@ -59,3 +59,5 @@
 \contentsline {subsection}{\numberline {4.7.4}Increment and Decrement}{31}{subsection.4.7.4}
 \contentsline {chapter}{\numberline {5}Defining Variables and Functions}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}Lambdas}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Variables}{35}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Immutability and Variable bindings}{36}{subsection.5.2.1}
