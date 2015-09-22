@@ -1,7 +1,9 @@
 \section{What is Recursion?}
-\ikeyword{Recursion} is an approach to solving a problem by using a function that is composed of smaller instances of the same function. It is essentially similar as constructing a function that calls itself. 
+\ikeyword{Recursion} is an approach to solving a problem by using a function that is composed of simpler instances of the same function. It is essentially similar to constructing a function that calls itself. 
 
-You'll better understand it with an example. So let's try to implement the factorial function in Meruem:
+One common example is the recursive, mathematical definition of \keyword{factorial}. The \ikeyword{factorial} of a positive integer $n$ is the product of $n$ and the \keyword{factorial} of $1$ less than $n$. This is a recursive definition because the term being defined (which is $factorial$) appears, as an important element, in it's definition.
+
+Here's a sample implementation of a factorial function in Meruem:
 
 \begin{Meruem}
 (defun factorial (n)
@@ -14,7 +16,7 @@ You'll better understand it with an example. So let's try to implement the facto
              (to-int (head args)))))
 \end{Meruem}
 
-Before we discuss the \code{factorial} function itself, let's first take a look at our main function here. The main function applies the \code{head} function --- which takes a list and returns its first element --- to \code{args}. Then it converts the result (which is a string) to \code{int}. Next, it applies the \code{factorial} function to the integer result. Lastly it prints the result of calling \code{factorial}. Basically, what we're doing is telling the user to input the value to pass to the factorial function. With this, we can run the program multiple times with different arguments without having to modify the code.
+Before we discuss the \code{factorial} function itself, let's first take a look at our main function here. The main function applies the \code{head} function --- which takes a list and returns its first element --- to \code{args}. Then it converts the result (which, in this case, is a string) to \code{int}. Next, it applies the \code{factorial} function to the integer result. (\code{factorial} can only be applied to integers so we had to convert the \code{head} of \code{args} to \code{int} first.) Lastly it prints the result of calling \code{factorial}. Basically, what we're doing is telling the user to pass as a command line argument the value \code{factorial} is to be applied to. With this, we can run the program multiple times with different arguments without having to modify the code.
 
 Now, let's talk about the \code{factorial} function. It takes an integer and checks if its value is \code{0}. If it is \code{0}, then the function returns 1. Otherwise, the function returns the product of the integer \code{n} and the result of applying itself to the value of \code{n} decreased by 1. In this case, the \code{factorial} function is performing a recursive call. Let's try running it a few times to see if it will behave as we wanted it to:
 
@@ -26,3 +28,15 @@ $ java -jar $MERUEM_HOME/meruem.jar factorial 10
 $ java -jar $MERUEM_HOME/meruem.jar factorial 4
 24
 \end{REPL}
+
+In order to have an idea of what's really happening when we ran \code{factorial}, you can substitute each of the argument values for every parameter \code{n} in each call to \code{factorial}. For instance, here's what happens when you execute \code{(factorial 5)}:
+
+\begin{flalign*}
+factorial(5) &= 5 \times factorial(4) \\
+&= 5 \times (4 \times factorial(3)) \\
+&= 5 \times (4 \times (3 \times factorial(2))) \\
+&= 5 \times (4 \times (3 \times (2 \times factorial(1)))) \\
+&= 5 \times (4 \times (3 \times (2 \times (1 \times factorial(0))))) \\
+&= 5 \times (4 \times (3 \times (2 \times (1 \times 1)))) \\
+&= 120
+\end{flalign*}
