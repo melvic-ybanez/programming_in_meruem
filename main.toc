@@ -66,3 +66,4 @@
 \contentsline {section}{\numberline {5.5}Let-expressions}{40}{section.5.5}
 \contentsline {chapter}{\numberline {6}Recursion}{42}{chapter.6}
 \contentsline {section}{\numberline {6.1}What is Recursion?}{42}{section.6.1}
+\contentsline {section}{\numberline {6.2}Recursion and StackOverflowErrors}{43}{section.6.2}

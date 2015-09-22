@@ -63,3 +63,4 @@
 \BOOKMARK [1][-]{section.5.5}{Let-expressions}{chapter.5}% 63
 \BOOKMARK [0][-]{chapter.6}{Recursion}{}% 64
 \BOOKMARK [1][-]{section.6.1}{What is Recursion?}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.2}{Recursion and StackOverflowErrors}{chapter.6}% 66

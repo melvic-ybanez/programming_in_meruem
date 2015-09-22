@@ -44,3 +44,63 @@ factorial(5) &= 5 \times factorial(4) \\
 As you can see, we couldn't compute for the factorial of 5 without knowing the factorial of 4 first. And we couldn't get the factorial of 4 without calling the factorial of 3, and so on. When we finally got to $factorial(0)$ --- or \code{(factorial 0)} in Meruem --- the recursive calling stopped. That is because we hit the \keyword{base case} (I'll explain this in a minute), which says that the factorial of 0 is 1. When $factorial(0)$ returned 1, $factorial(1)$ resumed it's computation. When $factorial(1)$ completed and returned, $factorial(2)$ resumed, and so on. Eventually, the original call --- $factorial(5)$ --- returned and we had our result.
 
 A recursive function should have a base case. A \ikeyword{base case} is the case in which the result can be computed without resorting to a recursive call. In our factorial function, the base case happens when the input is 0. You can say that $factorial(0)$ is the simplest instance of the factorial function. If we remove the base case of the factorial function, calling it would cause an \keyword{infinite recursion}, because calling $factorial(0)$ would result to $0 \times factorial(-1)$, instead of $1$, $factorial(-1)$ resolves to $-1 \times factorial(-2)$, and so on.
+
+\section{Recursion and StackOverflowErrors}
+
+Here's a function that adds all the positive integers from 1 up to the integer $n$: 
+
+\begin{Meruem}
+(defun sum-1-to-n (n)
+  (if (<= n 0)
+    0    
+    (+ n (sum-1-to-n (dec n)))))
+\end{Meruem}
+
+First, it checks if the parameter is bound to \code{0} or a negative number. If it is, the function returns \code{0}. Otherwise, it returns the sum of \code{n} and the \code{sum-1-to-n} of \code{1} less than \code{n}. 
+
+Make changes to \code{main} so that it will print the result of calling \code{sum-1-to-n} instead of \code{factorial}.  Save it as \code{sum12n.mer} (or any filename you want). You can run it just like you did \code{factorial.mer}:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 5
+15
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 10
+55
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 70
+2485
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 0
+0
+$ java -jar $MERUEM_HOME/meruem.jar sum12n -3
+0
+\end{REPL}
+
+Works fine! Now what if we try inputting a bigger number:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 400
+Exception in thread "main" java.lang.StackOverflowError
+	at meruem.Evaluate$.apply(Evaluate.scala:15)
+	at meruem.Evaluate$.apply(Evaluate.scala:27)
+.........
+\end{REPL}
+
+Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. Allow me to explain the issue. 
+
+Every recursive call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
+
+\begin{REPL}
+(sum-1-to-n 5)
+(+ 5 (sum-1-to-n 4))
+(+ 5 (+ 4 (sum-1-to-n 3)))
+(+ 5 (+ 4 (+ 3 (sum-1-to-n 2))))
+(+ 5 (+ 4 (+ 3 (+ 2 (sum-1-to-n 1)))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1 (sum-1-to-n 0))))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1 0)))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1)))))
+.....
+(+ 5 10)
+15
+\end{REPL}
+
+Now, that's a pretty exhausting! Imagine if we tried tracing the stack of \code{(sum-1-to-n 400)}. 
+
+In the next section I am going to show you how to fix this kind of problem.
