@@ -61,3 +61,8 @@
 \BOOKMARK [1][-]{section.5.3}{Defining Functions}{chapter.5}% 61
 \BOOKMARK [1][-]{section.5.4}{Scoping}{chapter.5}% 62
 \BOOKMARK [1][-]{section.5.5}{Let-expressions}{chapter.5}% 63
+\BOOKMARK [0][-]{chapter.6}{Recursion}{}% 64
+\BOOKMARK [1][-]{section.6.1}{What is Recursion?}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.2}{Recursion and StackOverflowErrors}{chapter.6}% 66
+\BOOKMARK [1][-]{section.6.3}{Tail-recursion}{chapter.6}% 67
+\BOOKMARK [2][-]{subsection.6.3.1}{tail-rec and recur}{section.6.3}% 68

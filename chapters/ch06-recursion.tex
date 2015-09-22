@@ -1,0 +1,164 @@
+\section{What is Recursion?}
+\ikeyword{Recursion} is an approach to solving a problem by using a function that is composed of simpler instances of the same function. It is essentially similar to constructing a function that calls itself. 
+
+One common example is the recursive, mathematical definition of \keyword{factorial}. The \ikeyword{factorial} of a positive integer $n$ is the product of $n$ and the \keyword{factorial} of $1$ less than $n$. This is a recursive definition because the term being defined (which is $factorial$) appears, as an important element, in it's definition.
+
+Here's a sample implementation of a factorial function in Meruem:
+
+\begin{Meruem}
+(defun factorial (n)
+  (if (= n 0)
+    1
+    (* n (factorial (dec n)))))
+
+(defun main (args)
+  (println (factorial 
+             (to-int (head args)))))
+\end{Meruem}
+
+Before we discuss the \code{factorial} function itself, let's first take a look at our main function here. The main function applies the \code{head} function --- which takes a list and returns its first element --- to \code{args}. Then it converts the result (which, in this case, is a string) to \code{int}. Next, it applies the \code{factorial} function to the integer result. (\code{factorial} can only be applied to integers so we had to convert the \code{head} of \code{args} to \code{int} first.) Lastly it prints the result of calling \code{factorial}. Basically, what we're doing is telling the user to pass as a command line argument the value \code{factorial} is to be applied to. With this, we can run the program multiple times with different arguments without having to modify the code.
+
+Now, let's talk about the \code{factorial} function. It takes an integer and checks if its value is \code{0}. If it is \code{0}, then the function returns 1. Otherwise, the function returns the product of the integer \code{n} and the result of applying itself to the value of \code{n} decreased by 1. In this case, the \code{factorial} function is performing a recursive call. Let's try running it a few times to see if it will behave as we wanted it to:
+
+\begin{REPL}
+$  java -jar $MERUEM_HOME/meruem.jar factorial 5
+120
+$ java -jar $MERUEM_HOME/meruem.jar factorial 10
+3628800
+$ java -jar $MERUEM_HOME/meruem.jar factorial 4
+24
+\end{REPL}
+
+In order to have an idea of what's really happening when we ran \code{factorial}, you can substitute each of the argument values for every parameter \code{n} in each call to \code{factorial}. For instance, here's what happens when you execute \code{(factorial 5)}:
+
+\begin{flalign*}
+factorial(5) &= 5 \times factorial(4) \\
+&= 5 \times (4 \times factorial(3)) \\
+&= 5 \times (4 \times (3 \times factorial(2))) \\
+&= 5 \times (4 \times (3 \times (2 \times factorial(1)))) \\
+&= 5 \times (4 \times (3 \times (2 \times (1 \times factorial(0))))) \\
+&= 5 \times (4 \times (3 \times (2 \times (1 \times 1)))) \\
+&= 120
+\end{flalign*}
+
+As you can see, we couldn't compute for the factorial of 5 without knowing the factorial of 4 first. And we couldn't get the factorial of 4 without calling the factorial of 3, and so on. When we finally got to $factorial(0)$ --- or \code{(factorial 0)} in Meruem --- the recursive calling stopped. That is because we hit the \keyword{base case} (I'll explain this in a minute), which says that the factorial of 0 is 1. When $factorial(0)$ returned 1, $factorial(1)$ resumed it's computation. When $factorial(1)$ completed and returned, $factorial(2)$ resumed, and so on. Eventually, the original call --- $factorial(5)$ --- returned and we had our result.
+
+A recursive function should have a base case. A \ikeyword{base case} is the case in which the result can be computed without resorting to a recursive call. In our factorial function, the base case happens when the input is 0. You can say that $factorial(0)$ is the simplest instance of the factorial function. If we remove the base case of the factorial function, calling it would cause an \keyword{infinite recursion}, because calling $factorial(0)$ would result to $0 \times factorial(-1)$, instead of $1$, $factorial(-1)$ resolves to $-1 \times factorial(-2)$, and so on.
+
+\section{Recursion and StackOverflowErrors}
+
+Here's a function that adds all the positive integers from 1 up to the integer $n$: 
+
+\begin{Meruem}
+(defun sum-1-to-n (n)
+  (if (<= n 0)
+    0    
+    (+ n (sum-1-to-n (dec n)))))
+\end{Meruem}
+
+First, it checks if the parameter is bound to \code{0} or a negative number. If it is, the function returns \code{0}. Otherwise, it returns the sum of \code{n} and the \code{sum-1-to-n} of \code{1} less than \code{n}. 
+
+Make changes to \code{main} so that it will print the result of calling \code{sum-1-to-n} instead of \code{factorial}.  Save it as \code{sum12n.mer} (or any filename you want). You can run it just like you did \code{factorial.mer}:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 5
+15
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 10
+55
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 70
+2485
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 0
+0
+$ java -jar $MERUEM_HOME/meruem.jar sum12n -3
+0
+\end{REPL}
+
+Works fine! Now what if we try inputting a bigger number:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 400
+Exception in thread "main" java.lang.StackOverflowError
+	at meruem.Evaluate$.apply(Evaluate.scala:15)
+	at meruem.Evaluate$.apply(Evaluate.scala:27)
+.........
+\end{REPL}
+
+Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
+
+Every function call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
+
+\begin{REPL}
+(sum-1-to-n 5)
+(+ 5 (sum-1-to-n 4))
+(+ 5 (+ 4 (sum-1-to-n 3)))
+(+ 5 (+ 4 (+ 3 (sum-1-to-n 2))))
+(+ 5 (+ 4 (+ 3 (+ 2 (sum-1-to-n 1)))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1 (sum-1-to-n 0))))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1 0)))))
+(+ 5 (+ 4 (+ 3 (+ 2 (+ 1)))))
+.....
+(+ 5 10)
+15
+\end{REPL}
+
+Now, that's pretty exhausting! Imagine if we tried tracing the stack of \code{(sum-1-to-n 400)}. It would take us a decade to finish it. In the next section I am going to show you how to fix this kind of problem.
+
+\section{Tail-recursion}
+\ikeyword{Tail-recursion} is a recursion in which the recursive call is the last thing the function does before returning. Here's the tail-recursive version of \code{sum-1-to-n}:
+
+\begin{Meruem}
+(defun tail-sum1ton (n acc)
+  (if (<= n 0)
+    acc
+    (tail-sum1ton (dec n) (+ n acc))))
+\end{Meruem}
+
+We changed the name to \code{tail-sum1ton} so we can easily distinguish the older version from the new one. This function has two parameters instead of one. The first parameter is the same \code{n} we had before. The second parameter is called an \keyword{accumulator}. In our base case, we return \code{acc} instead of 0. Then, if \code{n} is greater than \code{0}, \code{tail-sum1ton} would call itself, but this time the result won't be added to \code{n}. What would happen now is that \code{acc} would be added to \code{n} and the result would be passed as the second argument to the recursive call. In other words, we no longer return the "current sum" as we did before. We just pass it as the second argument to the recursive call. After the recursive call, \code{tail-sum1ton} have nothing else to do but to return the result immediately. 
+
+If Meruem was a language that supported \keyword{tail-call optimization} --- a method used by a compiler or interpreter to avoid allocating a new stack frame for a function during a \keyword{tail call}, the stack trace of \code{tail-sum1ton} would have looked like this:
+
+\begin{REPL}
+(tail-sum1ton 5 0)
+(tail-sum1ton 4 5)
+(tail-sum1ton 3 9)
+(tail-sum1ton 2 12)
+(tail-sum1ton 1 14)
+(tail-sum1ton 0 15)
+15
+\end{REPL}
+
+Unfortunately, Meruem doesn't support tail-call optimization. So, if we execute \code{(tail-sum1ton 400 0)}, we'll still get a \code{StackOverflow} error.
+
+\subsection{\texttt{tail-rec} and \texttt{recur}}
+The more recommended way of solving the stack overflow issue (that we saw earlier) in Meruem is to use the \code{tail-rec} and \code{recur} functions. 
+
+\code{tail-rec} takes two arguments. The first one is a list of key-value pairs. Each of the keys would be a variable that is local to the \code{tail-rec} function, and each of the values would be the initial value of the corresponding key. The second argument of \code{tail-rec} could be any expression that, when evaluated, would serve as the return value of \code{tail-rec} itself.
+
+\code{recur} is usually used only within \code{tail-rec}. It's purpose (when used within \code{tail-rec}) is to make \code{tail-rec} to call itself (essentially making it recurse). 
+
+When \code{tail-rec} calls itself for the second time, its variables would be bound to the arguments to \code{recur}, and not to their initial values. This is not the same as reassigning new values to the variables of \code{tail-rec}. Just think of it as recursion. In recursion, every recursive call creates a new instance of the same function, whose parameters might be bound to different values. So no reassignments really happen.
+
+Enough chit-chat, let's now reimplement \code{sum-1-to-n} using \code{tail-rec} and \code{recur}. Here's the new code:
+
+\begin{Meruem}
+(defun tail-sum-1-to-n (n)
+  (tail-rec { n n acc 0 }
+    (if (<= n 0)
+      acc
+      (recur (dec n) (+ n acc)))))
+\end{Meruem}
+
+In this case, \code{tail-rec} has two local variables, \code{n} and \code{acc}. \code{n} gets initialized to \code{n} (the outer one) and \code{acc} gets initialized to \code{0}. The arguments to \code{recur} --- \code{(dec n)} and \code{(+ n acc)} --- gets passed to \code{tail-rec}'s \code{n} and \code{acc} respectively, in every recursive call.
+
+We can now pass large values to \code{sum-1-to-n} without getting a \code{StackOverflow} error:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 400
+80200
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 500
+125250
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 600
+180300
+\end{REPL}
+
+How does \code{tail-rec} get optimized? Well, internally the interpreter would perform a tail-recursion. Since the interpreter is written in Scala, and Scala's tail-recursions get converted to \keyword{loops} at \keyword{compile-time}, then Meruem's tail-rec is essentially like loops in imperative languages.
