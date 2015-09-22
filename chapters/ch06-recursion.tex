@@ -40,3 +40,7 @@ factorial(5) &= 5 \times factorial(4) \\
 &= 5 \times (4 \times (3 \times (2 \times (1 \times 1)))) \\
 &= 120
 \end{flalign*}
+
+As you can see, we couldn't compute for the factorial of 5 without knowing the factorial of 4 first. And we couldn't get the factorial of 4 without calling the factorial of 3, and so on. When we finally got to $factorial(0)$ --- or \code{(factorial 0)} in Meruem --- the recursive calling stopped. That is because we hit the \keyword{base case} (I'll explain this in a minute), which says that the factorial of 0 is 1. When $factorial(0)$ returned 1, $factorial(1)$ resumed it's computation. When $factorial(1)$ completed and returned, $factorial(2)$ resumed, and so on. Eventually, the original call --- $factorial(5)$ --- returned and we had our result.
+
+A recursive function should have a base case. A \ikeyword{base case} is the case in which the result can be computed without resorting to a recursive call. In our factorial function, the base case happens when the input is 0. You can say that $factorial(0)$ is the simplest instance of the factorial function. If we remove the base case of the factorial function, calling it would cause an \keyword{infinite recursion}, because calling $factorial(0)$ would result to $0 \times factorial(-1)$, instead of $1$, $factorial(-1)$ resolves to $-1 \times factorial(-2)$, and so on.
