@@ -83,9 +83,9 @@ Exception in thread "main" java.lang.StackOverflowError
 .........
 \end{REPL}
 
-Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. Allow me to explain the issue. 
+Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
 
-Every recursive call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
+Every function call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
 
 \begin{REPL}
 (sum-1-to-n 5)
@@ -101,6 +101,34 @@ Every recursive call we make requires the allocation of a new \keyword{stack fra
 15
 \end{REPL}
 
-Now, that's a pretty exhausting! Imagine if we tried tracing the stack of \code{(sum-1-to-n 400)}. 
+Now, that's pretty exhausting! Imagine if we tried tracing the stack of \code{(sum-1-to-n 400)}. It would take us a decade to finish it. In the next section I am going to show you how to fix this kind of problem.
 
-In the next section I am going to show you how to fix this kind of problem.
+\section{Tail-recursion}
+\ikeyword{Tail-recursion} is a recursion in which the recursive call is the last thing the function does before returning. Here's the tail-recursive version of \code{sum-1-to-n}:
+
+\begin{Meruem}
+(defun tail-sum1ton (n acc)
+  (if (<= n 0)
+    acc
+    (tail-sum1ton (dec n) (+ n acc))))
+\end{Meruem}
+
+We changed the name to \code{tail-sum1ton} so we can easily distinguish the older version from the new one. This function has two parameters instead of one. The first parameter is the same \code{n} we had before. The second parameter is called an \keyword{accumulator}. In our base case, we return \code{acc} instead of 0. Then, if \code{n} is greater than \code{0}, \code{tail-sum1ton} would call itself, but this time the result won't be added to \code{n}. What would happen now is that \code{acc} would be added to \code{n} and the result would be passed as the second argument to the recursive call. In other words, we no longer return the "current sum" as we did before. We just pass it as the second argument to the recursive call. After the recursive call, \code{tail-sum1ton} have nothing else to do but to return the result immediately. 
+
+But there is one problem --- Meruem doesn't support \keyword{tail-call optimization} --- a method used by a compiler or interpreter to avoid allocating a new stack frame for a function during a \keyword{tail call}. So, if we execute \code{(tail-sum1ton 400 0)}, we'll still get a \code{StackOverflow} error.
+
+\subsection{\texttt{tail-rec} and \texttt{recur}}
+The standard way to solve the stack overflow issue (that we saw earlier) in Meruem is to use the \code{tail-rec} and \code{recur} functions.
+
+The main changes that we did is the calling of the \code{tail-rec} and \code{recur} functions. \code{tail-rec} takes two arguments. The first one is a list of pairs. 
+
+We can now pass large values to \code{sum-1-to-n} without getting a \code{StackOverflow} error:
+
+\begin{REPL}
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 400
+80200
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 500
+125250
+$ java -jar $MERUEM_HOME/meruem.jar sum12n 600
+180300
+\end{REPL}

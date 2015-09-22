@@ -64,3 +64,5 @@
 \BOOKMARK [0][-]{chapter.6}{Recursion}{}% 64
 \BOOKMARK [1][-]{section.6.1}{What is Recursion?}{chapter.6}% 65
 \BOOKMARK [1][-]{section.6.2}{Recursion and StackOverflowErrors}{chapter.6}% 66
+\BOOKMARK [1][-]{section.6.3}{Tail-recursion}{chapter.6}% 67
+\BOOKMARK [2][-]{subsection.6.3.1}{tail-rec and recur}{section.6.3}% 68
