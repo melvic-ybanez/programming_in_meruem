@@ -115,12 +115,40 @@ Now, that's pretty exhausting! Imagine if we tried tracing the stack of \code{(s
 
 We changed the name to \code{tail-sum1ton} so we can easily distinguish the older version from the new one. This function has two parameters instead of one. The first parameter is the same \code{n} we had before. The second parameter is called an \keyword{accumulator}. In our base case, we return \code{acc} instead of 0. Then, if \code{n} is greater than \code{0}, \code{tail-sum1ton} would call itself, but this time the result won't be added to \code{n}. What would happen now is that \code{acc} would be added to \code{n} and the result would be passed as the second argument to the recursive call. In other words, we no longer return the "current sum" as we did before. We just pass it as the second argument to the recursive call. After the recursive call, \code{tail-sum1ton} have nothing else to do but to return the result immediately. 
 
-But there is one problem --- Meruem doesn't support \keyword{tail-call optimization} --- a method used by a compiler or interpreter to avoid allocating a new stack frame for a function during a \keyword{tail call}. So, if we execute \code{(tail-sum1ton 400 0)}, we'll still get a \code{StackOverflow} error.
+If Meruem was a language that supported \keyword{tail-call optimization} --- a method used by a compiler or interpreter to avoid allocating a new stack frame for a function during a \keyword{tail call}, the stack trace of \code{tail-sum1ton} would have looked like this:
+
+\begin{REPL}
+(tail-sum1ton 5 0)
+(tail-sum1ton 4 5)
+(tail-sum1ton 3 9)
+(tail-sum1ton 2 12)
+(tail-sum1ton 1 14)
+(tail-sum1ton 0 15)
+15
+\end{REPL}
+
+Unfortunately, Meruem doesn't support tail-call optimization. So, if we execute \code{(tail-sum1ton 400 0)}, we'll still get a \code{StackOverflow} error.
 
 \subsection{\texttt{tail-rec} and \texttt{recur}}
-The standard way to solve the stack overflow issue (that we saw earlier) in Meruem is to use the \code{tail-rec} and \code{recur} functions.
+The more recommended way of solving the stack overflow issue (that we saw earlier) in Meruem is to use the \code{tail-rec} and \code{recur} functions. 
 
-The main changes that we did is the calling of the \code{tail-rec} and \code{recur} functions. \code{tail-rec} takes two arguments. The first one is a list of pairs. 
+\code{tail-rec} takes two arguments. The first one is a list of key-value pairs. Each of the keys would be a variable that is local to the \code{tail-rec} function, and each of the values would be the initial value of the corresponding key. The second argument of \code{tail-rec} could be any expression that, when evaluated, would serve as the return value of \code{tail-rec} itself.
+
+\code{recur} is usually used only within \code{tail-rec}. It's purpose (when used within \code{tail-rec}) is to make \code{tail-rec} to call itself (essentially making it recurse). 
+
+When \code{tail-rec} calls itself for the second time, its variables would be bound to the arguments to \code{recur}, and not to their initial values. This is not the same as reassigning new values to the variables of \code{tail-rec}. Just think of it as recursion. In recursion, every recursive call creates a new instance of the same function, whose parameters might be bound to different values. So no reassignments really happen.
+
+Enough chit-chat, let's now reimplement \code{sum-1-to-n} using \code{tail-rec} and \code{recur}. Here's the new code:
+
+\begin{Meruem}
+(defun tail-sum-1-to-n (n)
+  (tail-rec { n n acc 0 }
+    (if (<= n 0)
+      acc
+      (recur (dec n) (+ n acc)))))
+\end{Meruem}
+
+In this case, \code{tail-rec} has two local variables, \code{n} and \code{acc}. \code{n} gets initialized to \code{n} (the outer one) and \code{acc} gets initialized to \code{0}. The arguments to \code{recur} --- \code{(dec n)} and \code{(+ n acc)} --- gets passed to \code{tail-rec}'s \code{n} and \code{acc} respectively, in every recursive call.
 
 We can now pass large values to \code{sum-1-to-n} without getting a \code{StackOverflow} error:
 
@@ -132,3 +160,5 @@ $ java -jar $MERUEM_HOME/meruem.jar sum12n 500
 $ java -jar $MERUEM_HOME/meruem.jar sum12n 600
 180300
 \end{REPL}
+
+How does \code{tail-rec} get optimized? Well, internally the interpreter would perform a tail-recursion. Since the interpreter is written in Scala, and Scala's tail-recursions get converted to \keyword{loops} at \keyword{compile-time}, then Meruem's tail-rec is essentially like loops in imperative languages.
