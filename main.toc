@@ -80,4 +80,5 @@
 \contentsline {section}{\numberline {7.7}The \texttt {prelude} Mode}{53}{section.7.7}
 \contentsline {chapter}{\numberline {8}Lists}{54}{chapter.8}
 \contentsline {section}{\numberline {8.1}Parts of a List}{54}{section.8.1}
-\contentsline {section}{\numberline {8.2}Searching for an element}{55}{section.8.2}
+\contentsline {section}{\numberline {8.2}Constructing a List}{55}{section.8.2}
+\contentsline {section}{\numberline {8.3}Searching for an element}{55}{section.8.3}
