@@ -24,12 +24,14 @@
 \newcommand{\keyword}[1]{\textit{#1}}
 \newcommand{\ikeyword}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\icode}[1]{\code{\textbf{#1}}}
 \newcommand{\codexleftmargin}{8.0ex}
 \newcommand{\codenumbersep}{14pt}
 \newcommand{\codenumberstyle}{\small\color{gray}}
 \newcommand{\codecommentstyle}{\itshape\color{gray}}
 \newcommand{\codebasicstyle}{\ttfamily}
 \newcommand{\sectionref}{\ref}
+\newcommand{\codedesitem}[1]{\item[\code{#1}] \hfill \\}
 
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 
@@ -123,6 +125,7 @@
 	\input{chapters/ch03-language-syntax}
 	
 	\chapter{Standard Functions}
+	\label{ch:standard-functions}
 	\input{chapters/ch04-standard-functions}
 	
 	\chapter{Defining Variables and Functions}
@@ -133,4 +136,7 @@
 	
 	\chapter{Module System}
 	\input{chapters/ch07-module-system}
+	
+	\chapter{Lists}
+	\input{chapters/ch08-lists}
 \end{document}

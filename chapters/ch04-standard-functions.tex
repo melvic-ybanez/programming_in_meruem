@@ -276,14 +276,14 @@ nil
 A \ikeyword{predicate} is a function that maps an expression to a boolean value. Basically, all they do is just take an argument and check if that argument is something that falls in a certain category. Here are the standard predicates currently present in Meruem (you've already seen some of them):
 
 \begin{description}
-	\item[atom?] checks if the given argument is an atom.
-	\item[symbol?] checks if the given argument is a symbol.
-	\item[list?] checks if the given argument is a list.
-	\item[truthy?] checks if the given argument is truthy.
-	\item[falsy?] checks if the given argument is falsy.
-	\item[even?] checks if the given argument is an even number. It doesn't accept non-numeric types.
-	\item[odd?] checks if the given argument is an odd number. It doesn't accept non-numeric types.
-	\item[empty?] checks if a string or list is empty. It doesn't accept any other types of values.
+	\codedesitem{atom?} checks if the given argument is an atom.
+	\codedesitem{symbol?} checks if the given argument is a symbol.
+	\codedesitem{list?} checks if the given argument is a list.
+	\codedesitem{truthy?} checks if the given argument is truthy.
+	\codedesitem{falsy?} checks if the given argument is falsy.
+	\codedesitem{even?} checks if the given argument is an even number. It doesn't accept non-numeric types.
+	\codedesitem{odd?} checks if the given argument is an odd number. It doesn't accept non-numeric types.
+	\codedesitem{empty?} checks if a string or list is empty. It doesn't accept any other types of values.
 \end{description}
 
 Each of these names is actually self explanatory. Let's see some examples of some of them:

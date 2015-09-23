@@ -129,7 +129,7 @@ If Meruem was a language that supported \keyword{tail-call optimization} --- a m
 
 Unfortunately, Meruem doesn't support tail-call optimization. So, if we execute \code{(tail-sum1ton 400 0)}, we'll still get a \code{StackOverflow} error.
 
-\subsection{\texttt{tail-rec} and \texttt{recur}}
+\subsection{\code{tail-rec} and \code{recur}}
 The more recommended way of solving the stack overflow issue (that we saw earlier) in Meruem is to use the \code{tail-rec} and \code{recur} functions. 
 
 \code{tail-rec} takes two arguments. The first one is a list of key-value pairs. Each of the keys would be a variable that is local to the \code{tail-rec} function, and each of the values would be the initial value of the corresponding key. The second argument of \code{tail-rec} could be any expression that, when evaluated, would serve as the return value of \code{tail-rec} itself.

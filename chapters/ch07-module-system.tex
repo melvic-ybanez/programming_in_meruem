@@ -124,7 +124,7 @@ meruem> (sample.math.factorial.factorial 5)
 
 We can say that \code{factorial} is a member of package \code{sample.math}.
 
-\section{The \texttt{math} Module}
+\section{The \code{math} Module}
 The Meruem distribution that you downloaded already included the \keyword{standard library} that contains the standard modules. One of these modules is the \code{math} module. The \code{math} module contains many of the commonly used math functions. The following shows what they are and how to use them:
 
 \begin{REPL}
@@ -196,3 +196,19 @@ Source: .home.melvic.meruem.lib.prelude [1:2}]
 \end{REPL}
 
 In order to use \code{math.pow} and \code{math.min}, we need to import \code{math}.
+
+\section{The \code{prelude} Mode}
+There are some functions that are implemented in the standard library but are available to use even without any imports. I'm not talking about the built-in ones (like \code{math.random}). I'm talking about the functions from the \code{prelude} module.
+
+\code{prelude} is a special module in Meruem in a sense that the interpreter would automatically include all the functions from that module into the current \keyword{environment}, when the program starts. You've already seen and used most of the functions \code{prelude} provides in chapter~\sectionref{ch:standard-functions} like \code{falsy?}, \code{lazy}, \code{identity} and many more. Just in case you miss them, here they are again:
+
+\begin{REPL}
+meruem> (falsy? (or true false))
+false
+meruem> (lazy 5)
+<function>
+meruem> (identity 7)
+7
+meruem> (even? 10)
+true
+\end{REPL}

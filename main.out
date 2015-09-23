@@ -74,3 +74,11 @@
 \BOOKMARK [1][-]{section.7.4}{Importing modules in other modules}{chapter.7}% 74
 \BOOKMARK [1][-]{section.7.5}{Packages}{chapter.7}% 75
 \BOOKMARK [1][-]{section.7.6}{The math Module}{chapter.7}% 76
+\BOOKMARK [1][-]{section.7.7}{The prelude Mode}{chapter.7}% 77
+\BOOKMARK [0][-]{chapter.8}{Lists}{}% 78
+\BOOKMARK [1][-]{section.8.1}{Parts of a List}{chapter.8}% 79
+\BOOKMARK [1][-]{section.8.2}{Constructing a List}{chapter.8}% 80
+\BOOKMARK [1][-]{section.8.3}{Searching for an element}{chapter.8}% 81
+\BOOKMARK [1][-]{section.8.4}{Strings as Lists}{chapter.8}% 82
+\BOOKMARK [1][-]{section.8.5}{Transforming and Filtering Lists}{chapter.8}% 83
+\BOOKMARK [1][-]{section.8.6}{Folding Lists}{chapter.8}% 84
