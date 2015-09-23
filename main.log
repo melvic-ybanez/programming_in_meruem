@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  24 SEP 2015 04:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  24 SEP 2015 06:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,7 +723,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=532, 1606.0pt x 873.2625pt>
+<images/winter.png, id=547, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -1120,8 +1120,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [60])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1129,19 +1127,39 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [61]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Chapter 10.
+(./chapters/ch10-higher-order-functions.tex [62
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[63])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[64]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D1EF1E1D092D21DF0C7E255AD9CF5B62;5593.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+(rerunfilecheck)             Checksum: 7268F962805FC3296030EB116784E4BF;5799.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
- 10773 strings out of 495028
- 152212 string characters out of 6181498
- 319158 words of memory out of 5000000
- 12718 multiletter control sequences out of 15000+600000
+ 10841 strings out of 495028
+ 153298 string characters out of 6181498
+ 324161 words of memory out of 5000000
+ 12728 multiletter control sequences out of 15000+600000
  15641 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  35i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1159,10 +1177,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (61 pages, 369562 bytes).
+Output written on main.pdf (64 pages, 375532 bytes).
 PDF statistics:
- 1976 PDF objects out of 2073 (max. 8388607)
- 1878 compressed objects within 19 object streams
- 1110 named destinations out of 1200 (max. 500000)
- 702 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2065 PDF objects out of 2073 (max. 8388607)
+ 1963 compressed objects within 20 object streams
+ 1165 named destinations out of 1200 (max. 500000)
+ 726 words of extra memory for PDF output out of 10000 (max. 10000000)
 
