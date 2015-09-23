@@ -16,7 +16,7 @@ In other to use a module you need to \keyword{import} it. You can do that using 
 Save it as \code{module\_demo.mer}. The next section will show how to import it.
 
 \section{Import a module in the REPL}
-To import a module, you need to pass it's name --- which is the same as the name of the source file, excluding the \code{.mer} extension --- as a string argument to \code{import}.
+To import a module, you need to pass it's name --- which is the same as the name of the source file, excluding the \code{.mer} extension --- as a string argument to \code{import}. 
 
 Fire up the REPL and import \code{module\_demo} using the \code{import} command as follows:
 
@@ -33,6 +33,8 @@ An error has occurred. File Not Found: /home/melvic/meruem/lib/modulo
 Source: .home.melvic.meruem.lib.prelude [0:0}]
 <undefined position>
 \end{REPL}
+
+You have to make sure that the module you want to import exists and that it lies in the same directory as where you are currently in (while the REPL is running).
 
 \section{Accessing the members of a module}
 In order to access a member of a module, first you have to specify the module name, followed by a period. Then you append the name of the member you want to invoke. The following example shows how to call the members of \code{module\_demo}:
@@ -90,6 +92,8 @@ Now, look at the implementation of \code{squares-diff}. Isn't the method for get
     (- x-squared y-squared)))
 \end{Meruem}
 
+In order to make this code work, you have to make sure that \code{module\_demo} and \code{module\_demo1} are located in the same directory.
+
 Now everytime we want to change our implementation for squaring numbers, we are only required to make modifications in one place (in \code{module\_demo.squared}), and everything would still work. The result of calling \code{squares-diff} should be the same as before:
 
 \begin{REPL}
@@ -97,4 +101,23 @@ meruem> (module_demo1.squares-diff 5 3)
 16
 meruem> (module_demo1.squares-diff 7 9)
 -32
+\end{REPL}
+
+\section{Packages}
+It is often very useful to group modules into different \keyword{packages}. In Meruem, \ikeyword{packages} are just directories that can contain one or more related modules. For instance, if you want to put \code{module\_demo} and \code{module\_demo1} into one package, just create a new directory and move the source files into that new directory. Importing a module that is inside a package requires that you specify the package name first, followed by a period, before you can specify the module name. The following shows how to use import \code{module\_demo} that is inside the \code{module\_demos} package:
+
+\begin{REPL}
+meruem> (import "module_demos.module_demo")
+SomeModule(module_demos/module_demo, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(cubed, module, x, squared)})
+meruem> (module_demos.module_demo.squared 5)
+25
+\end{REPL}
+
+As you can see, you need to specify the package name the module belongs to when calling a member function of that module as well. It is also possible to nest packages. For instance, we can call the factorial function from the \code{factorial} module within the \code{math} package, which is also inside the \code{sample} package, as follows:
+
+\begin{REPL}
+meruem> (import "sample.math.factorial")
+SomeModule(sample/math/factorial, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(tail-fac, factorial, module, main)})
+meruem> (sample.math.factorial.factorial 5)
+120
 \end{REPL}

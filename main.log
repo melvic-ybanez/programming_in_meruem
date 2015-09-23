@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 17:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 19:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -657,18 +657,18 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-))
-\tf@toc=\write4
-\openout4 = `main.toc'.
-
-
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]
+[3])
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -723,7 +723,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=462, 1606.0pt x 873.2625pt>
+<images/winter.png, id=467, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -1025,7 +1025,7 @@ Chapter 7.
 (./chapters/ch07-module-system.tex [48
 
 ]
-Overfull \hbox (18.37433pt too wide) in paragraph at lines 49--50
+Overfull \hbox (18.37433pt too wide) in paragraph at lines 51--52
 []\OT1/cmr/m/n/12 Note that we didn't wrap \OT1/pcr/m/n/12 module[]demo.x \OT1/
 cmr/m/n/12 in paren-the-ses. This is be-cause \OT1/pcr/m/n/12 module[]demo.x
  []
@@ -1036,7 +1036,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49])
+[49]
+Overfull \hbox (32.19804pt too wide) in paragraph at lines 95--96
+[]\OT1/cmr/m/n/12 In or-der to make this code work, you have to make sure that 
+\OT1/pcr/m/n/12 module[]demo \OT1/cmr/m/n/12 and \OT1/pcr/m/n/12 module[]demo1
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
 
 
@@ -1045,23 +1057,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50]
+[51]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2F389198E76EA3260869883B046B9113;4713.
+(rerunfilecheck)             Checksum: AD820F1CE3C32711268BFF957F0D122F;4768.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 10477 strings out of 495028
- 147775 string characters out of 6181498
- 317048 words of memory out of 5000000
- 12667 multiletter control sequences out of 15000+600000
+ 10495 strings out of 495028
+ 148025 string characters out of 6181498
+ 317049 words of memory out of 5000000
+ 12673 multiletter control sequences out of 15000+600000
  15126 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 33i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
@@ -1076,10 +1088,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (50 pages, 338466 bytes).
+Output written on main.pdf (51 pages, 341438 bytes).
 PDF statistics:
- 1596 PDF objects out of 1728 (max. 8388607)
- 1512 compressed objects within 16 object streams
- 872 named destinations out of 1000 (max. 500000)
- 590 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1617 PDF objects out of 1728 (max. 8388607)
+ 1532 compressed objects within 16 object streams
+ 884 named destinations out of 1000 (max. 500000)
+ 598 words of extra memory for PDF output out of 10000 (max. 10000000)
 
