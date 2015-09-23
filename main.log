@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 05:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,11 +653,18 @@ e
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc [2
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 71.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-))
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -668,11 +675,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3] (./chapters/introduction.tex) [4
+[4] (./chapters/introduction.tex) [5
 
 ]
 Chapter 1.
-(./chapters/ch01-starting-out.tex [5
+(./chapters/ch01-starting-out.tex [6
 
 ]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -690,13 +697,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [7]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -705,6 +705,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
 Overfull \hbox (4.90492pt too wide) in paragraph at lines 113--114
 []\OT1/cmr/m/n/12 To down-load the Meruem in-ter-preter, go to []$\OT1/pcr/m/n/
 12 https : / / github . com / melvic-[]ybanez /
@@ -716,7 +723,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=432, 1606.0pt x 873.2625pt>
+<images/winter.png, id=477, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -731,7 +738,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[10] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -743,7 +750,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -756,9 +763,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
+[12]
 Chapter 2.
-(./chapters/ch02-data-types.tex [12
+(./chapters/ch02-data-types.tex [13
 
 ]
 
@@ -767,7 +774,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13]
+[14]
 LaTeX Font Info:    Try loading font information for OMS+pcr on input line 98.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
@@ -781,17 +788,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
+[15]
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -805,16 +805,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17])
+[17]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18]
+[18])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19]
 Chapter 3.
-(./chapters/ch03-language-syntax.tex [19
+(./chapters/ch03-language-syntax.tex [20
 
 ]
 
@@ -823,14 +830,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20]
+[21]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
+[22]
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 94.
 
@@ -840,25 +847,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22])
+[23])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23]
+[24]
 Chapter 4.
-(./chapters/ch04-standard-functions.tex [24
+(./chapters/ch04-standard-functions.tex [25
 
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -907,25 +907,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32])
+[32]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33]
+[33])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34]
 Chapter 5.
-(./chapters/ch05-defining-variables-and-functions.tex [34
+(./chapters/ch05-defining-variables-and-functions.tex [35
 
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -954,22 +954,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 211.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40])
+[40]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41]
+[41])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[42]
 Chapter 6.
-(./chapters/ch06-recursion.tex [42
+(./chapters/ch06-recursion.tex [43
 
 ]
 
@@ -978,21 +988,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43]
+[44]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44]
+[45]
 Overfull \hbox (43.78595pt too wide) in paragraph at lines 130--131
 []\OT1/cmr/m/n/12 Unfortunately, Meruem doesn't sup-port tail-call op-ti-miza-t
 ion. So, if we ex-e-cute \OT1/pcr/m/n/12 (tail-sum1ton
  []
 
-LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 132.
 
 Overfull \hbox (5.82442pt too wide) in paragraph at lines 137--138
 []\OT1/pcr/m/n/12 recur \OT1/cmr/m/n/12 is usu-ally used only within \OT1/pcr/m
@@ -1006,8 +1014,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
+[46])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[47]
+Chapter 7.
+(./chapters/ch07-module-system.tex [48
+
+]
+Overfull \hbox (18.37433pt too wide) in paragraph at lines 51--52
+[]\OT1/cmr/m/n/12 Note that we didn't wrap \OT1/pcr/m/n/12 module[]demo.x \OT1/
+cmr/m/n/12 in paren-the-ses. This is be-cause \OT1/pcr/m/n/12 module[]demo.x
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1015,23 +1037,61 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[46]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
+[49]
+Overfull \hbox (32.19804pt too wide) in paragraph at lines 95--96
+[]\OT1/cmr/m/n/12 In or-der to make this code work, you have to make sure that 
+\OT1/pcr/m/n/12 module[]demo \OT1/cmr/m/n/12 and \OT1/pcr/m/n/12 module[]demo1
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 127.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[51]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6BAC3397F1767F0BBB200DCBB5618796;4365.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
+(rerunfilecheck)             Checksum: C1EA80E5DD52C6178FDD475233B40860;4901.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 10401 strings out of 495028
- 146572 string characters out of 6181498
- 317033 words of memory out of 5000000
- 12654 multiletter control sequences out of 15000+600000
- 15126 words of font info for 54 fonts, out of 8000000 for 9000
+ 10558 strings out of 495028
+ 149007 string characters out of 6181498
+ 317052 words of memory out of 5000000
+ 12680 multiletter control sequences out of 15000+600000
+ 15641 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 33i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
@@ -1046,10 +1106,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (46 pages, 330967 bytes).
+Output written on main.pdf (53 pages, 347246 bytes).
 PDF statistics:
- 1489 PDF objects out of 1728 (max. 8388607)
- 1410 compressed objects within 15 object streams
- 812 named destinations out of 1000 (max. 500000)
- 550 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1698 PDF objects out of 1728 (max. 8388607)
+ 1610 compressed objects within 17 object streams
+ 939 named destinations out of 1000 (max. 500000)
+ 614 words of extra memory for PDF output out of 10000 (max. 10000000)
 
