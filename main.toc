@@ -77,3 +77,4 @@
 \contentsline {section}{\numberline {7.4}Importing modules in other modules}{49}{section.7.4}
 \contentsline {section}{\numberline {7.5}Packages}{50}{section.7.5}
 \contentsline {section}{\numberline {7.6}The \texttt {math} Module}{51}{section.7.6}
+\contentsline {section}{\numberline {7.7}The \texttt {prelude} Mode}{53}{section.7.7}
