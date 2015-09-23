@@ -104,7 +104,7 @@ meruem> (module_demo1.squares-diff 7 9)
 \end{REPL}
 
 \section{Packages}
-It is often very useful to group modules into different \keyword{packages}. In Meruem, \ikeyword{packages} are just directories that can contain one or more related modules. For instance, if you want to put \code{module\_demo} and \code{module\_demo1} into one package, just create a new directory and move the source files into that new directory. Importing a module that is inside a package requires that you specify the package name first, followed by a period, before you can specify the module name. The following shows how to use import \code{module\_demo} that is inside the \code{module\_demos} package:
+It is often very useful to group modules into different \keyword{packages}. In Meruem, \ikeyword{packages} are just directories that can contain one or more related modules. For instance, if you want to put \code{module\_demo} and \code{module\_demo1} into one package, just create a new directory and move the source files for these modules into that new directory. Importing a module that is inside a package requires that you specify the package name first, followed by a period, before you can specify the module name. The following shows how to use \code{module\_demo} that is inside the \code{module\_demos} package:
 
 \begin{REPL}
 meruem> (import "module_demos.module_demo")
@@ -121,3 +121,78 @@ SomeModule(sample/math/factorial, MutableList(/home/melvic/meruem/lib/prelude), 
 meruem> (sample.math.factorial.factorial 5)
 120
 \end{REPL}
+
+We can say that \code{factorial} is a member of package \code{sample.math}.
+
+\section{The \texttt{math} Module}
+The Meruem distribution that you downloaded already included the \keyword{standard library} that contains the standard modules. One of these modules is the \code{math} module. The \code{math} module contains many of the commonly used math functions. The following shows what they are and how to use them:
+
+\begin{REPL}
+meruem> (import "math")
+SomeModule(/home/melvic/meruem/lib/math, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(max, pow, module, min, abs)})
+meruem> math.Pi
+3.141592653589793
+meruem> (math.abs -78)
+78
+meruem> (math.cos 45)
+0.5253219888177297
+meruem> (math.sin 45)
+0.8509035245341184
+meruem> (math.tan 45)
+1.6197751905438615
+meruem> (math.ceil 5.8)
+6.0
+meruem> (math.floor 5.8)
+5.0
+meruem> (math.exp 6)
+403.4287934927351
+meruem> (math.log 50)
+50.0
+meruem> (math.log10 50)
+1.6989700043360187
+meruem> (math.max 45 9)
+45
+meruem> (math.min 45 9)
+9
+meruem> (math.pow 4 2)
+16
+meruem> (math.random)
+0.4646771927139556
+meruem> (math.sqrt 25)
+5.0
+\end{REPL}
+
+Most of these functions should be familiar to you, and the ones that aren't are probably the ones you would just use rarely. So we are not going to spend many pages explaining all of them. 
+
+It is worth noting that some of these functions can be used even without importing the 
+\code{math} module. To see what I mean, restart your REPL (so all imported modules will be gone), and enter the expressions shown in the following:
+
+\begin{REPL}
+meruem> (math.random)
+0.06757696728362839
+meruem> (math.sqrt 36)
+6.0
+meruem> (math.sin 90)
+0.8939966636005579
+\end{REPL}
+
+As you can see, \code{math.random} --- which returns a new number every time it is called --- and \code{math.sqrt} --- which returns the square root of a number --- were still available for us to use even if the \code{math} module was not loaded. Actually, majority of the math functions showed here are already usable without importing \code{math}. 
+
+The reason that functions like \code{math.random} are available by default is --- they were not written in Meruem (unlike \code{squared} and \code{squares-diff}). In other words, they are not part of the standard library. They are just functions that are built-in to the interpreter. (The explanation as to why they were implemented like that is already beyond the scope of this book.) They were given names that start with \code{math.} for consistency purposes.
+
+If we try to use a math function that is not built-in to the interpreter, we'll get an error as the result:
+
+\begin{REPL}
+meruem> (math.pow 4 5)
+An error has occurred. Unbound symbol: math.pow.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(math.pow 4 5)
+ ^
+meruem> (math.min 5 6)
+An error has occurred. Unbound symbol: math.min.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(math.min 5 6)
+ ^ 
+\end{REPL}
+
+In order to use \code{math.pow} and \code{math.min}, we need to import \code{math}.
