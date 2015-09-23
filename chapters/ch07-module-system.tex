@@ -1,0 +1,16 @@
+When your program gets really big and complicated, it is not a very good idea to put everything into one source file. You need to split the program into smaller pieces, and make each of these pieces as reusable as possible so different parts of the program can use it. Such a piece is called a \keyword{module}.
+
+\section{What is a Module?}
+A \ikeyword{module} in Meruem is a reusable named component of a program, just like a function. One difference between a module and a function is that a function contains expressions while a module can contain functions. In other words, a large program can be composed of several modules, and each of these modules can be composed of functions. One source file serves as a single module, and the functions and variables within that source file are the members of that module. From now on, we are going to use the term "module" instead of "source file" when we refer to Meruem files.
+
+In other to use a module you need to \keyword{import} it. You can do that using the \code{import} command. The \code{import} command takes the name of the module to import as a string argument. Let us create a simple module that has one variable and one two functions:
+
+\begin{Meruem}
+(def x 10)
+
+(defun squared (x) (* x x))
+
+(defun cubed (x) (* x x x))
+\end{Meruem}
+
+Save it as \code{module\_demo.mer}. 

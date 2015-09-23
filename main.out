@@ -66,3 +66,5 @@
 \BOOKMARK [1][-]{section.6.2}{Recursion and StackOverflowErrors}{chapter.6}% 66
 \BOOKMARK [1][-]{section.6.3}{Tail-recursion}{chapter.6}% 67
 \BOOKMARK [2][-]{subsection.6.3.1}{tail-rec and recur}{section.6.3}% 68
+\BOOKMARK [0][-]{chapter.7}{Module System}{}% 69
+\BOOKMARK [1][-]{section.7.1}{What is a Module?}{chapter.7}% 70
