@@ -83,4 +83,5 @@
 \contentsline {section}{\numberline {8.2}Constructing a List}{55}{section.8.2}
 \contentsline {section}{\numberline {8.3}Searching for an element}{56}{section.8.3}
 \contentsline {section}{\numberline {8.4}Strings as Lists}{56}{section.8.4}
-\contentsline {section}{\numberline {8.5}Transforming and Filtering}{57}{section.8.5}
+\contentsline {section}{\numberline {8.5}Transforming and Filtering Lists}{57}{section.8.5}
+\contentsline {section}{\numberline {8.6}Folding Lists}{58}{section.8.6}

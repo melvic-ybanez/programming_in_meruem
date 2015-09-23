@@ -1,4 +1,4 @@
-You already know what Meruem lists are and how they are evaluated by the interpreter. However, you haven't tasted its real power yet. In this chapter, you are going to see what makes lists so useful.
+You already know what Meruem lists are and how they are evaluated by the interpreter. However, you haven't tasted its real power yet. In this chapter, you are going to see what makes lists so useful. 
 
 \section{Parts of a List}
 As discussed in the past chapters, a \code{list} is composed of zero, one or more elements, each can either be an atom or another list. The question is --- how do we access those elements? 
@@ -118,8 +118,8 @@ meruem> (lists.exists? "batman" (lambda (c) (= c \a)))
 true
 \end{REPL}
 
-\section{Transforming and Filtering}
-Sometimes you may want to return a subset of a list whose elements satisfy a particular predicate, like retrieving all the odd numbers from a list of integers, or removing all letter "e"s in a sentence. To achieve such goals, we can use the \code{lists.filter} function, as follows:
+\section{Transforming and Filtering Lists}
+Sometimes you may want to return a subset of a list whose elements satisfy a particular predicate, like retrieving all the odd numbers from a list of integers, or removing all letter "e"s in a sentence. To achieve such goals, we can use the \icode{lists.filter} function, as follows:
 
 \begin{REPL}
 meruem> (def xs '(1 2 3 4 5 6))
@@ -134,7 +134,7 @@ meruem> (lists.filter "I remember the days..." (lambda (c) (!= c \e)))
 
 That's pretty cool. Now, what if I want to add 1 to each of the elements of a list of integers, or transform a list of strings into a list of integers where each of element represents the length of the corresponding elements from the original list?
 
-What you're looking for is the \code{lists.map} function. \code{lists.map} takes a list and a \keyword{mapping function} --- a function that maps one value to another --- and applies that function to each of the elements of the list, essentially creating a new list with the same length as the given one, but with possibly different elements. Here are some examples:
+What you're looking for is the \code{lists.map} function. \icode{lists.map} takes a list and a \keyword{mapping function} --- a function that maps one value to another --- and applies that function to each of the elements of the list, essentially creating a new list with the same length as the given one, but with possibly different elements. Here are some examples:
 
 \begin{REPL}
 meruem> (def xs '(100 200 300))
@@ -145,4 +145,29 @@ meruem> (def strs '("the" "quick" "brown" "fox"))
 nil
 meruem> (lists.map strs (lambda (str) (size str)))
 (3 5 5 3)
+\end{REPL}
+
+\section{Folding Lists}
+You've seen how to search for a particular element in a list. You've also seen how to \keyword{filter} and \keyword{map} a list. In this section you are going to see how to combine (in one way or another) the elements of a list, and return the result.  You can do it using the \code{lists.fold-left} function. \icode{lists.fold-left}  takes a list, an \keyword{initial value} and a \keyword{bifunction} --- a function that takes two arguments --- and applies the bifunction to each of the elements of the list. The second parameter of the bifunction would be the element the bifunction is currently being applied to, and the first parameter would be the \keyword{accumulator}. Each value returned by the bifunction will be the new accumulator. The initial value of the accumulator would be the second argument to \code{lists.fold-left}. 
+
+I think an example would make it a lot clearer. Let's say you want to add all the elements of a list --- without writing \code{(apply + xs)}. Here's how to do it using \code{lists.fold-left}:
+
+\begin{REPL}
+meruem> (def xs '(100 200 300))
+nil
+meruem> (lists.fold-left xs 0 (lambda (sum prod) (+ x sum)))
+600
+meruem> (lists.fold-left xs 1 (lambda (prod x) (* x prod)))
+6000000
+\end{REPL}
+
+There's also another folding function called \code{lists.fold-right}, which is just like \code{lists.fold-left} but traverses the lists in the opposite direction (hence the name). The order of its bifunctions parameters are in reverse as well. The following shows the difference of the two:
+
+\begin{REPL}
+meruem> xs
+(100 200 300)
+meruem> (lists.fold-left xs () (lambda (acc x) (cons x acc)))
+(300 200 100)
+meruem> (lists.fold-right xs () (lambda (x acc) (cons x acc)))
+(100 200 300)
 \end{REPL}
