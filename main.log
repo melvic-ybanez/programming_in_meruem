@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  24 SEP 2015 06:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  24 SEP 2015 06:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,7 +655,7 @@ e
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 ...2}Executable expressions}{21}{section.3.2}
+l.34 ...2}Executable expressions}{20}{section.3.2}
                                                    [1
 
 ]
@@ -1153,16 +1153,12 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7268F962805FC3296030EB116784E4BF;5799.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
  10838 strings out of 495028
  153252 string characters out of 6181498
- 325129 words of memory out of 5000000
+ 323129 words of memory out of 5000000
  12726 multiletter control sequences out of 15000+600000
  15641 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1181,7 +1177,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (64 pages, 375813 bytes).
+Output written on main.pdf (64 pages, 375837 bytes).
 PDF statistics:
  2063 PDF objects out of 2073 (max. 8388607)
  1961 compressed objects within 20 object streams
