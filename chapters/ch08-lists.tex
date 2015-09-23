@@ -1,2 +1,30 @@
 You already know what Meruem lists are and how they are evaluated by the interpreter. However, you haven't tasted its real power yet. In this chapter, you are going to see what makes lists so useful.
 
+\section{Parts of a List}
+As discussed in the past chapters, a \code{list} is composed of zero, one or more elements, each can either be an atom or another list. The question is --- how do we access those elements? 
+
+There are four major parts of a list: \code{head}, \code{tail}, \code{last}, \code{init}. Let us briefly define each one of them:
+
+\begin{description}
+	\item[head] returns the first element of a non-empty list.
+	\item[tail] returns all but the first element of a non-empty list.
+	\item[last] returns the last element of a non-empty list.
+	\item[init] returns all but the last element of a non-empty list.
+\end{description}
+
+The following example shows how to use each of them:
+
+\begin{REPL}
+meruem> (def xs '(1 2 3 4 5))
+nil
+meruem> (head xs)
+1
+meruem> (tail xs)
+(2 3 4 5)
+meruem> (lists.last xs)
+5
+meruem> (lists.init xs)
+(1 2 3 4)
+\end{REPL}
+
+As shown in the example, both \code{last} and \code{init} are members of the \code{lists} module. The reason we didn't have to import it is because it's already been imported in the \code{prelude}.
