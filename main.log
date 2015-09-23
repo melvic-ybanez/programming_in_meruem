@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 15:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  23 SEP 2015 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -716,7 +716,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 122--123
 thub . com / melvic-[]ybanez / Winter / releases /
  []
 
-<images/winter.png, id=442, 1606.0pt x 873.2625pt>
+<images/winter.png, id=447, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 125.
@@ -1015,24 +1015,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [46]
 Chapter 7.
-(./chapters/ch07-module-system.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
- [47
+(./chapters/ch07-module-system.tex [47
 
-]
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[48]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 82A231002A1D826EFC38A82787A82A55;4478.
+(rerunfilecheck)             Checksum: 6FC988CB29FC411DAE8134BA55B4D346;4552.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 10417 strings out of 495028
- 146819 string characters out of 6181498
+ 10438 strings out of 495028
+ 147106 string characters out of 6181498
  317050 words of memory out of 5000000
- 12658 multiletter control sequences out of 15000+600000
+ 12669 multiletter control sequences out of 15000+600000
  15126 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  33i,12n,43p,1237b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1050,10 +1057,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (47 pages, 332946 bytes).
+Output written on main.pdf (48 pages, 334567 bytes).
 PDF statistics:
- 1510 PDF objects out of 1728 (max. 8388607)
- 1430 compressed objects within 15 object streams
- 821 named destinations out of 1000 (max. 500000)
- 566 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1530 PDF objects out of 1728 (max. 8388607)
+ 1449 compressed objects within 15 object streams
+ 831 named destinations out of 1000 (max. 500000)
+ 574 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -13,4 +13,21 @@ In other to use a module you need to \keyword{import} it. You can do that using 
 (defun cubed (x) (* x x x))
 \end{Meruem}
 
-Save it as \code{module\_demo.mer}. 
+Save it as \code{module\_demo.mer}. The next section will show how to import it.
+
+\section{Import a module in the REPL}
+Fire up the REPL and import the module using the \code{import} command as follows:
+
+\begin{REPL}
+meruem> (import "module_demo")
+SomeModule(module_demo, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(cubed, module, x, squared)})
+\end{REPL}
+
+Note that you don't include the file extension when specifying the name of the module to import. The printed result shows information about the module being imported, like its name, path in the file system, and members. The fact that such information was displayed means that the import was successful. If you try to import a module that doesn't exist, you'll get an error:
+
+\begin{REPL}
+meruem> (import "modulo")
+An error has occurred. File Not Found: /home/melvic/meruem/lib/modulo
+Source: .home.melvic.meruem.lib.prelude [0:0}]
+<undefined position>
+\end{REPL}
