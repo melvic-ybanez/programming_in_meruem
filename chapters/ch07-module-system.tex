@@ -1,0 +1,214 @@
+When your program gets really big and complicated, it is not a very good idea to put everything into one source file. You need to split the program into smaller pieces, and make each of these pieces as reusable as possible so different parts of the program can use it. These pieces are called \keyword{modules}.
+
+\section{What is a Module?}
+A \ikeyword{module} in Meruem is a reusable named component of a program, just like a function. One difference between a module and a function is that a function contains expressions while a module can contain functions. In other words, a large program can be composed of several modules, and each of these modules can be composed of functions. One source file serves as a single module, and the functions and variables within that source file are the members of that module. 
+
+In other to use a module you need to \keyword{import} it. You can do that using the \code{import} command. The \code{import} command takes the name of the module to import as a string argument. Let us create a simple module that has one variable and one two functions:
+
+\begin{Meruem}
+(def x 10)
+
+(defun squared (x) (* x x))
+
+(defun cubed (x) (* x x x))
+\end{Meruem}
+
+Save it as \code{module\_demo.mer}. The next section will show how to import it.
+
+\section{Import a module in the REPL}
+To import a module, you need to pass it's name --- which is the same as the name of the source file, excluding the \code{.mer} extension --- as a string argument to \code{import}. 
+
+Fire up the REPL and import \code{module\_demo} using the \code{import} command as follows:
+
+\begin{REPL}
+meruem> (import "module_demo")
+SomeModule(module_demo, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(cubed, module, x, squared)})
+\end{REPL}
+
+Note that you don't include the file extension when specifying the name of the module to import. The printed result shows information about the module being imported, like its name, path in the file system, and members. The fact that such information was displayed means that the import was successful. If you try to import a module that doesn't exist, you'll get an error:
+
+\begin{REPL}
+meruem> (import "modulo")
+An error has occurred. File Not Found: /home/melvic/meruem/lib/modulo
+Source: .home.melvic.meruem.lib.prelude [0:0}]
+<undefined position>
+\end{REPL}
+
+You have to make sure that the module you want to import exists and that it lies in the same directory as where you are currently in (while the REPL is running).
+
+\section{Accessing the members of a module}
+In order to access a member of a module, first you have to specify the module name, followed by a period. Then you append the name of the member you want to invoke. The following example shows how to call the members of \code{module\_demo}:
+
+\begin{REPL}
+meruem> module_demo.x   
+10
+meruem> (module_demo.squared 2)
+4
+meruem> (module_demo.cubed 5)
+125
+\end{REPL}
+
+Note that we didn't wrap \code{module\_demo.x} in parentheses. This is because \code{module\_demo.x} is not bound to a function.
+
+Invoking a non-existing member of a module would resolve to an error:
+
+\begin{REPL}
+meruem> (module_demo.foo 5)
+An error has occurred. Unbound symbol: module_demo.foo.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(module_demo.foo 5)
+ ^
+\end{REPL}
+
+\section{Importing modules in other modules}
+Let's make a new module named \code{module\_demo1} that contains one function that computes the difference between two squared numbers. Here's the code:
+
+\begin{Meruem}
+(defun squares-diff(x y)
+  (let { x-squared (* x x)
+         y-squared (* y y) }
+    (- x-squared y-squared)))
+\end{Meruem}
+
+Try applying \code{squares-diff} to any two numbers to see if it works:
+
+\begin{REPL}
+meruem> (import "module_demo1")
+SomeModule(module_demo1, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(squares-diff, module)})
+meruem> (module_demo1.squares-diff 5 3)
+16
+meruem> (module_demo1.squares-diff 7 9)
+-32
+\end{REPL}
+
+Now, look at the implementation of \code{squares-diff}. Isn't the method for getting the square of a number familiar? That's right! It's the same as our implementation for \code{squared}. We can reuse that function here. Since \code{square} is in another module, we need to import the module first. After importing we can replace \code{(* x x)} and \code{(* y y)} with the call to \code{squared}. The new code would look this:
+
+\begin{Meruem}
+(import "module_demo")
+
+(defun squares-diff(x y)
+  (let { x-squared (module_demo.squared x)
+         y-squared (module_demo.squared y) }
+    (- x-squared y-squared)))
+\end{Meruem}
+
+In order to make this code work, you have to make sure that \code{module\_demo} and \code{module\_demo1} are located in the same directory.
+
+Now everytime we want to change our implementation for squaring numbers, we are only required to make modifications in one place (in \code{module\_demo.squared}), and everything would still work. The result of calling \code{squares-diff} should be the same as before:
+
+\begin{REPL}
+meruem> (module_demo1.squares-diff 5 3)
+16
+meruem> (module_demo1.squares-diff 7 9)
+-32
+\end{REPL}
+
+\section{Packages}
+It is often very useful to group modules into different \keyword{packages}. In Meruem, \ikeyword{packages} are just directories that can contain one or more related modules. For instance, if you want to put \code{module\_demo} and \code{module\_demo1} into one package, just create a new directory and move the source files for these modules into that new directory. Importing a module that is inside a package requires that you specify the package name first, followed by a period, before you can specify the module name. The following shows how to use \code{module\_demo} that is inside the \code{module\_demos} package:
+
+\begin{REPL}
+meruem> (import "module_demos.module_demo")
+SomeModule(module_demos/module_demo, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(cubed, module, x, squared)})
+meruem> (module_demos.module_demo.squared 5)
+25
+\end{REPL}
+
+As you can see, you need to specify the package name the module belongs to when calling a member function of that module as well. It is also possible to nest packages. For instance, we can call the factorial function from the \code{factorial} module within the \code{math} package, which is also inside the \code{sample} package, as follows:
+
+\begin{REPL}
+meruem> (import "sample.math.factorial")
+SomeModule(sample/math/factorial, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(tail-fac, factorial, module, main)})
+meruem> (sample.math.factorial.factorial 5)
+120
+\end{REPL}
+
+We can say that \code{factorial} is a member of package \code{sample.math}.
+
+\section{The \code{math} Module}
+The Meruem distribution that you downloaded already included the \keyword{standard library} that contains the standard modules. One of these modules is the \code{math} module. The \code{math} module contains many of the commonly used math functions. The following shows what they are and how to use them:
+
+\begin{REPL}
+meruem> (import "math")
+SomeModule(/home/melvic/meruem/lib/math, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(max, pow, module, min, abs)})
+meruem> math.Pi
+3.141592653589793
+meruem> (math.abs -78)
+78
+meruem> (math.cos 45)
+0.5253219888177297
+meruem> (math.sin 45)
+0.8509035245341184
+meruem> (math.tan 45)
+1.6197751905438615
+meruem> (math.ceil 5.8)
+6.0
+meruem> (math.floor 5.8)
+5.0
+meruem> (math.exp 6)
+403.4287934927351
+meruem> (math.log 50)
+50.0
+meruem> (math.log10 50)
+1.6989700043360187
+meruem> (math.max 45 9)
+45
+meruem> (math.min 45 9)
+9
+meruem> (math.pow 4 2)
+16
+meruem> (math.random)
+0.4646771927139556
+meruem> (math.sqrt 25)
+5.0
+\end{REPL}
+
+Most of these functions should be familiar to you, and the ones that aren't are probably the ones you would just use rarely. So we are not going to spend many pages explaining all of them. 
+
+It is worth noting that some of these functions can be used even without importing the 
+\code{math} module. To see what I mean, restart your REPL (so all imported modules will be gone), and enter the expressions shown in the following:
+
+\begin{REPL}
+meruem> (math.random)
+0.06757696728362839
+meruem> (math.sqrt 36)
+6.0
+meruem> (math.sin 90)
+0.8939966636005579
+\end{REPL}
+
+As you can see, \code{math.random} --- which returns a new number every time it is called --- and \code{math.sqrt} --- which returns the square root of a number --- were still available for us to use even if the \code{math} module was not loaded. Actually, majority of the math functions showed here are already usable without importing \code{math}. 
+
+The reason that functions like \code{math.random} are available by default is --- they were not written in Meruem (unlike \code{squared} and \code{squares-diff}). In other words, they are not part of the standard library. They are just functions that are built-in to the interpreter. (The explanation as to why they were implemented like that is already beyond the scope of this book.) They were given names that start with \code{math.} for consistency purposes.
+
+If we try to use a math function that is not built-in to the interpreter, we'll get an error as the result:
+
+\begin{REPL}
+meruem> (math.pow 4 5)
+An error has occurred. Unbound symbol: math.pow.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(math.pow 4 5)
+ ^
+meruem> (math.min 5 6)
+An error has occurred. Unbound symbol: math.min.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(math.min 5 6)
+ ^ 
+\end{REPL}
+
+In order to use \code{math.pow} and \code{math.min}, we need to import \code{math}.
+
+\section{The \code{prelude} Mode}
+There are some functions that are implemented in the standard library but are available to use even without any imports. I'm not talking about the built-in ones (like \code{math.random}). I'm talking about the functions from the \code{prelude} module.
+
+\code{prelude} is a special module in Meruem in a sense that the interpreter would automatically include all the functions from that module into the current \keyword{environment}, when the program starts. You've already seen and used most of the functions \code{prelude} provides in chapter~\sectionref{ch:standard-functions} like \code{falsy?}, \code{lazy}, \code{identity} and many more. Just in case you miss them, here they are again:
+
+\begin{REPL}
+meruem> (falsy? (or true false))
+false
+meruem> (lazy 5)
+<function>
+meruem> (identity 7)
+7
+meruem> (even? 10)
+true
+\end{REPL}

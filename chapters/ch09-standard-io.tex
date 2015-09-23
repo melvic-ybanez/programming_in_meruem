@@ -1,0 +1,79 @@
+Most of the functions and expressions we have tried so far are \keyword{side-effect free}. Our variables are all immutable. Any expressions we evaluate wouldn't cause any changes somewhere else. Our functions are all \keyword{pure} --- they don't cause side-effects when called --- and \keyword{referentially transparent} --- they can be safely substituted with their own definition without causing any changes to the behavior of the whole program. What, you didn't notice? We've been functional programming since the very beginning.
+
+In this chapter we are going to discuss about the standard input and output operations supported by Meruem. All of the IO operations involve side-effects. This means that now we are going to do a little bit of non-functional programming.
+
+\section{Printing Data to Console}
+When we evaluate expressions in the REPL, we always see the results. However, when we run a source file as a complete Meruem program, we can't see anything unless we print something to the console. That is why our sample main functions always use the \code{println} function (which is probably the only side-effecting, non-pure function we have used so far, if I'm not mistaken). \code{println}, as you've probably already know, takes an expression and displays the expression's string representation to the console. Let's try printing a few expressions in the REPL using \code{println}:
+
+\begin{REPL}
+meruem> (println "hello world")
+hello world
+nil
+meruem> (println 6)
+6
+nil
+meruem> (println '(1 2 3))
+(1 2 3)
+nil
+\end{REPL}
+
+You might be wondering why each line of outputs is followed by a \code{nil}. Actually, the \code{nil}s are the returned values of the \code{println}s. The \code{hello world}, \code{6}, and \code{(1 2 3)} are just the side-effects. \code{println} is \keyword{consumer} --- it accepts something, but it doesn't return anything. Since functions in Meruem are required to return something even if they don't want to, it only makes sense for \code{println} to return \code{nil}. Remember, \code{nil} indicates the absence of value.
+
+\code{println} has a cousin called \code{print}, which prints expressions too. What makes \code{print} different is that its output does not occupy the entire line. Take a look at the following:
+
+\begin{REPL}
+meruem> (print 5)
+5nil
+meruem> (print "hello world")
+hello worldnil
+meruem> (print 6)
+6nil
+meruem> (print '(1 2 3))
+(1 2 3)nil
+\end{REPL}
+
+Each of the outputs is followed immediately by a \code{nil}. The "ln" in \code{println} actually stands for "line". Basically, \code{println} would print an expression (like \code{print} does) followed by the newline character (\code{\textbackslash n}). Here's how \code{println} is implemented in the standard library:
+
+\begin{REPL}
+(defun println (expr) (print (str expr "\n")))
+\end{REPL}
+
+The \code{str} function takes a varying number of arguments. It would convert each of the arguments into a string and then combine them all into a one big string. 
+
+\section{Read Data from Console}
+If there are functions to print data to the console, there are also some that you can use to read data from the console. We'll start with the \code{read-line} function. Here are some examples of it:
+
+\begin{REPL}
+meruem> (read-line)
+foo
+"foo"
+meruem> (read-line)
+bar
+"bar"
+\end{REPL}
+
+Notice that after executing \code{(read-line)}, the REPL would wait for you to input something. Notice also that, unlike \code{println}, \code{read-line} does not return \code{nil}. \code{read-line} returns the data entered by the user, so the program can make use of it.
+
+There are many variations of \code{read-line} from the \code{io} module that you can use. Each of them has a self-explanatory name. So instead spending a couple of subsections explaining all of them, I'm just gonna show them all to you in one go:
+
+\begin{REPL}
+meruem> (io.read-int)  ; read an integer
+56
+56
+meruem> (io.read-int)  ; try entering a non-int
+ty
+An error has occurred. Number format error: ty
+Source: .home.melvic.meruem.lib.io [0:0}]
+<undefined position>
+meruem> (io.read-long)  ; ask for a long
+453535535
+453535535
+meruem> (def a-long (io.read-long))  ; store it to a variable
+456
+nil
+meruem> a-long
+456
+meruem> (* a-long (io.read-double))
+45.6
+20793.600000000002
+\end{REPL}

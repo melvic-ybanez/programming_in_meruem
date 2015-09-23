@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, obeyspaces]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
@@ -7,11 +7,15 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{url}
+\usepackage{mathtools}
 
 \pagestyle{fancy}
 \graphicspath{{images/}}
 
-\title{Programming in Meruem}
+\title{Introduction to Functional Programming in Meruem}
 \author{Melvic C. Ybanez}
 \date{September 2015}
 
@@ -20,40 +24,87 @@
 \newcommand{\keyword}[1]{\textit{#1}}
 \newcommand{\ikeyword}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\icode}[1]{\code{\textbf{#1}}}
 \newcommand{\codexleftmargin}{8.0ex}
-\newcommand{\codenumbersep}{15pt}
+\newcommand{\codenumbersep}{14pt}
+\newcommand{\codenumberstyle}{\small\color{gray}}
+\newcommand{\codecommentstyle}{\itshape\color{gray}}
+\newcommand{\codebasicstyle}{\ttfamily}
+\newcommand{\sectionref}{\ref}
+\newcommand{\codedesitem}[1]{\item[\code{#1}] \hfill \\}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
 
 \lstnewenvironment{Python}{
 	\lstset{
 		language=Python, 
+		basicstyle=\codebasicstyle,
 		numbers=left, 
 		numbersep=\codenumbersep,
 		showstringspaces=false,
 		tabsize=2,
 		xleftmargin=\codexleftmargin,
-		escapeinside={(*@}{@*)}
+		escapeinside={(*@}{@*)},
+		breaklines=true,
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle
 	}
 }{}
 \lstnewenvironment{Java}[1][1]{
 	\lstset{
 		language=Java,
+		basicstyle=\codebasicstyle,
 		numbers=left,
 		numbersep=\codenumbersep,
 		showstringspaces=false,
 		tabsize=4,
 		xleftmargin=\codexleftmargin,
 		escapeinside={(*@}{@*)},
-		firstnumber=#1
+		firstnumber=#1,
+		breaklines=true,
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle
 	}
 }{}
 \lstnewenvironment{REPL}{
-	\lstset{language=Lisp, xleftmargin=\codexleftmargin}
+	\lstset{
+		language=Lisp, 
+		basicstyle=\codebasicstyle,
+		xleftmargin=\codexleftmargin,
+		breaklines=true,
+		commentstyle=\codecommentstyle,
+		otherkeywords={meruem>},
+		showstringspaces=false
+	}
+}{}
+\lstnewenvironment{Meruem}[1][1]{
+	\lstset{
+		language=Lisp,
+		basicstyle=\codebasicstyle,
+		numbers=left,
+		numbersep=\codenumbersep,
+		xleftmargin=\codexleftmargin,
+		showstringspaces=false,
+		tabsize=2,
+		escapeinside={(*@}{@*)},
+		breaklines=true,
+		numberstyle=\codenumberstyle,
+		commentstyle=\codecommentstyle,
+		morekeywords={def, lambda, defun, if, head, tail-rec, recur}
+	}
+}{}
+\lstnewenvironment{QuasiLang}{
+	\lstset{
+		language=Lisp,
+		basicstyle=\codebasicstyle,
+		xleftmargin=\codexleftmargin
+	}
 }{}
 
 \newenvironment{noteparagraph}[1]{
 	\bigskip
 	\small{\textbf{Note}: #1}
-}{\par}
+}{\bigskip\par}
 
 \begin{document}
 	\maketitle
@@ -66,4 +117,32 @@
 	
 	\chapter{Starting Out}
 	\input{chapters/ch01-starting-out}
+	
+	\chapter{Data Types}
+	\input{chapters/ch02-data-types}
+	
+	\chapter{Language Syntax}
+	\input{chapters/ch03-language-syntax}
+	
+	\chapter{Standard Functions}
+	\label{ch:standard-functions}
+	\input{chapters/ch04-standard-functions}
+	
+	\chapter{Defining Variables and Functions}
+	\input{chapters/ch05-defining-variables-and-functions}
+	
+	\chapter{Recursion}
+	\input{chapters/ch06-recursion}
+	
+	\chapter{Module System}
+	\input{chapters/ch07-module-system}
+	
+	\chapter{Lists}
+	\input{chapters/ch08-lists}
+	
+	\chapter{Standard IO}
+	\input{chapters/ch09-standard-io}
+	
+	\chapter{Higher-order Functions}
+	\input{chapters/ch10-higher-order-functions}
 \end{document}

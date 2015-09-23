@@ -1,0 +1,173 @@
+You already know what Meruem lists are and how they are evaluated by the interpreter. However, you haven't tasted its real power yet. In this chapter, you are going to see what makes lists so useful. 
+
+\section{Parts of a List}
+As discussed in the past chapters, a \code{list} is composed of zero, one or more elements, each can either be an atom or another list. The question is --- how do we access those elements? 
+
+There are four major parts of a list: \code{head}, \code{tail}, \code{last}, \code{init}. Let us briefly define each one of them:
+
+\begin{description}
+	\codedesitem{head} returns the first element of a non-empty list.
+	\codedesitem{tail} returns all but the first element of a non-empty list.
+	\codedesitem{last} returns the last element of a non-empty list.
+	\codedesitem{init} returns all but the last element of a non-empty list.
+\end{description}
+
+The following example shows how to use each of them:
+
+\begin{REPL}
+meruem> (def xs '(1 2 3 4 5))
+nil
+meruem> (head xs)
+1
+meruem> (tail xs)
+(2 3 4 5)
+meruem> (lists.last xs)
+5
+meruem> (lists.init xs)
+(1 2 3 4)
+\end{REPL}
+
+As shown in the example, both \code{last} and \code{init} are members of the \code{lists} module. The reason we didn't have to import it is because it's already been imported in the \code{prelude}.
+
+\section{Constructing a List}
+The simplest way to construct a list is --- as you've probably already guessed by now --- by using the \code{quote} operator:
+
+\begin{REPL}
+meruem> '(1 2 3)
+(1 2 3)
+meruem> '("hello" "world")
+(hello world)
+meruem> '(+ 1 3)
+(+ 1 3)
+\end{REPL}
+
+Another way is of constructing a list is to use the \code{list} function (that you are already familiar as well):
+
+\begin{REPL}
+meruem> (list 1 2 3 4)
+(1 2 3 4)
+meruem> (list \t \d \3 6)
+(t d 3 6)
+meruem> (list ())
+(())
+\end{REPL}
+
+The third method is to use the \code{cons} function. This one is probably new to you. The \ikeyword{cons} function takes an expression and a list and return a new list with the expression as the head and the list argument as the tail. Let's see some examples:
+
+\begin{REPL}
+meruem> (cons 1 '(1 2 3))
+(1 1 2 3)
+meruem> (cons 4 (cons 5 (cons 6 ())))
+(4 5 6)
+meruem> (cons '(1 2) '(3 4))
+((1 2) 3 4)
+\end{REPL}
+
+If you want to concatenate two lists you can use the \code{++} operator:
+
+\begin{REPL}
+meruem> (++ '(1 2 3) '(4 5 6))
+(1 2 3 4 5 6)
+meruem> (++ '(lambda (x)) '((inc x)))
+(lambda (x) (inc x))
+\end{REPL}
+
+\section{Searching for an element}
+There are three main ways to see if an element exists within a list. Each of them are members of the lists module. Here they are together with their corresponding definitions:
+
+\begin{description}
+	\codedesitem{lists.contains?} checks if an expression has the same value as at least one of the elements of a list.
+	\codedesitem{lists.exists?} checks if an expression is similar to at least one of the elements of a list based on a particular predicate.
+	\codedesitem{lists.find} the same as \code{lists.exists?} except that it returns the first element for which the predicate returns true, instead of a boolean value (which is why it doesn't have a \code{?} at the end of it's name). If no element is found, it returns \code{nil}.
+\end{description}
+
+Let's go ahead and see some examples:
+
+\begin{REPL}
+meruem> (def xs '(1 2 3 4 5 6 7 8 9 10))
+nil
+meruem> (lists.contains? xs 3)
+true
+meruem> (lists.contains? xs 11)
+false
+meruem> (lists.contains? () 3)
+false
+meruem> (lists.exists? xs odd?)
+true
+meruem> (lists.exists? xs (lambda (x) (< x 10)))
+true
+meruem> (lists.find xs even?)
+2
+meruem> (lists.find xs (lambda (x) (> x 10)))
+nil
+\end{REPL}
+
+\code{lists.find} would apply the predicate --- like \code{(lambda (x) (> x 10))} to each of the elements of the list. The first element that satisfies the predicate would be returned. Same thing can be said to \code{lists.exists?}. The only difference between \code{lists.find} and \code{lists.exists?} is the return value. It is also worth noting that \code{odd?} and \code{even?} are valid predicates (as shown in the examples) since each of them is a function that takes a single expression and returns a boolean. 
+
+\section{Strings as Lists}
+In section~\sectionref{sec:string}, we've mentioned that a string can act as both an atom and a list (of characters). That means most of the functions applicable to a list can also be applied to a string. Let's try it to see if it's true:
+
+\begin{REPL}
+meruem> (++ '(lambda (x)) '((inc x)))
+(lambda (x) (inc x))
+meruem> (cons \h "ello")
+"hello"
+meruem> (++ "hello" "world")
+"helloworld"
+meruem> (lists.exists? "batman" (lambda (c) (= c \a)))
+true
+\end{REPL}
+
+\section{Transforming and Filtering Lists}
+Sometimes you may want to return a subset of a list whose elements satisfy a particular predicate, like retrieving all the odd numbers from a list of integers, or removing all letter "e"s in a sentence. To achieve such goals, we can use the \icode{lists.filter} function, as follows:
+
+\begin{REPL}
+meruem> (def xs '(1 2 3 4 5 6))
+nil
+meruem> (lists.filter xs odd?) 
+(1 3 5)
+meruem> (lists.filter xs even?)
+(2 4 5)
+meruem> (lists.filter "I remember the days..." (lambda (c) (!= c \e)))
+(I   r m m b r   t h   d a y s . . .)
+\end{REPL}
+
+That's pretty cool. Now, what if I want to add 1 to each of the elements of a list of integers, or transform a list of strings into a list of integers where each of element represents the length of the corresponding elements from the original list?
+
+What you're looking for is the \code{lists.map} function. \icode{lists.map} takes a list and a \keyword{mapping function} --- a function that maps one value to another --- and applies that function to each of the elements of the list, essentially creating a new list with the same length as the given one, but with possibly different elements. Here are some examples:
+
+\begin{REPL}
+meruem> (def xs '(100 200 300))
+nil
+meruem> (lists.map xs (lambda (x) (+ x 1)))
+(101 201 301)
+meruem> (def strs '("the" "quick" "brown" "fox"))
+nil
+meruem> (lists.map strs (lambda (str) (size str)))
+(3 5 5 3)
+\end{REPL}
+
+\section{Folding Lists}
+You've seen how to search for a particular element in a list. You've also seen how to \keyword{filter} and \keyword{map} a list. In this section you are going to see how to combine (in one way or another) the elements of a list, and return the result.  You can do it using the \code{lists.fold-left} function. \icode{lists.fold-left}  takes a list, an \keyword{initial value} and a \keyword{bifunction} --- a function that takes two arguments --- and applies the bifunction to each of the elements of the list. The second parameter of the bifunction would be the element the bifunction is currently being applied to, and the first parameter would be the \keyword{accumulator}. Each value returned by the bifunction will be the new accumulator. The initial value of the accumulator would be the second argument to \code{lists.fold-left}. 
+
+I think an example would make it a lot clearer. Let's say you want to add all the elements of a list --- without writing \code{(apply + xs)}. Here's how to do it using \code{lists.fold-left}:
+
+\begin{REPL}
+meruem> (def xs '(100 200 300))
+nil
+meruem> (lists.fold-left xs 0 (lambda (sum prod) (+ x sum)))
+600
+meruem> (lists.fold-left xs 1 (lambda (prod x) (* x prod)))
+6000000
+\end{REPL}
+
+There's also another folding function called \code{lists.fold-right}, which is just like \code{lists.fold-left} but traverses the lists in the opposite direction (hence the name). The order of its bifunctions parameters are in reverse as well. The following shows the difference of the two:
+
+\begin{REPL}
+meruem> xs
+(100 200 300)
+meruem> (lists.fold-left xs () (lambda (acc x) (cons x acc)))
+(300 200 100)
+meruem> (lists.fold-right xs () (lambda (x acc) (cons x acc)))
+(100 200 300)
+\end{REPL}
