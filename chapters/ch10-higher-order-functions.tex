@@ -1,4 +1,4 @@
-A \ikeyword{higher-order function} is a function that can take other functions as arguments or return a function as a result (or both). Higher-order functions are the bread and butter of functional programming. You've already seen some examples of higher or functions in the past chapters, like \code{lists.filter}, \code{lists.map}, and \code{lists.fold-left}. In this chapter you are going to learn how to write you own higher-order functions.
+A \ikeyword{higher-order function} is a function that can take other functions as arguments or return a function as a result (or both). Higher-order functions are the bread and butter of functional programming. You've already seen some examples of higher-order functions in the past chapters, like \code{lists.filter}, \code{lists.map}, and \code{lists.fold-left}. In this chapter you are going to learn how to write you own higher-order functions.
 
 \section{Functions as Parameters}
 Let's start this section with the following example:
@@ -10,7 +10,7 @@ Let's start this section with the following example:
   (f (math.random) (math.random)))
 \end{REPL}
 
-The \code{compute} function takes one function and apply it to two random numbers. The user of this function decides what function to apply to these numbers. For instance, we can decide to make \code{compute} add or multiply the two random numbers. The following code shows two functions that make use of \code{compute}:
+The \code{compute} function takes one function and apply it to two random numbers. The user of this function gets to decide what function to apply to these numbers. For instance, we can decide to make \code{compute} add or multiply the two random numbers. The following code shows two functions that make use of \code{compute}:
 
 \begin{REPL}
 (defun sum ()
@@ -20,7 +20,7 @@ The \code{compute} function takes one function and apply it to two random number
   (compute (lambda (a b) (* a b))))
 \end{REPL}
 
-\code{sum} passes a lambda --- that takes two arguments and return their sum --- to \code{compute}. This gets substituted for the parameter \code{f} in \code{compute}. In other words, calling \code{sum} would be equivalent to evaluating the following:
+\code{sum} passes a lambda --- that takes two arguments and return their sum --- to \code{compute}. This gets substituted for the parameter \code{f} in \code{compute}. In other words, calling \code{sum} would be equivalent to evaluating the following expression:
 
 \begin{REPL}
 ((lambda (a b) (+ a b)) 
