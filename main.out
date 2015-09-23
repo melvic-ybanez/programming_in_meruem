@@ -82,3 +82,6 @@
 \BOOKMARK [1][-]{section.8.4}{Strings as Lists}{chapter.8}% 82
 \BOOKMARK [1][-]{section.8.5}{Transforming and Filtering Lists}{chapter.8}% 83
 \BOOKMARK [1][-]{section.8.6}{Folding Lists}{chapter.8}% 84
+\BOOKMARK [0][-]{chapter.9}{Standard IO}{}% 85
+\BOOKMARK [1][-]{section.9.1}{Printing Data to Console}{chapter.9}% 86
+\BOOKMARK [1][-]{section.9.2}{Read Data from Console}{chapter.9}% 87
