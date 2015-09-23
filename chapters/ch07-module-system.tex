@@ -1,7 +1,7 @@
-When your program gets really big and complicated, it is not a very good idea to put everything into one source file. You need to split the program into smaller pieces, and make each of these pieces as reusable as possible so different parts of the program can use it. Such a piece is called a \keyword{module}.
+When your program gets really big and complicated, it is not a very good idea to put everything into one source file. You need to split the program into smaller pieces, and make each of these pieces as reusable as possible so different parts of the program can use it. These pieces are called \keyword{modules}.
 
 \section{What is a Module?}
-A \ikeyword{module} in Meruem is a reusable named component of a program, just like a function. One difference between a module and a function is that a function contains expressions while a module can contain functions. In other words, a large program can be composed of several modules, and each of these modules can be composed of functions. One source file serves as a single module, and the functions and variables within that source file are the members of that module. From now on, we are going to use the term "module" instead of "source file" when we refer to Meruem files.
+A \ikeyword{module} in Meruem is a reusable named component of a program, just like a function. One difference between a module and a function is that a function contains expressions while a module can contain functions. In other words, a large program can be composed of several modules, and each of these modules can be composed of functions. One source file serves as a single module, and the functions and variables within that source file are the members of that module. 
 
 In other to use a module you need to \keyword{import} it. You can do that using the \code{import} command. The \code{import} command takes the name of the module to import as a string argument. Let us create a simple module that has one variable and one two functions:
 
@@ -16,7 +16,9 @@ In other to use a module you need to \keyword{import} it. You can do that using 
 Save it as \code{module\_demo.mer}. The next section will show how to import it.
 
 \section{Import a module in the REPL}
-Fire up the REPL and import the module using the \code{import} command as follows:
+To import a module, you need to pass it's name --- which is the same as the name of the source file, excluding the \code{.mer} extension --- as a string argument to \code{import}.
+
+Fire up the REPL and import \code{module\_demo} using the \code{import} command as follows:
 
 \begin{REPL}
 meruem> (import "module_demo")
@@ -30,4 +32,69 @@ meruem> (import "modulo")
 An error has occurred. File Not Found: /home/melvic/meruem/lib/modulo
 Source: .home.melvic.meruem.lib.prelude [0:0}]
 <undefined position>
+\end{REPL}
+
+\section{Accessing the members of a module}
+In order to access a member of a module, first you have to specify the module name, followed by a period. Then you append the name of the member you want to invoke. The following example shows how to call the members of \code{module\_demo}:
+
+\begin{REPL}
+meruem> module_demo.x   
+10
+meruem> (module_demo.squared 2)
+4
+meruem> (module_demo.cubed 5)
+125
+\end{REPL}
+
+Note that we didn't wrap \code{module\_demo.x} in parentheses. This is because \code{module\_demo.x} is not bound to a function.
+
+Invoking a non-existing member of a module would resolve to an error:
+
+\begin{REPL}
+meruem> (module_demo.foo 5)
+An error has occurred. Unbound symbol: module_demo.foo.
+Source: .home.melvic.meruem.lib.prelude [1:2}]
+(module_demo.foo 5)
+ ^
+\end{REPL}
+
+\section{Importing modules in other modules}
+Let's make a new module named \code{module\_demo1} that contains one function that computes the difference between two squared numbers. Here's the code:
+
+\begin{Meruem}
+(defun squares-diff(x y)
+  (let { x-squared (* x x)
+         y-squared (* y y) }
+    (- x-squared y-squared)))
+\end{Meruem}
+
+Try applying \code{squares-diff} to any two numbers to see if it works:
+
+\begin{REPL}
+meruem> (import "module_demo1")
+SomeModule(module_demo1, MutableList(/home/melvic/meruem/lib/prelude), ArrayBuffer(squares-diff, module)})
+meruem> (module_demo1.squares-diff 5 3)
+16
+meruem> (module_demo1.squares-diff 7 9)
+-32
+\end{REPL}
+
+Now, look at the implementation of \code{squares-diff}. Isn't the method for getting the square of a number familiar? That's right! It's the same as our implementation for \code{squared}. We can reuse that function here. Since \code{square} is in another module, we need to import the module first. After importing we can replace \code{(* x x)} and \code{(* y y)} with the call to \code{squared}. The new code would look this:
+
+\begin{Meruem}
+(import "module_demo")
+
+(defun squares-diff(x y)
+  (let { x-squared (module_demo.squared x)
+         y-squared (module_demo.squared y) }
+    (- x-squared y-squared)))
+\end{Meruem}
+
+Now everytime we want to change our implementation for squaring numbers, we are only required to make modifications in one place (in \code{module\_demo.squared}), and everything would still work. The result of calling \code{squares-diff} should be the same as before:
+
+\begin{REPL}
+meruem> (module_demo1.squares-diff 5 3)
+16
+meruem> (module_demo1.squares-diff 7 9)
+-32
 \end{REPL}
