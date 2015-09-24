@@ -91,3 +91,4 @@
 \contentsline {chapter}{\numberline {10}Higher-order Functions}{61}{chapter.10}
 \contentsline {section}{\numberline {10.1}Functions as Parameters}{61}{section.10.1}
 \contentsline {section}{\numberline {10.2}Currying}{62}{section.10.2}
+\contentsline {section}{\numberline {10.3}Thanks for Reading}{64}{section.10.3}
