@@ -52,8 +52,10 @@ meruem> (hofs.product)
 0.14223037787589593
 \end{REPL}
 
-\section{Functions as Return Values}
-Here's an example of a function that returns a function as the result of computation:
+\section{Currying}
+In many cases, it is useful to transform the application of a function that takes multiple arguments into a series of function applications where each of the functions takes only 1 argument. This method is known as \ikeyword{currying}.
+
+The result of currying function is usually a function that returns another function. Here's an example:
 
 \begin{REPL}
 (defun my-concat (str1)
@@ -61,9 +63,7 @@ Here's an example of a function that returns a function as the result of computa
     (++ str1 str2)))
 \end{REPL}
 
-In the example above, \code{my-concat} takes an argument (stored in parameter \code{str1}) and returns a lambda that takes an argument (stored in \code{str2}) and returns the concatenation of \code{my-concat}'s and this lambda's parameters. 
-
-Let's try it in the REPL:
+In the example above, \code{my-concat} takes an argument (stored in parameter \code{str1}) and returns a lambda that takes an argument (stored in \code{str2}) and returns the concatenation of \code{my-concat}'s and this lambda's parameters. Here's how you can use it:
 
 \begin{REPL}
 meruem> (import "hofs")
@@ -80,4 +80,42 @@ meruem> (apples-and "dinosaurs")
 "apples and dinosaurs"
 \end{REPL}
 
-The great advantage of returning a function from another function is that you can create a new function "on the fly", like our \code{apples-and} in the example.
+The great advantage of currying is that you can create a new function "on the fly", like our \code{apples-and} in the example.
+
+Now, let us write our own implementation of the \code{lists.map} function. Here's the code:
+
+\begin{REPL}
+(defun my-map (f)
+  (lambda (xs)
+    (tail-rec { xs xs acc () }
+      (if (empty? xs)
+        acc
+        (recur (tail xs) (cons (f (head xs)) acc))))))
+\end{REPL}
+
+The main difference between \code{my-map} and \code{lists.map} is that the latter takes  a list and a function and applies that function to each of the elements of the given list, while the former is a curried function --- takes a function \code{f} and returns a lambda that takes a list and apply \code{f} to each of the elements of that list. \\~\\
+Sounds confusing? I'm not even done yet. \\~\\
+The function parameter \code{f} in \code{my-map} is being accessed by a nested function. For that reason, the inner function (which is a lambda) would be considered a \ikeyword{closure}. When \code{my-map} has returned the inner function, the inner function would still be able to use \code{f}. In other words, \code{f} would outlive \code{my-map}.
+
+Since \code{my-map} is different from \code{lists.map}, we are going to use it differently as well. The following shows how to use \code{my-map}:
+
+\begin{REPL}
+meruem> (import "hofs")
+SomeModule(hofs, MutableList(/home/melvic/meruem/lib/prelude, /home/melvic/meruem/lib/math), ArrayBuffer(my-map, product, my-concat, module, sum, compute)})
+meruem> (def double-each (hofs.my-map (lambda (x) (* 2 x))))
+nil
+meruem> (double-each '(1 2 3 4))
+(8 6 4 2)
+meruem> (double-each '(2.3 5.6))
+(11.2 4.6)
+meruem> (def reverse-all (hofs.my-map lists.reverse))
+nil
+meruem> (reverse-all '((1 2 3) (\t \h \e)))
+((e h t) (3 2 1))
+meruem> (reverse-all '("university" "of" "cebu"))
+((u b e c) (f o) (y t i s r e v i n u))
+'(2.3 5.6))
+(11.2 4.6)
+meruem> (reverse-all ())  
+()
+\end{REPL}
