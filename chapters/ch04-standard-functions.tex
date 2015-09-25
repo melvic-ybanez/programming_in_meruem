@@ -42,7 +42,7 @@ meruem> (to-char 97)
 \a
 \end{REPL}
 
-The names of these functions are self-explanatory. For instance, \code{to-long} takes a number and tries to convert it to a \code{long}. If you apply a function to argument whose type is not compatible with the type the function is expecting, you'll get an error:
+The names of these functions are self-explanatory. For instance, \code{to-long} takes a number and tries to convert it to a \keyword{long}. If you apply a function to argument whose type is not compatible with the type the function is expecting, you'll get an error:
 
 \begin{REPL}
 meruem> (to-char "the")
@@ -243,7 +243,7 @@ true
 Sometimes you may want to decide at runtime what code to execute (or expression to evaluate) based on a given condition. You can do this using \keyword{conditional expressions}. 
 
 \subsection{If-expressions}
-The simplest form of conditional expressions is the \code{if-expression}. An if-expression takes three arguments. First, it checks the truthfulness of the first one. If the first argument is truthy, it evaluates the second argument and return the result. Otherwise, it evaluates the third argument and return the result. Here's are some if-expressions in action:
+The simplest form of conditional expressions is the \keyword{if-expression}. An if-expression takes three arguments. First, it checks the truthfulness of the first one. If the first argument is truthy, it evaluates the second argument and return the result. Otherwise, it evaluates the third argument and return the result. Here's are some if-expressions in action:
 
 \begin{REPL}
 meruem> (if (> 10 4) "greater" "lesser")
@@ -328,7 +328,7 @@ meruem> ((lazy 56))  ; evaluates the function returned by lazy
 56
 \end{REPL}
 
-Note that \code{<function>} is the string representation of a function. The \keyword{string representation} of an expression is the string value returned by applying the \code{to-string} function to that expression.
+Note that \code{<function>} is the string representation of a function. The \keyword{string representation} of an expression is the string value returned by applying \code{to-string} to that expression.
 
 \subsection{Identity}
 The \ikeyword{identity} function takes a single expression and immediately return that expression:
