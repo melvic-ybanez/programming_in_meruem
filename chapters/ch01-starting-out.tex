@@ -12,7 +12,7 @@ Before we continue, let us first make a brief discussion about the different pro
 In the following subsections, I am going to show you some code samples from different programming languages. If you are not familiar with these languages, don't worry. Knowing them is not required. That said, I strongly recommend that you try reading these subsections (or at least the explanation parts).
 
 \subsection{Imperative Programming}
-In \ikeyword{Imperative programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string \code{Hello World} to the screen:
+In \ikeyword{Imperative programming}, you give the computer a sequence of statements for it to perform. Each of these statements can cause side effects. \ikeyword{Side effects} are changes (on a state or something) that occur in some place (like outside of a function being invoked) when a function, command or statement is invoked or executed. For example, the following code will print the string "Hello World" to the screen:
 
 \begin{Python}
 print "Hello World"
@@ -163,7 +163,7 @@ The REPL is useful if all you want to do is to try out some expressions. Instead
 
 \section{Hello World in Meruem}
 \label{sec:helloworld}
-It is almost customary for any programming language tutorial to have a \code{Hello World} program as the very first complete program to run. We are going to follow such practice here.
+It is almost customary for any programming language tutorial to have a \keyword{Hello World} program as the very first complete program to run. We are going to follow such practice here.
 
 First, run Winter (again by running the \code{java -jar Winter.jar} command.). Next, type the following in the editor area:
 
@@ -171,13 +171,13 @@ First, run Winter (again by running the \code{java -jar Winter.jar} command.). N
 (defun main (args) (println "Hello World"))
 \end{Meruem}
 
-Save it as \code{hello\_world.mer}. Then, \code{cd} into where you saved \code{hello\_world.mer} and run the following command: \code{java -jar meruem.jar hello\_world}. You should be able to see the following output:
+Save it as \keyword{hello\_world.mer}. Then, \code{cd} into where you saved \keyword{hello\_world.mer} and run the following command: \code{java -jar meruem.jar hello\_world}. You should be able to see the following output:
 
 \begin{REPL}
 $ java -jar meruem.jar hello_world
 Hello World
 \end{REPL}
 
-The \code{hello\_world} is the name of the source file you want to run. A Meruem source file ends with a \code{.mer}. Basically, if the source file is not provided, Meruem will fire up the REPL for you. 
+The \code{hello\_world} is the name of the source file you want to run. A Meruem source file ends with a \keyword{.mer}. Basically, if the source file is not provided, Meruem will fire up the REPL for you. 
 
 If the code worked, then congratulations, you've just run your first complete Meruem program. This also means that your set up is complete and working well. Now you are ready to start learning the Meruem programming language.
