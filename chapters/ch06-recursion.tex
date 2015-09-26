@@ -83,7 +83,7 @@ Exception in thread "main" java.lang.StackOverflowError
 .........
 \end{REPL}
 
-Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
+You get an error. More specifically, you get a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
 
 Every function call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
 

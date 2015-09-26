@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  26 SEP 2015 20:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  26 SEP 2015 22:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -762,7 +762,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.145 \begin{REPL}
-                   <./images/winter.png>])
+                   <./images/winter.png>]
+Overfull \hbox (11.00882pt too wide) in paragraph at lines 174--175
+\OT1/cmr/m/it/12 hello[]world.mer \OT1/cmr/m/n/12 and run the fol-low-ing com-m
+and: \OT1/pcr/m/n/12 java -jar meruem.jar hello[]world\OT1/cmr/m/n/12 .
+ []
+
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1175,11 +1181,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 149.
  ) 
 Here is how much of TeX's memory you used:
- 10879 strings out of 495028
- 153966 string characters out of 6181498
- 327175 words of memory out of 5000000
- 12736 multiletter control sequences out of 15000+600000
- 15641 words of font info for 56 fonts, out of 8000000 for 9000
+ 10893 strings out of 495028
+ 154190 string characters out of 6181498
+ 327334 words of memory out of 5000000
+ 12742 multiletter control sequences out of 15000+600000
+ 15342 words of font info for 55 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  35i,12n,43p,1518b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -1196,10 +1202,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (65 pages, 382291 bytes).
+Output written on main.pdf (65 pages, 382545 bytes).
 PDF statistics:
- 2105 PDF objects out of 2487 (max. 8388607)
- 2001 compressed objects within 21 object streams
- 1192 named destinations out of 1200 (max. 500000)
+ 2117 PDF objects out of 2487 (max. 8388607)
+ 2013 compressed objects within 21 object streams
+ 1201 named destinations out of 1440 (max. 500000)
  734 words of extra memory for PDF output out of 10000 (max. 10000000)
 
