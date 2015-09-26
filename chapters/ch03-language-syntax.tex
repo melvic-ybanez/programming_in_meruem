@@ -3,10 +3,10 @@ In this chapter, we are going to focus the discussion on the structure of Meruem
 \section{S-expressions}
 The syntax of Meruem code is composed only of s-expressions. In fact the syntax for the whole program itself is an s-expression. So the key to mastering the syntax of Meruem is to learn how s-expressions work. The good news is it's actually pretty easy to learn s-expressions. So what is an s-expression?
 
-An \ikeyword{s-expression} (or \code{sexprs}) is a recursive tree-like data structure whose \keyword{leaf sub-nodes} are \keyword{atoms} and the non-\keyword{leaf sub-nodes} are themselves s-expressions. 
+An \ikeyword{s-expression} (or \keyword{sexprs}) is a recursive tree-like data structure whose \keyword{leaf sub-nodes} are \keyword{atoms} and the non-\keyword{leaf sub-nodes} are themselves s-expressions. 
 (A \keyword{leaf} node is a node that doesn't have any children.) In other words, an s-expression can be either an atom (the smallest unit of expression in Meruem), or a composition of other s-expressions (like I said, it's recursive). 
 
-I'm sure you're already familiar with \code{atom}s, but just to refresh your memory let's see some of them again:
+I'm sure you're already familiar with \keyword{atom}s, but just to refresh your memory let's see some of them again:
 
 \begin{REPL}
 meruem> 10            
@@ -70,7 +70,7 @@ meruem> (cons \m "eruem")
 "meruem"
 \end{REPL}
 
-In Meruem, most of the callables are effectively functions. An operator like \code{+} is just a function who happened to have that operator-looking name. (In many languages, naming a function like this is not possible.). Macros are also just special functions, internally. Most of the special commands behave like functions as well. In fact, I rarely use the term "callable" in Meruem. I just refer to these things as "function"s. So does the interpreter (see the last error message). For that reason, executable expressions are usually just called \keyword{function calls} or \keyword{function applications}. You'll learn more about functions in the later part of the book.
+In Meruem, most of the callables are effectively functions. An operator like \code{+} is just a function that happened to have that operator-looking name. (In many languages, naming a function like this is not possible.). Macros are also just special functions, internally. Most of the special commands behave like functions as well. In fact, I rarely use the term "callable" in Meruem. I just refer to these things as "function"s. So does the interpreter (see the last error message). For that reason, executable expressions are usually just called \keyword{function calls} or \keyword{function applications}. You'll learn more about functions in the later part of the book.
 
 \section{Why S-expressions}
 S-expressions might look so uncool and unreadable at first, but there are actually reasons why Lispers prefer them over the C-like syntax. 

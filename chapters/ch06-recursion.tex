@@ -16,7 +16,7 @@ Here's a sample implementation of a factorial function in Meruem:
              (to-int (head args)))))
 \end{Meruem}
 
-Before we discuss the \code{factorial} function itself, let's first take a look at our main function here. The main function applies the \code{head} function --- which takes a list and returns its first element --- to \code{args}. Then it converts the result (which, in this case, is a string) to \code{int}. Next, it applies the \code{factorial} function to the integer result. (\code{factorial} can only be applied to integers so we had to convert the \code{head} of \code{args} to \code{int} first.) Lastly it prints the result of calling \code{factorial}. Basically, what we're doing is telling the user to pass as a command line argument the value \code{factorial} is to be applied to. With this, we can run the program multiple times with different arguments without having to modify the code.
+Before we discuss the \code{factorial} function itself, let's first take a look at our main function here. The main function applies the \code{head} function --- which takes a list and returns its first element --- to \code{args}. Then it converts the result (which, in this case, is a string) to \keyword{int}. Next, it applies the \code{factorial} function to the integer result. (\code{factorial} can only be applied to integers so we had to convert the \code{head} of \code{args} to \keyword{int} first.) Lastly it prints the result of calling \code{factorial}. Basically, what we're doing is telling the user to pass as a command line argument the value \code{factorial} is to be applied to. With this, we can run the program multiple times with different arguments without having to modify the code.
 
 Now, let's talk about the \code{factorial} function. It takes an integer and checks if its value is \code{0}. If it is \code{0}, then the function returns 1. Otherwise, the function returns the product of the integer \code{n} and the result of applying itself to the value of \code{n} decreased by 1. In this case, the \code{factorial} function is performing a recursive call. Let's try running it a few times to see if it will behave as we wanted it to:
 
@@ -83,7 +83,7 @@ Exception in thread "main" java.lang.StackOverflowError
 .........
 \end{REPL}
 
-Tadaah! It's an error. More specifically, it's a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
+You get an error. More specifically, you get a \keyword{stackoverflow error}. (This error is supposed to display a very long message or stack trace, but I simplified it to conserve space.) Allow me to explain the issue. 
 
 Every function call we make requires the allocation of a new \keyword{stack frame}, which means that the deeper the recursion gets, the more \keyword{stack frames} are needed. The problem is, we are only provided with a limited number of stack frames. So, if the recursion requires more stack frame than necessary, you'd get a \code{StackOverflowError}. Here's what the stack looks like when we execute \code{(sum-1-to-n 5)}:
 

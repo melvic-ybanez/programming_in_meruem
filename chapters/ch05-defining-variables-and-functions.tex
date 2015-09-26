@@ -10,7 +10,7 @@ meruem> (lambda () 6)
 <function>
 \end{REPL}
 
-This function takes no arguments and just returns the integer \code{6}. If you evaluate it, you'd see \code{<function>} as the result. That is because the \code{lambda} command creates a function instance, and (as stated in the previous chapter) the string representation of a function is \code{<function>}. To evaluate a lambda, just enclose it in parentheses:
+This function takes no arguments and just returns the integer \code{6}. If you evaluate it, you'd see \code{<function>} as the result. That is because the lambda command creates a function instance, and (as stated in the previous chapter) the string representation of a function is \code{<function>}. To evaluate a lambda, just enclose it in parentheses:
 
 \begin{REPL}
 meruem> ((lambda () 6))
@@ -209,7 +209,7 @@ Let's try something that is a bit more complicated. How about a function that ta
 This function is not meant to be coded in the REPL due to its size. We better write it in a source file and run it as a complete program. In order to do that, we need a \keyword{main function}. The following subsection will talk about it (including how to run the \code{life-stage} function).
 
 \subsection{The \code{main} Function}
-The \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. Without it, a program is not runnable. Here's the code for the \code{Hello World} program again:
+The \ikeyword{main function} is the entry point of a Meruem program. That means every Meruem programs starts by calling the main function. Without it, a program is not runnable. Here's the code for the \keyword{Hello World} program again:
 
 \begin{REPL}
 (defun main (args)    ; This is the main function.
@@ -217,7 +217,7 @@ The \ikeyword{main function} is the entry point of a Meruem program. That means 
   (println ("Hello World")))
 \end{REPL}
 
-As you can see, \code{main} has one parameter (in this case, named \code{args}). It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \code{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}.
+As you can see, \code{main} has one parameter (in this case, named \code{args}). It is a list of command line arguments, which are all strings. You can pass command line arguments by specifying them after the name of the program to run. For instance, if the name of your source file is \keyword{hello\_world.mer}, and you want to pass the arguments \code{foo}, \code{bar}, and \code{baz}, your command would look like this: \code{java -jar meruem.jar hello\_world foo bar baz}.
 
 Now, let us try printing the result of invoking the \code{life-stage} function. Save the following code in a Meruem file and run it:
 

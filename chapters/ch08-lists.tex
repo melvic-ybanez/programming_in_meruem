@@ -119,6 +119,7 @@ true
 \end{REPL}
 
 \section{Transforming and Filtering Lists}
+\label{sec:transform-filter}
 Sometimes you may want to return a subset of a list whose elements satisfy a particular predicate, like retrieving all the odd numbers from a list of integers, or removing all letter "e"s in a sentence. To achieve such goals, we can use the \icode{lists.filter} function, as follows:
 
 \begin{REPL}
@@ -130,6 +131,15 @@ meruem> (lists.filter xs even?)
 (2 4 5)
 meruem> (lists.filter "I remember the days..." (lambda (c) (!= c \e)))
 (I   r m m b r   t h   d a y s . . .)
+\end{REPL}
+
+Remember the \code{identity} function we introduced back at section~\sectionref{sec:identity}? We can pass it as the second argument to filter to get all the truthy values of a list:
+
+\begin{REPL}
+meruem> (def xs '(1 false true 56))
+nil
+meruem> (lists.filter xs identity)
+(1 true 56)
 \end{REPL}
 
 That's pretty cool. Now, what if I want to add 1 to each of the elements of a list of integers, or transform a list of strings into a list of integers where each of element represents the length of the corresponding elements from the original list?
@@ -145,6 +155,10 @@ meruem> (def strs '("the" "quick" "brown" "fox"))
 nil
 meruem> (lists.map strs (lambda (str) (size str)))
 (3 5 5 3)
+meruem> (def fruits '("apples" "oranges" "bananas"))
+nil
+meruem> (lists.map fruits identity)
+(apples oranges bananas)
 \end{REPL}
 
 \section{Folding Lists}

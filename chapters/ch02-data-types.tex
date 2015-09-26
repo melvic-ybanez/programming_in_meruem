@@ -1,16 +1,16 @@
 In this chapter, we are going to make use of the REPL only. We are not going to use Winter (or any text editor you have right now). If you haven't already installed the REPL, please go back to section~\sectionref{sec:installing-meruem} and follow the instructions on how to install Meruem before proceeding. Remember, the Meruem distribution is already bundled with a REPL.
 
-Programming always involves the manipulation of data. For instance, writing a program that adds two random numbers involves working on numbers. Reading the contents of a file involves the manipulation of files and strings. An enrolment system requires the presence of data that represent the student information, the class schedules, and others. Even the \code{Hello World} program that we wrote earlier wouldn't even be completed if we didn't know what data to print to the screen. Whatever it is you want to do, you need some data.
+Programming always involves the manipulation of data. For instance, writing a program that adds two random numbers involves working on numbers. Reading the contents of a file involves the manipulation of files and strings. An enrolment system requires the presence of data that represent the student information, the class schedules, and others. Even the \keyword{Hello World} program that we wrote earlier wouldn't even be completed if we didn't know what data to print to the screen. Whatever it is you want to do, you need some data.
 
 Now, the thing about data is they don't all have the same classifications, and the operations that you can perform on a data depend on the classification of that data. For example, you can add a number to another number, but you can't add a number to a student information. (That wouldn't really make sense.) This classification of data is known as a \keyword{data type}.
 
-A \ikeyword{data type} tells you how a thing is classified, what set of values belongs to this type, and what operations can be performed on it. Meruem has a short list of supported data types. Let's discuss each of them, starting with the \code{Number} types.
+A \ikeyword{data type} tells you how a thing is classified, what set of values belongs to this type, and what operations can be performed on it. Meruem has a short list of supported data types. Let's discuss each of them, starting with the \keyword{Number} types.
 
 \section{Number}
-\code{Number} types are types whose instances hold numeric values. You can perform mostly mathematical operations on them. Meruem has four number types: \code{Integer}, \code{Long}, \code{Float}, and \code{Double}. The differences of these types will be discussed in the following subsections.
+\ikeyword{Number} types are types whose instances hold numeric values. You can perform mostly mathematical operations on them. Meruem has four number types: \keyword{Integer}, \keyword{Long}, \keyword{Float}, and \keyword{Double}. The differences of these types will be discussed in the following subsections.
 
 \subsection{Integer}
-\code{Integer} types (or simply, \code{Integer}s) are signed whole numbers (including 0). The "signed" indicates the inclusion of negative numbers. An integer can also be referred to as an \code{int}. To see what integers look like, fire up the REPL and enter the following expressions:
+\ikeyword{Integer} types (or simply, \keyword{Integer}s) are signed whole numbers (including 0). The "signed" indicates the inclusion of negative numbers. An integer can also be referred to as an \keyword{int}. To see what integers look like, fire up the REPL and enter the following expressions:
 
 \begin{REPL}
 meruem> 10
@@ -21,12 +21,12 @@ meruem> 0
 0
 \end{REPL}
 
-These are examples of integer literals. A \ikeyword{literal} is a value that was written directly in the source code, and not one shown to be stored in a data structure or variable, or treated as a return value from a function or expression. 
+These are examples of integer literals. A \keyword{literal} is a value that was written directly in the source code, and not one shown to be stored in a data structure or variable, or treated as a return value from a function or expression. 
 
 Integer literals evaluate to themselves. This is why when you entered \code{10}, you also got the result of \code{10}. 
 
 \subsection{Long}
-\code{Long} numbers are just like integers, except that they are \code{long}er:
+\ikeyword{Long} numbers are just like integers, except that they are \keyword{long}er:
 
 \begin{REPL}
 meruem> 456@L
@@ -37,9 +37,9 @@ meruem> 46466464@L
 46466464
 \end{REPL}
 
-The only thing that makes \code{long}'s syntax different than \code{int}'s is the \code{@L} or \code{@l} at the end of the numbers. The \code{@L} tells the interpreter that the number preceding number should be interpreted as a long, and not an integer. The \code{L} can be either in lower or upper case. These suffixes are removed when \code{long} literals are evaluated. 
+The only thing that makes \keyword{long}'s syntax different than \keyword{int}'s is the \code{@L} or \code{@l} at the end of the numbers. The \code{@L} tells the interpreter that the number preceding number should be interpreted as a long, and not an integer. The \code{L} can be either in lower or upper case. These suffixes are removed when \keyword{long} literals are evaluated. 
 
-Now you might be wondering when to use \code{long} instead of \code{int}. The answer is simple: data types have limitations, not only in their structure but also on the range of values they can take. Integers can only take values ranging from $-2^{32}$ to $2^{31}-1$. Try inputing a value larger than the maximum value of an integer and you will get an error:
+Now you might be wondering when to use \keyword{long} instead of \keyword{int}. The answer is simple: data types have limitations, not only in their structure but also on the range of values they can take. Integers can only take values ranging from $-2^{32}$ to $2^{31}-1$. Try inputing a value larger than the maximum value of an integer and you will get an error:
 
 \begin{REPL}
 meruem> 545345453535353
@@ -57,7 +57,7 @@ meruem> 545345453535353@l
 \end{REPL}
 
 \subsection{Float}
-A \code{float} is a number type that can contain decimal digits. You can write \code{float} by appending \code{@f} (or \code{@F}) to the a number:
+A \ikeyword{float} is a number type that can contain decimal digits. You can write \keyword{float} by appending \code{@f} (or \code{@F}) to the a number:
 
 \begin{REPL}
 meruem> 454@f
@@ -66,10 +66,10 @@ meruem> 453.454@F
 453.454
 \end{REPL}
 
-Notice that even if you don't include some decimal digits, the interpreter will still treat the number as if there's a "\code{.0}" at the end.
+Notice that even if you don't include some decimal digits, the interpreter will still treat the number as if there's a \code{.0} at the end.
 
 \subsection{Double}
-A \code{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \code{double} can with either \code{@d} or \code{@D}:
+A \ikeyword{double} is just like a float, except that it has twice the precision and can hold a much bigger value. As you've probably already guessed, a \keyword{double} can end with either \code{@d} or \code{@D}:
 
 \begin{REPL}
 meruem> 5453.@d
@@ -83,7 +83,7 @@ meruem> 34.20
 Notice that even if you didn't put a suffix (like \code{@d}), the value was still valid. That is because a number with decimal digits is by default interpreted as double. I encourage you to do more experiments on your own. After all, the best way to learn a programming language is to used it.
 
 \section{Boolean}
-A \code{boolean} accepts only one of the two possible values. In Meruem, these values are \code{true} and \code{false}: (In other languages that don't support boolean types, they are simulated using the values \code{0} and \code{1}). 
+A \ikeyword{boolean} accepts only one of the two possible values. In Meruem, these values are \code{true} and \code{false}: (In other languages that don't support boolean types, they are simulated using the values \code{0} and \code{1}). 
 
 \begin{REPL}
 meruem> true
@@ -95,7 +95,7 @@ false
 The example shows that boolean literals, like integer literals, evaluate to themselves.
 
 \section{Character}
-A \code{character} (also referred to as \code{char}) is any alpha-numeric (letter or number) character or special symbol that is preceded by a \code{\textbackslash} character:
+A \ikeyword{character} (also referred to as \keyword{char}) is any alpha-numeric (letter or number) character or special symbol that is preceded by a \code{\textbackslash} character:
 
 \begin{REPL}
 meruem> \a
@@ -106,7 +106,7 @@ meruem> \?
 \?
 \end{REPL}
 
-One thing to notice is that even a number gets turned into a \code{char} when preceded by a \code{\textbackslash} character. A limitation of this type is that it can't hold multiple characters:
+One thing to notice is that even a number gets turned into a \keyword{char} when preceded by a \code{\textbackslash} character. A limitation of this type is that it can't hold multiple characters:
 
 \begin{REPL}
 meruem> \hello
@@ -123,7 +123,7 @@ The evaluated form of a character in the REPL contains a \code{\textbackslash} a
 \end{noteparagraph}
 
 \section{List}
-\code{List} is a collection of things. It is written as a set of space-separated elements enclosed in a pair of parentheses. Each of the elements of a list is a value with it's own type. Since \code{List} is a type that can be composed of some other types, it is considered as a \keyword{compound type}. Here are some examples of \code{list}s in Meruem:
+\ikeyword{List} is a collection of things. It is written as a set of space-separated elements enclosed in a pair of parentheses. Each of the elements of a list is a value with it's own type. Since \keyword{List} is a type that can be composed of some other types, it is considered as a \keyword{compound type}. Here are some examples of \keyword{list}s in Meruem:
 
 \begin{REPL}
 meruem> (list 1 2 3 5)
@@ -135,11 +135,11 @@ meruem> (list 5@f 66@L)
 \end{REPL}
 
 
-The \code{list} element that comes before any of the items in each of the sample expressions is a \code{function} (functions will be discussed later) that constructs a list whose elements are the rest of the items inside the parentheses. The constructed list gets returned and printed.
+The \code{list} element that comes before any of the items in each of the sample expressions is a \keyword{function} (functions will be discussed later) that constructs a list whose elements are the rest of the items inside the parentheses. The constructed list gets returned and printed.
 
-\code{List} is the most important data type (or data structure, in some sense) in Meruem. Unlike in non-lisp languages where \code{list}s are usually used only to hold a certain data (e.g a collection of things), \code{list}s in Meruem can be considered not only as a data structure, but also as a function application, a function definition, or more generally, (a part of) your whole code. Lisp was originally an acronym, LISP, which means "list processing". In other words, programming in a Lisp like Meruem, is about working primarily on lists. 
+\ikeyword{List} is the most important data type (or data structure, in some sense) in Meruem. Unlike in non-lisp languages where \code{list}s are usually used only to hold a certain data (e.g a collection of things), \code{list}s in Meruem can be considered not only as a data structure, but also as a function application, a function definition, or more generally, (a part of) your whole code. Lisp was originally an acronym, LISP, which means "list processing". In other words, programming in a Lisp like Meruem, is about working primarily on lists. 
 
-Meruem programs are composed only of \code{atom}s and \code{list}s. In Meruem, an \ikeyword{atom} is any data or value that is not a list. It is the smallest component of a program. In other words, numbers, chars, and booleans are all atoms. \keyword{Symbol}s, which will be explained in the next few sections, are also considered \code{atom}s. The rest of the Meruem code are just lists, and you can perform on them any manipulation that you can do on a list.
+Meruem programs are composed only of \keyword{atom}s and \keyword{list}s. In Meruem, an \ikeyword{atom} is any data or value that is not a list. It is the smallest component of a program. In other words, numbers, chars, and booleans are all atoms. \keyword{Symbol}s, which will be explained in the next few sections, are also considered atoms. The rest of the Meruem code are just lists, and you can perform on them any manipulation that you can do on a list.
 
 Let's have a few more examples:
 
@@ -163,7 +163,7 @@ This example uses types and operators that we haven't discussed yet, so we don't
 
 \section{String}
 \label{sec:string}
-A \code{string} is a series of characters. You can express a string literal by enclosing the characters that it contains in double quotes:
+\ikeyword{String} is a series of characters. You can express a string literal by enclosing the characters that it contains in double quotes:
 
 \begin{REPL}
 meruem> "I am a string"
@@ -196,7 +196,7 @@ meruem> "My name is \"Bond\""
 A \code{\textbackslash t} is used to insert tab, and a \code{\textbackslash b} means backspace. A \code{\textbackslash "} inserts a double quote. Normally, you can't insert a double quote inside a string literal (without escaping it). There are many more escape sequences. Discussing all of them is already beyond the scope of this book. Fortunately, you can find plenty of discussions about them on the web (most languages tend to have the same set of supported escape sequences, after all). 
 
 \section{Symbol}
-In Meruem, a \code{symbol} is a series of characters that means something. It is a name that maps to some other value, like a \keyword{variable}, \keyword{function}, or \keyword{macro}. The evaluated form of a symbol shows the object or value it is mapped to. To make things clear, let's try entering a few symbols in the REPL:
+In Meruem, a \ikeyword{symbol} is a series of characters that means something. It is a name that maps to some other value, like a \keyword{variable}, \keyword{function}, or \keyword{macro}. The evaluated form of a symbol shows the object or value it is mapped to. To make things clear, let's try entering a few symbols in the REPL:
 
 \begin{REPL}
 meruem> quote
@@ -232,7 +232,7 @@ Cons
 We've already seen \code{cons} evaluate to \code{<function>}. However, \code{Cons} is a different symbol, and in this case isn't bound to any value (just like \code{foo}), so it returns an error.
 
 \section{Nil}
-The last type I'm going to discuss is the \code{Nil} type. \code{Nil} indicates the absence of value. This type only has one possible value or instance, and it is \code{nil}. Nil also evaluates to itself, as shown in the following example:
+The last type I'm going to discuss is the \keyword{Nil} type. \ikeyword{Nil} indicates the absence of value. This type only has one possible value or instance, and it is \code{nil}. Nil also evaluates to itself, as shown in the following example:
 
 \begin{REPL}
 meruem> nil
@@ -246,6 +246,4 @@ Nil
 
 You will get to see its real usage later on.
 
-\begin{noteparagraph}
-In some Lisps, \code{nil} refers to an empty list. In other words, \code{()} and \code{nil} are just the same. In Meruem, that is not the case. \code{Nil} is an atom of it's own.
-\end{noteparagraph}
+In some Lisps, \code{nil} refers to an empty list. In other words, \code{()} and \code{nil} are just the same. In Meruem, that is not the case. \keyword{Nil} is an atom of it's own.
