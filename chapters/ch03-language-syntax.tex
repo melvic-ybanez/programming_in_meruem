@@ -3,10 +3,10 @@ In this chapter, we are going to focus the discussion on the structure of Meruem
 \section{S-expressions}
 The syntax of Meruem code is composed only of s-expressions. In fact the syntax for the whole program itself is an s-expression. So the key to mastering the syntax of Meruem is to learn how s-expressions work. The good news is it's actually pretty easy to learn s-expressions. So what is an s-expression?
 
-An \ikeyword{s-expression} (or \code{sexprs}) is a recursive tree-like data structure whose \keyword{leaf sub-nodes} are \keyword{atoms} and the non-\keyword{leaf sub-nodes} are themselves s-expressions. 
+An \ikeyword{s-expression} (or \keyword{sexprs}) is a recursive tree-like data structure whose \keyword{leaf sub-nodes} are \keyword{atoms} and the non-\keyword{leaf sub-nodes} are themselves s-expressions. 
 (A \keyword{leaf} node is a node that doesn't have any children.) In other words, an s-expression can be either an atom (the smallest unit of expression in Meruem), or a composition of other s-expressions (like I said, it's recursive). 
 
-I'm sure you're already familiar with \code{atom}s, but just to refresh your memory let's see some of them again:
+I'm sure you're already familiar with \keyword{atom}s, but just to refresh your memory let's see some of them again:
 
 \begin{REPL}
 meruem> 10            
