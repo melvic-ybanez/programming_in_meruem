@@ -37,7 +37,7 @@ meruem> 46466464@L
 46466464
 \end{REPL}
 
-The only thing that makes \keyword{long}'s syntax different than \keyword{int}'s is the \code{@L} or \code{@l} at the end of the numbers. The \code{@L} tells the interpreter that the number preceding number should be interpreted as a long, and not an integer. The \code{L} can be either in lower or upper case. These suffixes are removed when \keyword{long} literals are evaluated. 
+The only thing that makes \keyword{long}'s syntax different than \keyword{int}'s is the \code{@L} or \code{@l} at the end of the numbers. The \code{@L} tells the interpreter that the preceding number should be interpreted as a long, and not an integer. The \code{L} can be either in lower or upper case. These suffixes are removed when \keyword{long} literals are evaluated. 
 
 Now you might be wondering when to use \keyword{long} instead of \keyword{int}. The answer is simple: data types have limitations, not only in their structure but also on the range of values they can take. Integers can only take values ranging from $-2^{32}$ to $2^{31}-1$. Try inputing a value larger than the maximum value of an integer and you will get an error:
 
@@ -55,6 +55,8 @@ That is only a part of a longer error message. The error occurred because you pr
 meruem> 545345453535353@l
 545345453535353
 \end{REPL}
+
+Another difference is that \keyword{long} consumes more memory than \keyword{int}. So if you plan only to work on smaller numbers, you should use \keyword{int}.
 
 \subsection{Float}
 A \ikeyword{float} is a number type that can contain decimal digits. You can write \keyword{float} by appending \code{@f} (or \code{@F}) to the a number:

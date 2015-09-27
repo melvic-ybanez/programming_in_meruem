@@ -108,12 +108,12 @@ The next thing you need to do is to download the Meruem interpreter.
 
 As you already know, Meruem is an interpreted programming language. That means it needs an interpreter, and not a comipler, so programs written in this language can be run. It is important to know the difference between an interpreter and a compiler. An \ikeyword{interpreter} is a program that executes the code on-the-fly without having to convert them to machine code beforehand, while a \ikeyword{compiler} is a program that translates a source code to something else like a machine code or (in the case of Java, or Scala) bytecode, without running them. More generally, a compiler translates one form of code to another.
 
-To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/Meruem/releases} and download the zip file (meruem.zip) of the latest release. Then, extract the zip file into the directory of your choice. Make sure the meruem folder and the meruem.jar are located in the same directory. You can also download the source codes (Source code (zip) or Source code (tar.gz)) if you want to view the code for the interpreter itself. After that create a new environment variable \code{MERUEM\_HOME} and set its value to the path of the meruem installation.
+To download the Meruem interpreter, go to \url{https://github.com/melvic-ybanez/Meruem/releases} and download the zip file (meruem.zip) of the latest release. Then, extract the zip file into the directory of your choice. Make sure the meruem folder and the meruem.jar are located in the same directory. You can also download the source codes (Source code (zip) or Source code (tar.gz)) if you want to view the code for the interpreter itself. After that create a new \keyword{environment variable} \code{MERUEM\_HOME} and set its value to the path of the meruem installation. If you don't know how anything about environment variables, please read the discussions here: \url{http://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them}
 
 That's it. Installing the Meruem interpreter simply means downloading the zip file, extracting it, and setting the value of the \code{MERUEM\_HOME} variable.
 
 \section{Installing Winter}
-We can write Meruem code either by entering them on the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want (in which case you can skip over the rest of this section), but Winter is the more recommended one. 
+We can write Meruem code either by entering them in the REPL or by writing them to a file. The second method essentially creates a \keyword{source file}. The REPL (to be discussed later) is already included in the Meruem distribution that you downloaded earlier, so you don't have to download anything to use it. On the other hand, making source files requires the presence of a \keyword{text editor}. You can use any text editor that you want (in which case you can skip over the rest of this section), but Winter is the more recommended one. 
 
 \ikeyword{Winter} is the second component of "Project Meruem" (the first component is the Meruem language). It is a text editor designed primarily for Meruem source files. It supports syntax highlighting, smart indents, a projects tree, and many more. You'll see more of its features when you start using it.
 
@@ -182,6 +182,6 @@ $ java -jar meruem.jar hello_world
 Hello World
 \end{REPL}
 
-The \code{hello\_world} is the name of the source file you want to run. A Meruem source file ends with a \keyword{.mer}. Basically, if the source file is not provided, Meruem will fire up the REPL for you. 
+The \code{hello\_world} is the name of the source file you want to run. A Meruem source file ends with a \keyword{.mer}. Basically, if the name of the source file is not provided in the command, Meruem will fire up the REPL for you. 
 
 If the code worked, then congratulations, you've just run your first complete Meruem program. This also means that your set up is complete and working well. Now you are ready to start learning the Meruem programming language.
