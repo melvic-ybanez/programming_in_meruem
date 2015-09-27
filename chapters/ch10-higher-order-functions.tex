@@ -3,22 +3,22 @@ A \ikeyword{higher-order function} is a function that can take other functions a
 \section{Functions as Parameters}
 Let's start this section with the following example:
 
-\begin{REPL}
+\begin{Meruem}
 (import "math")
 
 (defun compute (f) 
   (f (math.random) (math.random)))
-\end{REPL}
+\end{Meruem}
 
 The \code{compute} function takes one function and apply it to two random numbers. The user of this function gets to decide what function to apply to these numbers. For instance, we can decide to make \code{compute} add or multiply the two random numbers. The following code shows two functions that make use of \code{compute}:
 
-\begin{REPL}
+\begin{Meruem}
 (defun sum ()
   (compute (lambda (a b) (+ a b))))
   
 (defun product ()
   (compute (lambda (a b) (* a b))))
-\end{REPL}
+\end{Meruem}
 
 \code{sum} passes a lambda --- that takes two arguments and return their sum --- to \code{compute}. This gets substituted for the parameter \code{f} in \code{compute}. In other words, calling \code{sum} would be equivalent to evaluating the following expression:
 
@@ -28,7 +28,7 @@ The \code{compute} function takes one function and apply it to two random number
 \end{REPL}
 
 The same thing can be said about \code{product}. Here's the whole code:
-\begin{REPL}
+\begin{Meruem}
 (import "math")
 
 (defun compute (f) 
@@ -39,7 +39,7 @@ The same thing can be said about \code{product}. Here's the whole code:
 
 (defun product ()
   (compute (lambda (a b) (* a b))))
-\end{REPL}
+\end{Meruem}
 
 Save it as \code{hofs.mer} and test it in the REPL, as follows:
 
@@ -57,11 +57,11 @@ In many cases, it is useful to transform the application of a function that take
 
 The result of currying function is usually a function that returns another function. Here's an example:
 
-\begin{REPL}
+\begin{Meruem}
 (defun my-concat (str1)
   (lambda (str2)
     (++ str1 str2)))
-\end{REPL}
+\end{Meruem}
 
 In the example above, \code{my-concat} takes an argument (stored in parameter \code{str1}) and returns a lambda that takes an argument (stored in \code{str2}) and returns the concatenation of \code{my-concat}'s and this lambda's parameters. Here's how you can use it:
 
@@ -84,14 +84,14 @@ The great advantage of currying is that you can create a new function "on the fl
 
 Now, let us write our own implementation of the \code{lists.map} function. Here's the code:
 
-\begin{REPL}
+\begin{Meruem}[16]
 (defun my-map (f)
   (lambda (xs)
     (tail-rec { xs xs acc () }
       (if (empty? xs)
         acc
         (recur (tail xs) (cons (f (head xs)) acc))))))
-\end{REPL}
+\end{Meruem}
 
 The main difference between \code{my-map} and \code{lists.map} is that the latter takes  a list and a function and applies that function to each of the elements of the given list, while the former is a curried function --- takes a function \code{f} and returns a lambda that takes a list and apply \code{f} to each of the elements of that list. \\~\\
 You still with me? I'm not even done yet. \\~\\
