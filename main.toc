@@ -72,7 +72,7 @@
 \contentsline {subsection}{\numberline {6.3.1}\texttt {tail-rec} and \texttt {recur}}{45}{subsection.6.3.1}
 \contentsline {chapter}{\numberline {7}Module System}{47}{chapter.7}
 \contentsline {section}{\numberline {7.1}What is a Module?}{47}{section.7.1}
-\contentsline {section}{\numberline {7.2}Import a module in the REPL}{47}{section.7.2}
+\contentsline {section}{\numberline {7.2}Importing a module in the REPL}{47}{section.7.2}
 \contentsline {section}{\numberline {7.3}Accessing the members of a module}{48}{section.7.3}
 \contentsline {section}{\numberline {7.4}Importing modules in other modules}{48}{section.7.4}
 \contentsline {section}{\numberline {7.5}Packages}{49}{section.7.5}
