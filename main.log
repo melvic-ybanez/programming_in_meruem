@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  30 SEP 2015 23:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.8)  30 SEP 2015 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -657,11 +657,11 @@ LaTeX Info: Redefining \nameref on input line 106.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
- [1
+ (./titlepage.tex [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.tocpdfTeX warning 
-(ext4): destination with the same identifier (name{page.1}) has been already us
-ed, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./main.tocpdfTeX warning
+ (ext4): destination with the same identifier (name{page.1}) has been already u
+sed, duplicate ignored
 <to be read again> 
                    \relax 
 l.34 ...2}Executable expressions}{20}{section.3.2}
@@ -748,7 +748,7 @@ Overfull \hbox (37.85573pt too wide) in paragraph at lines 120--121
 thub . com / melvic -[] ybanez / Winter / releases /
  []
 
-<images/winter.png, id=550, 1606.0pt x 873.2625pt>
+<images/winter.png, id=549, 1606.0pt x 873.2625pt>
 File: images/winter.png Graphic file (type png)
  <use images/winter.png>
 Package pdftex.def Info: images/winter.png used on input line 123.
@@ -1207,11 +1207,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 10908 strings out of 495028
- 154642 string characters out of 6181498
- 327358 words of memory out of 5000000
- 12748 multiletter control sequences out of 15000+600000
- 14215 words of font info for 51 fonts, out of 8000000 for 9000
+ 10905 strings out of 495028
+ 154588 string characters out of 6181498
+ 327546 words of memory out of 5000000
+ 12743 multiletter control sequences out of 15000+600000
+ 12850 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  35i,12n,43p,1518b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -1219,17 +1219,16 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on main.pdf (65 pages, 355995 bytes).
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on main.pdf (65 pages, 346213 bytes).
 PDF statistics:
- 2114 PDF objects out of 2487 (max. 8388607)
- 2012 compressed objects within 21 object streams
+ 2110 PDF objects out of 2487 (max. 8388607)
+ 2009 compressed objects within 21 object streams
  1203 named destinations out of 1440 (max. 500000)
  734 words of extra memory for PDF output out of 10000 (max. 10000000)
 
