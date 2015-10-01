@@ -104,13 +104,25 @@
 }{}
 
 \begin{document}
-	\maketitle
+	\input{titlepage}
+
+	\pagenumbering{roman}
+		
+	\chapter*{Acknowledgements}
+	\addcontentsline{toc}{chapter}{Acknowledgements}
+	\input{acknowledgements}
+	
+	\chapter*{Dedication}
+	\addcontentsline{toc}{chapter}{Dedication}
+	\input{dedication}
 	
 	\tableofcontents
-	
+			
 	\chapter*{Introduction}
 	\addcontentsline{toc}{chapter}{Introduction}
 	\input{chapters/introduction}	
+	
+	\cleardoublepage\pagenumbering{arabic}
 	
 	\chapter{Starting Out}
 	\input{chapters/ch01-starting-out}
@@ -142,4 +154,8 @@
 	
 	\chapter{Higher-order Functions}
 	\input{chapters/ch10-higher-order-functions}
+	
+	\chapter*{About the Author}
+	\addcontentsline{toc}{chapter}{About the Author}
+	\input{about-the-author}
 \end{document}
