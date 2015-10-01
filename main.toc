@@ -1,10 +1,10 @@
-\contentsline {chapter}{Acknowledgements}{ii}{chapter*.2}
-\contentsline {chapter}{Dedication}{iii}{chapter*.3}
-\contentsline {chapter}{Introduction}{iv}{chapter*.4}
-\contentsline {section}{\numberline {0.1}About the book}{iv}{section.0.1}
-\contentsline {section}{\numberline {0.2}Who should read this book}{iv}{section.0.2}
-\contentsline {section}{\numberline {0.3}Programming background required}{iv}{section.0.3}
-\contentsline {section}{\numberline {0.4}How to read this book}{iv}{section.0.4}
+\contentsline {chapter}{Acknowledgements}{i}{chapter*.1}
+\contentsline {chapter}{Dedication}{ii}{chapter*.2}
+\contentsline {chapter}{Introduction}{vi}{chapter*.4}
+\contentsline {section}{\numberline {0.1}About the book}{vi}{section.0.1}
+\contentsline {section}{\numberline {0.2}Who should read this book}{vi}{section.0.2}
+\contentsline {section}{\numberline {0.3}Programming background required}{vi}{section.0.3}
+\contentsline {section}{\numberline {0.4}How to read this book}{vi}{section.0.4}
 \contentsline {chapter}{\numberline {1}Starting Out}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}What is Meruem?}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Why learn Meruem?}{1}{section.1.2}
