@@ -94,3 +94,4 @@
 \contentsline {section}{\numberline {10.1}Functions as Parameters}{57}{section.10.1}
 \contentsline {section}{\numberline {10.2}Currying}{58}{section.10.2}
 \contentsline {section}{\numberline {10.3}Thanks for Reading}{60}{section.10.3}
+\contentsline {chapter}{About the Author}{61}{chapter*.8}
