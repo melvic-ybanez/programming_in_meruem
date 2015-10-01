@@ -1,9 +1,10 @@
 \contentsline {chapter}{Acknowledgements}{ii}{chapter*.2}
-\contentsline {chapter}{Introduction}{iii}{chapter*.3}
-\contentsline {section}{\numberline {0.1}About the book}{iii}{section.0.1}
-\contentsline {section}{\numberline {0.2}Who should read this book}{iii}{section.0.2}
-\contentsline {section}{\numberline {0.3}Programming background required}{iii}{section.0.3}
-\contentsline {section}{\numberline {0.4}How to read this book}{iii}{section.0.4}
+\contentsline {chapter}{Dedication}{iii}{chapter*.3}
+\contentsline {chapter}{Introduction}{iv}{chapter*.4}
+\contentsline {section}{\numberline {0.1}About the book}{iv}{section.0.1}
+\contentsline {section}{\numberline {0.2}Who should read this book}{iv}{section.0.2}
+\contentsline {section}{\numberline {0.3}Programming background required}{iv}{section.0.3}
+\contentsline {section}{\numberline {0.4}How to read this book}{iv}{section.0.4}
 \contentsline {chapter}{\numberline {1}Starting Out}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}What is Meruem?}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Why learn Meruem?}{1}{section.1.2}
@@ -46,9 +47,9 @@
 \contentsline {subsection}{\numberline {4.4.1}Arightmetic Operators}{22}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Relational Operators}{23}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Logical Operators}{24}{subsection.4.4.3}
-\contentsline {subsubsection}{And}{24}{section*.4}
-\contentsline {subsubsection}{Or}{24}{section*.5}
-\contentsline {subsubsection}{Not}{25}{section*.6}
+\contentsline {subsubsection}{And}{24}{section*.5}
+\contentsline {subsubsection}{Or}{24}{section*.6}
+\contentsline {subsubsection}{Not}{25}{section*.7}
 \contentsline {section}{\numberline {4.5}Conditional Functions}{26}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}If-expressions}{26}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}The Cond Expression}{26}{subsection.4.5.2}
