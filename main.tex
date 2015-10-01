@@ -108,9 +108,17 @@
 	
 	\tableofcontents
 	
+	\pagenumbering{roman}
+
+	\chapter*{Acknowledgements}
+	\addcontentsline{toc}{chapter}{Acknowledgements}
+	\input{acknowledgements}
+	
 	\chapter*{Introduction}
 	\addcontentsline{toc}{chapter}{Introduction}
 	\input{chapters/introduction}	
+	
+	\cleardoublepage\pagenumbering{arabic}
 	
 	\chapter{Starting Out}
 	\input{chapters/ch01-starting-out}
