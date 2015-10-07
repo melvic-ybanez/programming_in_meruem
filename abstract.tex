@@ -1,0 +1,20 @@
+Programmers spend more time reading than writing programs. This is why most of them would try to seek for more concise --- but not overly concise --- solutions to
+programming problems. Concise solutions are not only easier to read and write, they also tend to contain fewer bugs, essentially making them much easier to
+maintain and scale. The problem, however, is that concise solutions don't always map to concise code. The main reason for this is the
+verbosity of the mainstream programming languages available to programmers. For instance, it is often helpful to pass a function as an argument to 
+a \keyword{higher-order function} (a function that can take functions, return functions, or both) in order to generalize an implementation of a certain algorithm. This is supposed to be a very concise and elegant solution. 
+However, in more verbose languages (like Java, at least prior to Java 8), the implementation would still be quite verbose that the use of higher-order functions
+would be just not worth it. In general, the lack of expressiveness from a programming languange gives birth to issues concerning \keyword{readability}, 
+\keyword{maintainability}, and \keyword{scalability}. I suspect that this lack of expressiveness is closely related to the imperative nature of such languages.
+
+\ikeyword{Meruem} was created as an attempt to solve the issues mentioned above, by enforcing more expressive programming paradigms. Meruem is an \keyword{s-expression}-oriented
+programming language that mainly supports \keyword{functional programming} and \keyword{metaprogramming}. Functional programming is the writing of problems that is composed
+of \keyword{pure} and \keyword{referentially transparent} functions. Metaprogramming is the writing of programs that treats code as data structures. 
+
+Functional programming is a higher-level paradigm than \keyword{imperative programing}. For this reason, functional programs tend to be shorter and more concise than their
+imperative counterparts. Meruem code is usually 3 to 5 times shorter than the same implementation written in, say, Java. For instance, higher-order functions are quite common in 
+Meruem, while Java programmers tend to avoid them (for reasons mentioned above). The ability to pass functions around as if they are ordinary values --- which is what functional
+programming is mostly about --- solves most (if not all) of the conciseness issues.
+
+Meruem runs on top of Scala, which runs on the JVM. This offers the programmer the advantage of cross-platformitability. Another advantage is that whenever the performance of the JVM is
+improved, Meruem would take advantage of it (without any changes to its core implementation). That said, you have to install the JVM besides the Meruem interpreter in order to use Meruem.
