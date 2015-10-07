@@ -98,5 +98,3 @@
 \contentsline {chapter}{Conclusion}{61}{chapter*.9}
 \contentsline {chapter}{Recommendations}{62}{chapter*.10}
 \contentsline {chapter}{About the Author}{63}{chapter*.11}
-\contentsline {chapter}{\numberline {A}Oath of Confirmation}{64}{appendix.A}
-\contentsline {chapter}{\numberline {B}Oral Defense Hearing Notice}{65}{appendix.B}
